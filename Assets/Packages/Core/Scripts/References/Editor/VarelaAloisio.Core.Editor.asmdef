@@ -1,0 +1,20 @@
+{
+    "name": "VarelaAloisio.Core.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:48e0a263f230421488517ccf8a70b634",
+        "GUID:a8da6c505e29ce84eb0dee70a2ce227a",
+        "GUID:4e9962a7e771bde43a535811e2f69172"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

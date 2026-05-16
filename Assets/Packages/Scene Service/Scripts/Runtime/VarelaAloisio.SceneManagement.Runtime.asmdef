@@ -1,0 +1,16 @@
+{
+    "name": "VarelaAloisio.SceneManagement.Runtime",
+    "rootNamespace": "VarelaAloisio.SceneManagement",
+    "references": [
+        "GUID:48e0a263f230421488517ccf8a70b634"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

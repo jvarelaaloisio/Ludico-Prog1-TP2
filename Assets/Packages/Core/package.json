@@ -1,0 +1,24 @@
+{
+  "name": "com.varelaaloisio.core",
+  "displayName": "Varela Aloisio Core",
+  "description": "My core library for any unity project.",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "author": {
+    "name": "Juan Pablo Varela Aloisio",
+    "email": "juampyvarela@gmail.com",
+    "url": "https://github.com/jvarelaaloisio"
+  },
+  "keywords": [
+    "core"
+  ],
+  "repository": {
+    "url": "https://github.com/jvarelaaloisio/Limay-Jumpers/tree/main/Jumpers.Unity/Assets/Packages/Core",
+    "type": "git"
+  },
+  "documentationUrl": "",
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  },
+  "_fingerprint": "1fc07f27c812f8594263741da8966a87ef1c5a09"
+}
