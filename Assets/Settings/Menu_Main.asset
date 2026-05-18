@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67bd7746bf4a403c9ceb67205389c6f5, type: 3}
   m_Name: Menu_Main
   m_EditorClassIdentifier: Ludico.UI.Runtime::UI.MenuConfiguration
-  buttonConfigurations: []
   menuPrefab: {fileID: 0}
