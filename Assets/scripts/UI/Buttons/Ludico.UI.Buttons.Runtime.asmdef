@@ -1,5 +1,5 @@
 {
-    "name": "Ludico.UI.Runtime",
+    "name": "Ludico.UI.Buttons.Runtime",
     "rootNamespace": "",
     "references": [
         "GUID:48e0a263f230421488517ccf8a70b634",
