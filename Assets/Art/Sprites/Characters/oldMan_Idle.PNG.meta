@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: a51cf1d99306de4a6b2193458503f11a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1195057689695781515
+    second: oldMan_Idle_0
+  - first:
+      213: -1715533077042179257
+    second: oldMan_Idle_1
+  - first:
+      213: 9120475433577912880
+    second: oldMan_Idle_2
+  - first:
+      213: -3883244829580844199
+    second: oldMan_Idle_3
+  - first:
+      213: 7922814462995920704
+    second: oldMan_Idle_4
+  - first:
+      213: -2319547151833482
+    second: oldMan_Idle_5
+  - first:
+      213: -9077472492438615278
+    second: oldMan_Idle_6
+  - first:
+      213: -6366179765470373086
+    second: oldMan_Idle_7
+  - first:
+      213: -8062540422986928364
+    second: oldMan_Idle_8
+  - first:
+      213: 3336370084281376429
+    second: oldMan_Idle_9
+  - first:
+      213: 8364673884562908811
+    second: oldMan_Idle_10
+  - first:
+      213: -5608165651356683198
+    second: oldMan_Idle_11
+  - first:
+      213: 3031906137688358266
+    second: oldMan_Idle_12
+  - first:
+      213: -3288985730074318023
+    second: oldMan_Idle_13
+  - first:
+      213: -6504236554801591750
+    second: oldMan_Idle_14
+  - first:
+      213: -829960361346788356
+    second: oldMan_Idle_15
+  - first:
+      213: -4084298371906086863
+    second: oldMan_Idle_16
+  - first:
+      213: 7718537751025428459
+    second: oldMan_Idle_17
+  - first:
+      213: 4539737155911470324
+    second: oldMan_Idle_18
+  - first:
+      213: 2399531475177542967
+    second: oldMan_Idle_19
+  - first:
+      213: -6944303632034076401
+    second: oldMan_Idle_20
+  - first:
+      213: 4118528832128054652
+    second: oldMan_Idle_21
+  - first:
+      213: 8342766792903639141
+    second: oldMan_Idle_22
+  - first:
+      213: -4677145437147202292
+    second: oldMan_Idle_23
+  - first:
+      213: 2178709445495253017
+    second: oldMan_Idle_24
+  - first:
+      213: 4330453979795294890
+    second: oldMan_Idle_25
+  - first:
+      213: -8601364897865131214
+    second: oldMan_Idle_26
+  - first:
+      213: 2145666243389489185
+    second: oldMan_Idle_27
+  - first:
+      213: -5073852380031969270
+    second: oldMan_Idle_28
+  - first:
+      213: -8860185582365002734
+    second: oldMan_Idle_29
+  - first:
+      213: -4807391041040776989
+    second: oldMan_Idle_30
+  - first:
+      213: -3100776217092277644
+    second: oldMan_Idle_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: oldMan_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 1619
+        width: 228
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d7597ec5d4a6fe0800000000000000
+      internalID: -1195057689695781515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1624
+        width: 226
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743d77671c33138e0800000000000000
+      internalID: -1715533077042179257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1619
+        width: 228
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a9611a510729e70800000000000000
+      internalID: 9120475433577912880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 1619
+        width: 226
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95326fcd661fb1ac0800000000000000
+      internalID: -3883244829580844199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1223
+        width: 194
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047f238f6cd73fd60800000000000000
+      internalID: 7922814462995920704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1223
+        width: 194
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 676a9f75262c7fff0800000000000000
+      internalID: -2319547151833482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1224
+        width: 194
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b01d5dcd6560280800000000000000
+      internalID: -9077472492438615278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1223
+        width: 194
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bdbd69b39c6a7a0800000000000000
+      internalID: -6366179765470373086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1223
+        width: 194
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41fe2a4d33a1c1090800000000000000
+      internalID: -8062540422986928364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 1224
+        width: 194
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daed4d03aea2d4e20800000000000000
+      internalID: 3336370084281376429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1223
+        width: 194
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86eb5f749a451470800000000000000
+      internalID: 8364673884562908811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 1223
+        width: 194
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 244765dad0bcb22b0800000000000000
+      internalID: -5608165651356683198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 821
+        width: 194
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7dbd39819e731a20800000000000000
+      internalID: 3031906137688358266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 821
+        width: 195
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b679f77ec2b52d0800000000000000
+      internalID: -3288985730074318023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 821
+        width: 194
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ac0f7705f4cb5a0800000000000000
+      internalID: -6504236554801591750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 821
+        width: 195
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3154cd2736b74f0800000000000000
+      internalID: -829960361346788356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 815
+        width: 195
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 138d4d13548a157c0800000000000000
+      internalID: -4084298371906086863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 815
+        width: 194
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be72053a031cd1b60800000000000000
+      internalID: 7718537751025428459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 815
+        width: 195
+        height: 358
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fcceb704e2600f30800000000000000
+      internalID: 4539737155911470324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 815
+        width: 194
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7359355d929dc4120800000000000000
+      internalID: 2399531475177542967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 416
+        width: 218
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f096720a3a0e0af90800000000000000
+      internalID: -6944303632034076401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 416
+        width: 217
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c757234e624f72930800000000000000
+      internalID: 4118528832128054652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 416
+        width: 218
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56042fe323677c370800000000000000
+      internalID: 8342766792903639141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 416
+        width: 218
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0d70086101771fb0800000000000000
+      internalID: -4677145437147202292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 407
+        width: 218
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 918688782b45c3e10800000000000000
+      internalID: 2178709445495253017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_25
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 407
+        width: 218
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa00ed63fcd81c30800000000000000
+      internalID: 4330453979795294890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_26
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 407
+        width: 217
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b1c378230d1a880800000000000000
+      internalID: -8601364897865131214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_27
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 407
+        width: 218
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12007c38410f6cd10800000000000000
+      internalID: 2145666243389489185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_28
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 28
+        width: 228
+        height: 373
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a089c6d842e0699b0800000000000000
+      internalID: -5073852380031969270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 28
+        width: 228
+        height: 368
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214b817f72c4a0580800000000000000
+      internalID: -8860185582365002734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_30
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 28
+        width: 228
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e08e5e9157b84db0800000000000000
+      internalID: -4807391041040776989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oldMan_Idle_31
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 28
+        width: 227
+        height: 350
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a3c3c8574d7f4d0800000000000000
+      internalID: -3100776217092277644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5370719c9eafb9a3ab56a5099faceea6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      oldMan_Idle_0: -1195057689695781515
+      oldMan_Idle_1: -1715533077042179257
+      oldMan_Idle_10: 8364673884562908811
+      oldMan_Idle_11: -5608165651356683198
+      oldMan_Idle_12: 3031906137688358266
+      oldMan_Idle_13: -3288985730074318023
+      oldMan_Idle_14: -6504236554801591750
+      oldMan_Idle_15: -829960361346788356
+      oldMan_Idle_16: -4084298371906086863
+      oldMan_Idle_17: 7718537751025428459
+      oldMan_Idle_18: 4539737155911470324
+      oldMan_Idle_19: 2399531475177542967
+      oldMan_Idle_2: 9120475433577912880
+      oldMan_Idle_20: -6944303632034076401
+      oldMan_Idle_21: 4118528832128054652
+      oldMan_Idle_22: 8342766792903639141
+      oldMan_Idle_23: -4677145437147202292
+      oldMan_Idle_24: 2178709445495253017
+      oldMan_Idle_25: 4330453979795294890
+      oldMan_Idle_26: -8601364897865131214
+      oldMan_Idle_27: 2145666243389489185
+      oldMan_Idle_28: -5073852380031969270
+      oldMan_Idle_29: -8860185582365002734
+      oldMan_Idle_3: -3883244829580844199
+      oldMan_Idle_30: -4807391041040776989
+      oldMan_Idle_31: -3100776217092277644
+      oldMan_Idle_4: 7922814462995920704
+      oldMan_Idle_5: -2319547151833482
+      oldMan_Idle_6: -9077472492438615278
+      oldMan_Idle_7: -6366179765470373086
+      oldMan_Idle_8: -8062540422986928364
+      oldMan_Idle_9: 3336370084281376429
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
