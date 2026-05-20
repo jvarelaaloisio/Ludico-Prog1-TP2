@@ -39,5 +39,9 @@ namespace VarelaAloisio.Core
             service = null;
             return false;
         }
+
+        /// <summary /> Remove all services.
+        public static void Flush()
+            => Services.Clear();
     }
 }
