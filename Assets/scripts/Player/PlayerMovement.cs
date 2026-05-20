@@ -1,70 +1,47 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+namespace Player
 {
-    
-    [SerializeField] private float moveSpeed = 5f;
-    private Rigidbody2D rb;
-    private Vector2 moveInput;
-    private Animator animator;
-
-    void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class PlayerMovement : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>(); // usa el rigidbody del player
-        animator = GetComponent<Animator>(); // usa el animator del player
-    }
+        [SerializeField] private InputActionReference moveInput;
 
-    void Update()
-    {
-        // raw devuelve 0, 1 o -1
-        float inputHorizontal = Input.GetAxisRaw("Horizontal"); // lee el input horizontal del player
-        float inputVertical = Input.GetAxisRaw("Vertical"); // lee el input vertical del player
+        [SerializeField] private float moveSpeed = 5f;
+        private Rigidbody2D _rigidBody;
 
-        moveInput = new Vector2(inputHorizontal, inputVertical); // crea un vector de movimiento con el input del player
+        private void Awake()
+            => _rigidBody = GetComponent<Rigidbody2D>();
 
-        UpdateAnimation(moveInput); // actualiza la animación del player
-
-        moveInput.Normalize(); // normaliza el vector para que no vaya más rápido en diagonal
-    }
-
-    private void FixedUpdate()
-    {
-        SetVelocity();
-    }
-
-    private void SetVelocity()
-    {
-        rb.linearVelocity = moveInput * moveSpeed; // se asigna a la velocidad del rb el vector * la velocidad
-    }
-
-    void UpdateAnimation (Vector2 dir)
-    {
-        bool isWalking = dir.sqrMagnitude > 0; // si el vector tiene magnitud: está caminando
-        animator.SetBool("isWalking", isWalking); // asigna el bool de la animación
-
-        if (isWalking)
+        private void OnEnable()
         {
-            // si se mueve, asigno las direcciones a los params de walk
-            animator.SetFloat("InputX", dir.x);
-            animator.SetFloat("InputY", dir.y);
-
-            // guardo la última dirección para el idle
-            animator.SetFloat("LastInputX", dir.x);
-            animator.SetFloat("LastInputY", dir.y);
+            if (moveInput)
+            {
+                moveInput.action.Enable();
+                moveInput.action.started += HandleMoveInput;
+                moveInput.action.performed += HandleMoveInput;
+                moveInput.action.canceled += HandleMoveInput;
+            }
         }
-    }
 
-    private void OnDisable()
-    {
-        moveInput = Vector2.zero;
-
-        if (rb != null)
+        private void HandleMoveInput(InputAction.CallbackContext data)
         {
-            rb.linearVelocity = Vector2.zero; // detiene el movimiento al desactivar el player
+            var direction = data.ReadValue<Vector2>();
+            _rigidBody.linearVelocity = direction * moveSpeed;
         }
-        if (animator != null)
+
+        private void OnDisable()
         {
-            animator.SetBool("isWalking", false); // detiene la animación al desactivar el player
+            if (_rigidBody)
+                _rigidBody.linearVelocity = Vector2.zero;
+            if (moveInput)
+            {
+                moveInput.action.Disable();
+                moveInput.action.started -= HandleMoveInput;
+                moveInput.action.performed -= HandleMoveInput;
+                moveInput.action.canceled -= HandleMoveInput;
+            }
         }
     }
 }

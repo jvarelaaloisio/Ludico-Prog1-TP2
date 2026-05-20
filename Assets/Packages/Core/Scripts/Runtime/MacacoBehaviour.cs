@@ -125,6 +125,11 @@ namespace VarelaAloisio.Core
 
         private void MapMembersIn(When moment)
         {
+            if (_autoMappedFields is null)
+            {
+                LogError($"Seems {nameof(SetupAutomapFields)} wasn't called correctly. Are you overriding Awake without calling base?");
+                return;
+            }
             foreach ((FieldInfo field, AutoMap attr) in _autoMappedFields.Where(FieldIsAtMoment))
                 if (!TryMapField(field, attr))
                     return;

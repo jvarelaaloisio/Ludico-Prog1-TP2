@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Player;
 
 public class ItemGetSequence : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class ItemGetSequence : MonoBehaviour
 
         // referencias a componentes del jugador
         PlayerMovement moveScript = player.GetComponent<PlayerMovement>();
-        PlayerAttack attackScript = player.GetComponent<PlayerAttack>();
+        SwingBehaviour attackScript = player.GetComponent<SwingBehaviour>();
         Animator playerAnim = player.GetComponent<Animator>();
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         PlayerWeaponHandler weaponHandler = player.GetComponentInChildren<PlayerWeaponHandler>();

@@ -126,6 +126,7 @@ namespace VarelaAloisio.Core.Editor
 					{
 						if (property.propertyType is not SerializedPropertyType.Generic
 						    || property.isArray
+						    || property.type == "UnityEvent"
 						    || property.boxedValue is null)
 						{
 							type = null;

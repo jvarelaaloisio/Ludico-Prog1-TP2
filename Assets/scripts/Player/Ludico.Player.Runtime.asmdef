@@ -1,0 +1,18 @@
+{
+    "name": "Ludico.Player.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:48e0a263f230421488517ccf8a70b634",
+        "GUID:5d59c013de547b936b4ef165121034db",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
