@@ -1,4 +1,3 @@
-using Player;
 using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
