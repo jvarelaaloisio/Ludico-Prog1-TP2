@@ -24,6 +24,8 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         pickedUpAxe = axe; // guarda la referencia al hacha recogida
 
+        pickedUpAxe.transform.SetParent(transform); // el hacha ahora es hija de weaponSlot
+
         if (pickedUpAxe.TryGetComponent<SpriteRenderer>(out var spriteRen))
         {
             axeSpriteRenderer = spriteRen; // guarda el spriterenderer del hacha para manipularlo
@@ -35,8 +37,7 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void PrepareWeaponDirection(float lastInputX, float lastInputY)
     {
-        if (!pickedUpAxe || !axeSpriteRenderer)
-            return;
+        if (pickedUpAxe == null || axeSpriteRenderer == null) return; // si no hay hacha equipada, no hace nada
 
         if (Mathf.Abs(lastInputX) > Mathf.Abs(lastInputY))
         {
@@ -83,4 +84,29 @@ public class PlayerWeaponHandler : MonoBehaviour
             }
         }
     }
+
+
+
+    private void OnDrawGizmosSelected()
+{
+    // Esto se dibuja solo cuando seleccionás el WeaponSlot en la jerarquía
+    // Tomamos como base la posición del personaje (el padre de este objeto)
+    Vector3 basePos = transform.parent != null ? transform.parent.position : transform.position;
+
+    // Derecha (Rojo)
+    Gizmos.color = Color.red;
+    Gizmos.DrawWireSphere(basePos + new Vector3(offsetRight.position.x, offsetRight.position.y, 0f), 0.15f);
+
+    // Izquierda (Azul)
+    Gizmos.color = Color.blue;
+    Gizmos.DrawWireSphere(basePos + new Vector3(offsetLeft.position.x, offsetLeft.position.y, 0f), 0.15f);
+
+    // Arriba (Verde)
+    Gizmos.color = Color.green;
+    Gizmos.DrawWireSphere(basePos + new Vector3(offsetUp.position.x, offsetUp.position.y, 0f), 0.15f);
+
+    // Abajo (Amarillo)
+    Gizmos.color = Color.yellow;
+    Gizmos.DrawWireSphere(basePos + new Vector3(offsetDown.position.x, offsetDown.position.y, 0f), 0.15f);
+}
 }

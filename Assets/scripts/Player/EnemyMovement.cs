@@ -9,12 +9,14 @@ public class EnemyMovement : MonoBehaviour
     private PlayerAwarenessController awarenessController; // referencia al PlayerAwarenessController
     private Vector2 targetDirection; // dirección hacia el player
     private Animator animator;
+    private SpriteRenderer spriteRenderer; // lo necesito para girar el sprite
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         awarenessController = GetComponent<PlayerAwarenessController>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -60,6 +62,15 @@ public class EnemyMovement : MonoBehaviour
 
             animator.SetFloat("LastInputX", targetDirection.x);
             animator.SetFloat("LastInputY", targetDirection.y);
+
+            if (targetDirection.x > 0f)
+            {
+                spriteRenderer.flipX = false; // desactiva el espejo cuando va a la derecha
+            }
+            else if (targetDirection.x < 0f)
+            {
+                spriteRenderer.flipX = true;  // activa el espejo cuando va a la izquierda
+            }
         }
     }
 }
