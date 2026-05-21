@@ -35,7 +35,8 @@ public class PlayerWeaponHandler : MonoBehaviour
 
     public void PrepareWeaponDirection(float lastInputX, float lastInputY)
     {
-        if (pickedUpAxe == null || axeSpriteRenderer == null) return; // si no hay hacha equipada, no hace nada
+        if (!pickedUpAxe || !axeSpriteRenderer)
+            return;
 
         if (Mathf.Abs(lastInputX) > Mathf.Abs(lastInputY))
         {

@@ -9,20 +9,26 @@ namespace Player
     public class SwingBehaviour : MacacoBehaviour
     {
         [SerializeField] private InputActionReference input;
+        [SerializeField] private Rigidbody2D rigidBody;
 
         private PlayerWeaponHandler weaponHandler;
-        private Animator playerAnim;
 
         [Header("Configuración de Ataque")]
         [Tooltip("How much time does the axe swing take")]
         [SerializeField] private float attackDuration = 0.3f;
         private bool isAttacking = false;
+        private Vector2 _lastDirection;
+
+        protected override void Reset()
+        {
+            base.Reset();
+            rigidBody = GetComponent<Rigidbody2D>();
+        }
 
         protected override void Awake()
         {
             base.Awake();
             weaponHandler = GetComponentInChildren<PlayerWeaponHandler>();
-            playerAnim = GetComponent<Animator>();
         }
 
         protected override void OnEnable()
@@ -35,6 +41,13 @@ namespace Player
             }
             else
                 LogError("Input is null");
+        }
+
+        private void FixedUpdate()
+        {
+            if (rigidBody
+                && rigidBody.linearVelocity.magnitude > 0.1f)
+                _lastDirection = rigidBody.linearVelocity;
         }
 
         private void OnDisable()
@@ -59,12 +72,8 @@ namespace Player
         {
             isAttacking = true;
 
-            // veo hacia dónde mira el jugador
-            float lastX = playerAnim.GetFloat("LastInputX");
-            float lastY = playerAnim.GetFloat("LastInputY");
-
             // el handler acomoda el hacha
-            weaponHandler.PrepareWeaponDirection(lastX, lastY);
+            weaponHandler.PrepareWeaponDirection(_lastDirection.x, _lastDirection.y);
 
             // muestra el hacha y activa el daño
             weaponHandler.ToggleAxeVisibility(true);
