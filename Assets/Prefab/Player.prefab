@@ -236,6 +236,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: SwingBehaviour
   input: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  rigidBody: {fileID: 6802928025236528362}
   attackDuration: 0.3
 --- !u!1 &2773795686105607435
 GameObject:

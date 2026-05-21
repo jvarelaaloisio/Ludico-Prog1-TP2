@@ -24,7 +24,6 @@ public class ItemGetSequence : MonoBehaviour
         // referencias a componentes del jugador
         PlayerMovement moveScript = player.GetComponent<PlayerMovement>();
         SwingBehaviour attackScript = player.GetComponent<SwingBehaviour>();
-        Animator playerAnim = player.GetComponent<Animator>();
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         PlayerWeaponHandler weaponHandler = player.GetComponentInChildren<PlayerWeaponHandler>();
 
@@ -32,7 +31,6 @@ public class ItemGetSequence : MonoBehaviour
         if (moveScript) moveScript.enabled = false;
         if (attackScript) attackScript.enabled = false; // para que no pueda atacar
         if (playerRb) playerRb.linearVelocity = Vector2.zero;
-        playerAnim.SetTrigger("GotItem");
 
         // posiciona el hacha sobre la cabeza visualmente
         transform.SetParent(player.transform);
