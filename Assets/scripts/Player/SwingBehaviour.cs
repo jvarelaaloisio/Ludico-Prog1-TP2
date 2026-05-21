@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,8 +13,7 @@ namespace Player
         private PlayerWeaponHandler weaponHandler;
 
         [Header("Configuración de Ataque")]
-        [Tooltip("How much time does the axe swing take")]
-        [SerializeField] private float attackDuration = 0.3f;
+        [SerializeField] private float cooldown = 0.3f;
         private bool isAttacking = false;
         private Vector2 _lastDirection;
 
@@ -87,7 +85,7 @@ namespace Player
             }
 
             // espera a que termine el movimiento
-            yield return new WaitForSeconds(attackDuration);
+            yield return new WaitForSeconds(cooldown);
 
             // oculta el hacha y apaga el daño
             weaponHandler.ToggleAxeVisibility(false);
