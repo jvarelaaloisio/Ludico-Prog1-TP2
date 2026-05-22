@@ -6,12 +6,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); // usa el rigidbody del player
-        animator = GetComponent<Animator>(); // usa el animator del player
     }
 
     void Update()

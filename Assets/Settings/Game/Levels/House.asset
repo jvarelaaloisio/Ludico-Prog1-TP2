@@ -19,4 +19,6 @@ MonoBehaviour:
     <Scenes>k__BackingField:
     - scene: {fileID: 102900000, guid: 50f44fe93b2d3f3e5868f8c083aaba21, type: 3}
       buildIndex: 2
+    - scene: {fileID: 102900000, guid: 38c71b64188cbec4b9be43500fd1f4ed, type: 3}
+      buildIndex: 3
   deferredBatches: []
