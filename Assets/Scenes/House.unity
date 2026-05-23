@@ -360,10 +360,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 2491088909066384101, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2722391669782138479, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5358524
@@ -404,29 +400,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2884441090124678417, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5613081289794468618, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1886721372}
     - target: {fileID: 5613081289794468618, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613081289794468618, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5734753200795912846, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
+    - target: {fileID: 8480614288270814573, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
+      propertyPath: currentWeapon.reference
+      value: 
+      objectReference: {fileID: 1440672361}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2722391669782138479, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1440672362}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2152733322487388755, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 548487341}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
 --- !u!1 &434720523 stripped
 GameObject:
@@ -603,30 +599,17 @@ PolygonCollider2D:
       - {x: 1, y: -0.75}
       - {x: 1, y: 0.8125}
   m_UseDelaunayMesh: 1
---- !u!1 &548487340 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2152733322487388755, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
+--- !u!114 &548487341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8480614288270814573, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
   m_PrefabInstance: {fileID: 378660328}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &548487341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548487340}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd467e4af314412d95232c83e11bc0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ludico.Characters.Runtime::Characters.Character
-  logger:
-    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
-  gizmo:
-    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
-  logTag: Character
-  currentWeapon:
-    reference: {fileID: 1440672361}
 --- !u!4 &548487342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2722391669782138479, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
@@ -11292,6 +11275,7 @@ MonoBehaviour:
   character:
     reference: {fileID: 548487341}
   attackInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!4 &1125275024
 Transform:
   m_ObjectHideFlags: 0
@@ -12999,7 +12983,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   cooldown: 0.1
-  owner: {fileID: 548487342}
+  owner:
+    reference: {fileID: 548487341}
 --- !u!4 &1440672362
 Transform:
   m_ObjectHideFlags: 0

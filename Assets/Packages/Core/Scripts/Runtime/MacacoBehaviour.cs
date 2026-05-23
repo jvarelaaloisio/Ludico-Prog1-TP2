@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using UnityEngine;
 using VarelaAloisio.Core.Attributes;
 using VarelaAloisio.Core.Debugging;
@@ -22,6 +23,14 @@ namespace VarelaAloisio.Core
         private (FieldInfo info, AutoMap attr)[] _autoMappedFields;
         private (PropertyInfo info, AutoMap attr)[] _autoMappedProperties;
         private ServiceAttribute _serviceAttribute;
+        private CancellationTokenSource _disableCancellationTokenSource;
+
+        /// <summary> Token cancelled when the component is disabled.
+        /// <p> When the component is disabled, this returns a new canceled token. </p>
+        /// <p> If you need, for some strange and remote reason, direct access to the token source, call <see cref="LinkWithDisable"/> and fill the target parameter with null. THIS IS NOT RECOMMENDED THOUGH.</p>
+        /// </summary>
+        /// <remarks> This token is re-created when the component is re-enabled. </remarks>
+        public CancellationToken DisableCancellationToken => _disableCancellationTokenSource?.Token ?? new CancellationToken(true);
 
         protected virtual void Reset()
         {
@@ -56,10 +65,16 @@ namespace VarelaAloisio.Core
         }
 
         protected virtual void OnEnable()
-            => MapMembersIn(When.OnEnable);
+        {
+            _disableCancellationTokenSource = new CancellationTokenSource();
+            MapMembersIn(When.OnEnable);
+        }
 
         protected virtual void Start()
             => MapMembersIn(When.Start);
+
+        protected virtual void OnDisable()
+            => TokenUtils.CancelAndDispose(ref _disableCancellationTokenSource);
 
         protected virtual void OnDestroy()
         {
@@ -68,6 +83,13 @@ namespace VarelaAloisio.Core
             foreach (Type @interface in _serviceAttribute.Interfaces)
                 Service.Remove(@interface);
         }
+
+        /// <param name="target">If null, this method directly returns <see cref="_disableCancellationTokenSource"/></param>
+        /// <returns> A linked token source, combining the given token with the <see cref="_disableCancellationTokenSource"/></returns>
+        protected CancellationToken LinkWithDisable(CancellationToken? target)
+            => target.HasValue
+                   ? CancellationTokenSource.CreateLinkedTokenSource(DisableCancellationToken, target.Value).Token
+                   : DisableCancellationToken;
 
     #region Logging
 

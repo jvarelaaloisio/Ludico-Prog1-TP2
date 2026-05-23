@@ -1,12 +1,13 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Core;
 using Core.Combat;
 using UnityEngine;
 using VarelaAloisio.Core;
 
 namespace Combat
 {
-    public class MeleeWeapon : MonoBehaviourAsync, IWeapon
+    public class MeleeWeapon : MacacoBehaviour, IWeapon
     {
         [SerializeField] private Collider2D damageTrigger;
         [SerializeField] private float scale = 1;
@@ -14,8 +15,7 @@ namespace Combat
         [SerializeField] private float rotationOffset;
         [SerializeField] private AnimationCurve swingCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         [SerializeField] private float cooldown = .25f;
-
-        [SerializeField] private Transform owner;
+        [SerializeField] private Ref<ICharacter> owner;
         public bool IsOnCooldown { get; private set; }
         [ContextMenu("Swing")]
         private void DoTestRotation()
@@ -31,6 +31,8 @@ namespace Combat
 
         public async Task Attack(CancellationToken token)
         {
+            if (!owner.HasValue)
+                LogError("Need an owner to swing");
             IsOnCooldown = true;
             Vector3 originalPosition = transform.localPosition;
             Quaternion originalRotation = transform.localRotation;
@@ -39,12 +41,13 @@ namespace Combat
             const float pi = Mathf.PI;
             float now = Time.time;
             float start = Time.time;
+            float rotationOffsetBasedOnDirection = GetRotationBasedOnDirection(owner.Value.Direction);
             while (now - start < duration)
             {
                 now = Time.time;
                 float lerp = swingCurve.Evaluate((now - start) / duration);
-                float x = (lerp + rotationOffset) * pi;
-                Vector3 position = owner.position + new Vector3(Mathf.Cos(x) * scale, Mathf.Sin(x) * scale);
+                float x = (lerp + rotationOffset + rotationOffsetBasedOnDirection) * pi;
+                Vector3 position = owner.Value.transform.position + new Vector3(Mathf.Cos(x) * scale, Mathf.Sin(x) * scale);
                 Vector3 direction = new Vector3(-Mathf.Sin(x), Mathf.Cos(x));
                 Debug.DrawRay(position, direction, Color.red, 1);
                 transform.SetPositionAndRotation(position, Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, -90));
@@ -68,10 +71,22 @@ namespace Combat
             }
         }
 
-        public void SetOwner(Transform newOwner)
+        /// <summary /> This formula converts angles into a rotation offset.
+        /// The conversion is based on this table of values:
+        /// <p>Direction | Angles | result</p>
+        /// <p>    Up    |   0°   |   0</p>
+        /// <p>   Left   |  -90°  |  0.5</p>
+        /// <p>   Right  |   90°  | -0.5</p>
+        /// <p>   Down   |  180°  |  -1</p>
+        /// <param name="direction">The direction the character is facing</param>
+        /// <returns>The Rotation offset to get the weapon swinging into the given direction</returns>
+        private float GetRotationBasedOnDirection(Vector2 direction)
+            => Vector2.SignedAngle(direction, Vector2.up) / 180 * -1;
+
+        public void SetOwner(ICharacter newOwner)
         {
-            owner = newOwner;
-            transform.SetParent(newOwner);
+            owner.Value = newOwner;
+            transform.SetParent(newOwner.transform);
         }
 
         public void Release()
