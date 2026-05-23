@@ -9,6 +9,7 @@ namespace Combat
 {
     public class MeleeWeapon : MacacoBehaviour, IWeapon
     {
+        [SerializeField] private Transform spriteToSwing;
         [SerializeField] private Collider2D damageTrigger;
         [SerializeField] private float scale = 1;
         [SerializeField] private float duration = .25f;
@@ -16,6 +17,7 @@ namespace Combat
         [SerializeField] private AnimationCurve swingCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         [SerializeField] private float cooldown = .25f;
         [SerializeField] private Ref<ICharacter> owner;
+        [SerializeField] private float triggerDistanceFromOwner = 1f;
         public bool IsOnCooldown { get; private set; }
         [ContextMenu("Swing")]
         private void DoTestRotation()
@@ -29,14 +31,29 @@ namespace Combat
             damageTrigger.isTrigger = true;
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            if (damageTrigger)
+                damageTrigger.gameObject.SetActive(false);
+        }
+
         public async Task Attack(CancellationToken token)
         {
             if (!owner.HasValue)
                 LogError("Need an owner to swing");
+            if (!spriteToSwing)
+                LogError("No sprite to swing.");
             IsOnCooldown = true;
             Vector3 originalPosition = transform.localPosition;
             Quaternion originalRotation = transform.localRotation;
-            damageTrigger.enabled = true;
+            if (damageTrigger)
+            {
+                damageTrigger.gameObject.SetActive(true);
+                damageTrigger.transform.position = owner.Value.transform.position
+                                                   + (Vector3)(owner.Value.Direction * triggerDistanceFromOwner);
+                damageTrigger.transform.up = owner.Value.Direction;
+            }
             CancellationTokenRegistration registration = token.Register(CleanUp);
             const float pi = Mathf.PI;
             float now = Time.time;
@@ -49,8 +66,8 @@ namespace Combat
                 float x = (lerp + rotationOffset + rotationOffsetBasedOnDirection) * pi;
                 Vector3 position = owner.Value.transform.position + new Vector3(Mathf.Cos(x) * scale, Mathf.Sin(x) * scale);
                 Vector3 direction = new Vector3(-Mathf.Sin(x), Mathf.Cos(x));
-                Debug.DrawRay(position, direction, Color.red, 1);
-                transform.SetPositionAndRotation(position, Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, -90));
+                DrawRay(position, direction, Color.red, 1);
+                spriteToSwing.SetPositionAndRotation(position, Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, -90));
                 await Awaitable.NextFrameAsync();
                 if (token.IsCancellationRequested)
                     return;
@@ -65,8 +82,9 @@ namespace Combat
 
             void CleanUp()
             {
-                damageTrigger.enabled = false;
-                transform.SetLocalPositionAndRotation(originalPosition, originalRotation);
+                if (damageTrigger)
+                    damageTrigger.gameObject.SetActive(false);
+                spriteToSwing.SetLocalPositionAndRotation(originalPosition, originalRotation);
                 IsOnCooldown = false;
             }
         }

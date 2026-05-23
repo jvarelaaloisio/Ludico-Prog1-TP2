@@ -18,7 +18,7 @@ namespace Characters
         [SerializeField] private float brakeMultiplier = .85f;
 
         private CancellationTokenSource _attackSource;
-        public Vector2 Direction { get; set; }
+        public Vector2 Direction { get; set; } = Vector2.down;
         public IWeapon CurrentWeapon => currentWeapon.HasValue ? currentWeapon.Value : null;
         public void PickUp(IWeapon weapon)
         {
