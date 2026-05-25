@@ -170,7 +170,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: Game Manager
   defaultLevel:
-    reference: {fileID: 11400000, guid: eed24da4b230f55c4a9d591ccf548dce, type: 2}
+    reference: {fileID: 11400000, guid: c1b34d4a8c5fe3c57b2e8c1e994cb953, type: 2}
 --- !u!1 &350403196
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Threading;
 using UnityEngine;
 using VarelaAloisio.Core;
 
-namespace Combat
+namespace Views
 {
     public class InjectTimeIntoShader : MacacoBehaviour
     {
