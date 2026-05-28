@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 5083222691936676118, guid: 7e35890ba5749b84eb70d092049596ad, type: 3}
+      propertyPath: furyReward
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083222691936676118, guid: 7e35890ba5749b84eb70d092049596ad, type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8658300885753070637, guid: 7e35890ba5749b84eb70d092049596ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.395552

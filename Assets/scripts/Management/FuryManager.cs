@@ -26,5 +26,11 @@ namespace Management
                 OnFuryUpdated?.Invoke(old, value);
             }
         }
+
+        public void AddFury(float amount)
+        {
+            Debug.Log($"[FURY MANAGER] Se recibieron {amount} puntos de furia. Furia actual antes de sumar: {fury}");
+            Fury = Mathf.Clamp01(Fury + amount);
+        }
     }
 }
