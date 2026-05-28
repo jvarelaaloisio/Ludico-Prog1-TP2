@@ -1,6 +1,7 @@
 using System;
 using Core.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -16,6 +17,17 @@ namespace UI
         public void Setup(Transform parent, Action<string> SwitchTo)
         {
             RectTransform menu = Instantiate(menuPrefab, parent);
+            menu.localScale = Vector3.one;
+
+            // busca todos los NavButton que haya adentro de este menú recién creado
+            NavButton[] navButtons = menu.GetComponentsInChildren<NavButton>();
+
+            // los recorro
+            foreach (var navBtn in navButtons)
+            {
+                Button btn = navBtn.GetComponent<Button>();
+                btn.onClick.AddListener(() => SwitchTo(navBtn.targetMenuId));
+            }
         }
     }
 }
