@@ -203,8 +203,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: LastInputX
-  m_BlendParameterY: LastInputY
+  m_BlendParameter: directionX
+  m_BlendParameterY: directionY
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -224,10 +224,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -253,13 +253,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: InputX
+  - m_Name: directionX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: InputY
+  - m_Name: directionY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -327,71 +327,71 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: f21f72fed235b7e42b3ec449a6ee4e57, type: 2}
+    m_Motion: {fileID: 7400000, guid: 4107f34fe756f167b8a4adbbe25f31cf, type: 2}
     m_Threshold: 0
-    m_Position: {x: 0, y: 1}
+    m_Position: {x: 0, y: 0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: e211b802107081b47bbcb0b70a89c5b0, type: 2}
+    m_Motion: {fileID: 7400000, guid: 94268c4ceaafb563e91035b2d8b5db3f, type: 2}
     m_Threshold: 0.14285715
-    m_Position: {x: 0, y: -1}
+    m_Position: {x: 0, y: -0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 12748f6382624e54e99c85d91e45bf96, type: 2}
+    m_Motion: {fileID: 7400000, guid: ccde4238847697959b8e056c5d5b43a0, type: 2}
     m_Threshold: 0.2857143
-    m_Position: {x: -1, y: 0}
+    m_Position: {x: -0.5, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1a207efbda4349e489359f9684b6ef7e, type: 2}
+    m_Motion: {fileID: 7400000, guid: 60c8166d84e18ed8c8d0c07b7bb9d45e, type: 2}
     m_Threshold: 0.42857143
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: 0.5, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1a207efbda4349e489359f9684b6ef7e, type: 2}
+    m_Motion: {fileID: 7400000, guid: e33c7073b2f5795429d80019a01f6c06, type: 2}
     m_Threshold: 0.5714286
-    m_Position: {x: 1, y: 1}
+    m_Position: {x: 0.5, y: 0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1a207efbda4349e489359f9684b6ef7e, type: 2}
+    m_Motion: {fileID: 7400000, guid: b8f00615f15715341a5553a709e7bdcd, type: 2}
     m_Threshold: 0.71428573
-    m_Position: {x: 1, y: -1}
+    m_Position: {x: 0.5, y: -0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 12748f6382624e54e99c85d91e45bf96, type: 2}
+    m_Motion: {fileID: 7400000, guid: e0b0728be2588f9b9b0d814519bc5305, type: 2}
     m_Threshold: 0.85714287
-    m_Position: {x: -1, y: -1}
+    m_Position: {x: -0.5, y: -0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 12748f6382624e54e99c85d91e45bf96, type: 2}
+    m_Motion: {fileID: 7400000, guid: 2adaca21567196e88b0d367009a3efb0, type: 2}
     m_Threshold: 1
-    m_Position: {x: -1, y: 1}
+    m_Position: {x: -0.5, y: 0.5}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: InputX
-  m_BlendParameterY: InputY
+  m_BlendParameter: directionX
+  m_BlendParameterY: directionY
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
