@@ -32,5 +32,10 @@ namespace Management
             Debug.Log($"[FURY MANAGER] Se recibieron {amount} puntos de furia. Furia actual antes de sumar: {fury}");
             Fury = Mathf.Clamp01(Fury + amount);
         }
+        protected override void Awake()
+        {
+            Debug.Log($"[FURY MANAGER] ¡Hola! Me estoy despertando en la escena y registrando el servicio.");
+            base.Awake();
+        }
     }
 }
