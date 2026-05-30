@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2375237641262241893
 Transform:
   m_ObjectHideFlags: 0
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c80e4700ff04274698365c8fdbae7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageOnTouch
-  damageAmount: 10
-  targetTag: Player
+  damage: 1
+  knockbackForce: 100
 --- !u!1 &4941262998972508103
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 8347564062983323367}
   - component: {fileID: 7285782324728869928}
   - component: {fileID: 517256042278774629}
-  - component: {fileID: 5083222691936676118}
   - component: {fileID: 6457579622762508909}
+  - component: {fileID: 4159834500469892346}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -298,8 +298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deca13b06e3a6804b92dcdc7c6f702e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  moveSpeed: 1
---- !u!114 &5083222691936676118
+  goalSpeed: 20
+  acceleration: 40
+--- !u!114 &6457579622762508909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,15 +309,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 4941262998972508103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 798af16d69f992c4cb63fbea4fbe4341, type: 3}
+  m_Script: {fileID: 11500000, guid: d84332081ec9e4c4482149473c7ef486, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 100
-  currentHealth: 0
-  OnDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAwarenessController
+  playerAwarenessDistance: 4
+--- !u!114 &4159834500469892346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4941262998972508103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fb1747c34e4f548fb73c28d72bb46e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VarelaAloisio.HealthSystem.Unity.Runtime::HealthSystem.Runtime.Components.HealthComponentExtended
+  <MaxHp>k__BackingField: 5
+  <InitialHp>k__BackingField: 5
+  <CanOverFlowHp>k__BackingField: 0
+  setupInAwake: 1
+  onDeath:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4941262998972508103}
@@ -331,16 +344,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6457579622762508909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4941262998972508103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d84332081ec9e4c4482149473c7ef486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAwarenessController
-  playerAwarenessDistance: 4
+  onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []

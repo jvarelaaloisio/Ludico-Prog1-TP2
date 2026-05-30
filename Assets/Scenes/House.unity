@@ -12938,6 +12938,7 @@ GameObject:
   - component: {fileID: 1708658587}
   - component: {fileID: 1708658588}
   - component: {fileID: 1708658589}
+  - component: {fileID: 1708658590}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -13104,6 +13105,20 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: InjectTimeIntoShader
   material: {fileID: 2100000, guid: 8308762a832d0b02e931c0abde5068fe, type: 2}
+--- !u!114 &1708658590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708658583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c80e4700ff04274698365c8fdbae7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Player.Runtime::DamageOnTouch
+  damage: 1
+  knockbackForce: 10
 --- !u!1 &1811740149
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     
-    [SerializeField] private float moveSpeed = 2f; // velocidad del enemigo
+    [SerializeField] private float goalSpeed = 20f;
+    [SerializeField] private float acceleration = 40f;
 
     private Rigidbody2D rb; // referencia al rigidbody del enemigo
     private PlayerAwarenessController awarenessController; // referencia al PlayerAwarenessController
@@ -27,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {        
-        SetVelocity(); // fixedupdate se usa exclusivamente en físicas
+        SetVelocity();
     }
 
     private void UpdateTargetDirection()
@@ -46,7 +47,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void SetVelocity()
     {
-        rb.linearVelocity = targetDirection * moveSpeed;
+        Vector2 currentVelocity = rb.linearVelocity;
+        float currentSpeed = currentVelocity.magnitude;
+        float speedDifferential = goalSpeed - currentSpeed;
+        rb.AddForce(targetDirection * speedDifferential, ForceMode2D.Force);
     }
 
     private void UpdateAnimation()
