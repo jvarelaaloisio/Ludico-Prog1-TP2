@@ -1,7 +1,9 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Core;
 using Core.Combat;
+using HealthSystem.Runtime.Components;
 using UnityEngine;
 using VarelaAloisio.Core;
 
@@ -19,6 +21,7 @@ namespace Combat
         [SerializeField] private Ref<ICharacter> owner;
         [SerializeField] private float triggerDistanceFromOwner = 1f;
         public bool IsOnCooldown { get; private set; }
+        public event Action<Vector2> OnAttack; 
         [ContextMenu("Swing")]
         private void DoTestRotation()
             => _ = Attack(DisableCancellationToken);
@@ -54,6 +57,7 @@ namespace Combat
                                                    + (Vector3)(owner.Value.Direction * triggerDistanceFromOwner);
                 damageTrigger.transform.up = owner.Value.Direction;
             }
+            OnAttack?.Invoke(owner.Value.Direction);
             CancellationTokenRegistration registration = token.Register(CleanUp);
             const float pi = Mathf.PI;
             float now = Time.time;

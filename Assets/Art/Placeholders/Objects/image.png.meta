@@ -379,7 +379,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 162
-        width: 159
+        width: 128
         height: 60
       alignment: 9
       pivot: {x: 0.49186656, y: 0.3174978}

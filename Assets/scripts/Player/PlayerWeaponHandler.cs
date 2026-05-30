@@ -73,10 +73,6 @@ public class PlayerWeaponHandler : MonoBehaviour
     {
         if (pickedUpAxe != null)
         {
-            if (pickedUpAxe.TryGetComponent<DamageOnTouch>(out var damageScript))
-            {
-                damageScript.enabled = active; // activa el daño del hacha
-            }
 
             if (pickedUpAxe.TryGetComponent<Collider2D>(out var col))
             {

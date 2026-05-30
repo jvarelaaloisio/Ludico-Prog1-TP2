@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
@@ -15,7 +16,7 @@ public class PlayerAwarenessController : MonoBehaviour
 
     private void Awake()
     {
-        var playerMovement = FindFirstObjectByType<PlayerMovement>();
+        var playerMovement = GameObject.FindWithTag("Player");
 
         if (playerMovement != null)
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,5 +11,6 @@ namespace Core.Combat
         void SetOwner(ICharacter newOwner);
         void Release();
         bool IsOnCooldown { get; }
+        event Action<Vector2> OnAttack;
     }
 }
