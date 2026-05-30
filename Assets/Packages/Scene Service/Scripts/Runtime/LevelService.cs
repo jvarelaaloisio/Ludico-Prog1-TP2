@@ -105,6 +105,7 @@ namespace VarelaAloisio.Scenes
         private ILevel _currentLevel;
         private Coroutine _currentLoadCoroutine;
         private Coroutine _resetLoadingStateCoroutine;
+        private bool _isLoading = false;
         private CancellationTokenSource _loadTokenSource = new();
         private readonly LoadingState _loadingState = new();
         private readonly List<string> _currentLoadedScenePaths = new(20);
@@ -122,15 +123,20 @@ namespace VarelaAloisio.Scenes
             Log(Loading + $"Level [{newLevel.name}]");
             TokenUtils.Recreate(ref _loadTokenSource);
 
-            _resetLoadingStateCoroutine ??= StartCoroutine(DoLoadLevel(_currentLevel, newLevel));
+            if (!_isLoading)
+            {
+                StartCoroutine(DoLoadLevel(_currentLevel, newLevel));
+            }
             _currentLevel = newLevel;
         }
 
         private IEnumerator DoLoadLevel(ILevel oldLevel, ILevel newLevel)
         {
+            _isLoading = true;
             loadingScreen.Value?.Show();
             yield return _loadingState.Reset(_currentLoadCoroutine, owner:this);
             yield return DoChangeLevel(oldLevel, newLevel, _loadTokenSource.Token);
+            _isLoading = false;
         }
 
         //TODO: Refactor into an async task and change the delay before hiding loading screen into a list of setup tasks to await
