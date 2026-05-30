@@ -63,12 +63,4 @@ public class Health : MacacoBehaviour
             }
         }
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log($"[PRUEBA] Forzando daño fatal en: {gameObject.name}");
-            TakeDamage(maxHealth); 
-        }   
-    }
 }
