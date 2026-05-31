@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Flip: 1
-    - _InjectedTime: 0.26329803
+    - _InjectedTime: 0.2592678
     - _Speed: 6.6666665
     m_Colors:
     - White: {r: 1, g: 1, b: 1, a: 1}

@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 517256042278774629}
   - component: {fileID: 6457579622762508909}
   - component: {fileID: 4159834500469892346}
+  - component: {fileID: 6678940020782590434}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -350,3 +351,21 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6678940020782590434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4941262998972508103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca884e383e945e49bdfd4f3fc5e2982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.UI.Runtime::AddFuryOnDeath
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: AddFuryOnDeath
+  furyToAdd: 0.2
