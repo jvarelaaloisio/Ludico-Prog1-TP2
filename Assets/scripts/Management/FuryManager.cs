@@ -26,5 +26,12 @@ namespace Management
                 OnFuryUpdated?.Invoke(old, value);
             }
         }
+
+        public void AddFury(float amount)
+        {
+            float newFury = Mathf.Clamp01(Fury + amount);
+            Log($"{amount} fury received. Fury: {Fury} -> {newFury}");
+            Fury = newFury;
+        }
     }
 }

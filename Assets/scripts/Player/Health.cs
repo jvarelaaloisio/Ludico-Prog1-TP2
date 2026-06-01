@@ -1,10 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events; // con esto manejamos eventos
+using Core;
+using VarelaAloisio.Core;
+using VarelaAloisio.Core.Attributes;
 
-public class Health : MonoBehaviour
+
+public class Health : MacacoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth;
+    [SerializeField] private float furyReward = 0.1f;
+    [SerializeField] private string enemyTag = "Enemy";
+    [AutoMap(How.Service, When.Start)]
+    private IFuryManager _furyManager;
 
     [Header("Eventos de vida")]
     public UnityEvent OnDamageTaken;
@@ -12,9 +20,11 @@ public class Health : MonoBehaviour
     
     public bool isDead => currentHealth <= 0f; // el enemigo está muerto?
 
-    private void Start()
+    protected override void Start()
     {
         currentHealth = maxHealth;
+        base.Start();
+
     }
 
     public void TakeDamage(float damage)
@@ -39,5 +49,18 @@ public class Health : MonoBehaviour
         OnDeath?.Invoke(); // invoca el evento de muerte
         // desde el inspector puedo hacer que al morir se destruya el objeto
         // también se le puede arrastrar un script de gamemanager
+        // Intentamos buscar y usar el servicio todo en el mismo movimiento
+        if (CompareTag(enemyTag))
+        {
+            if (_furyManager != null)
+            {
+                Debug.Log($"¡Servicio encontrado! Pasando {furyReward} de furia...");
+                _furyManager.AddFury(furyReward);
+            }
+            else
+            {
+                Debug.LogWarning($"Alerta: El servicio IFuryManager no está listo en la escena todavía.");
+            }
+        }
     }
 }
