@@ -11,9 +11,7 @@ namespace UI
     {
         [SerializeField] private Transform menusParent;
         [SerializeField] private Ref<IMenu>[] menus;
-
-        [AutoMap(How.Service, When.Start)]
-        private EventSystem _eventSystem;
+        [SerializeField] private string mainMenuId = "Menu_Main_View";
 
         protected override void Reset()
         {
@@ -30,11 +28,22 @@ namespace UI
                     continue;
                 menu.Value.Configuration.Setup(menu.Value.ButtonsParent, SwitchMenu);
             }
+
+            SwitchMenu(mainMenuId);
         }
 
         private void SwitchMenu(string id)
         {
-            throw new NotImplementedException();
+            foreach (var menu in menus)
+            {
+                if (!menu.HasValue) continue;
+                
+                bool isTargetMenu = menu.Value.ButtonsParent.gameObject.name == id;
+                
+                menu.Value.ButtonsParent.gameObject.SetActive(isTargetMenu);
+            }
+
+            Debug.Log("Changing to menu: " + id);
         }
     }
 }

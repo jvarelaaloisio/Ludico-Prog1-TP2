@@ -1,13 +1,19 @@
+using Core;
 using UnityEngine;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Attributes;
 using VarelaAloisio.Scenes;
 
 namespace Management
 {
-    public class GameManager : MacacoBehaviour
+    [Service(typeof(IGameManager))]
+    public class GameManager : MacacoBehaviour, IGameManager
     {
         [SerializeField] private Ref<ILevel> defaultLevel;
+        [SerializeField] private Ref<ILevel> gameLevel;
 
+        [AutoMap(How.Service, When.Start)]
+        private ILevelService _levelService;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void InitializeOnLoad()
             => Service.Flush();
@@ -15,18 +21,28 @@ namespace Management
         protected override void Start()
         {
             base.Start();
-            if (!Service.TryGet(out ILevelService levelService))
-            {
-                LogError($"{nameof(levelService)} not found.");
-                return;
-            }
 
             if (!defaultLevel.HasValue)
             {
                 LogError($"{nameof(defaultLevel)} is null.");
                 return;
             }
-            levelService.LoadLevel(defaultLevel.Value);
+            _levelService.LoadLevel(defaultLevel.Value);
         }
+
+        public void EnterGame()
+        {
+            _levelService.LoadLevel(gameLevel.Value);
+        }
+        
+        public void ExitGame()
+        {
+            #if UNITY_EDITOR
+                        UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
+        }
+        
     }
 }
