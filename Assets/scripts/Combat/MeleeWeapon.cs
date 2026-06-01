@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core;
 using Core.Combat;
+using HealthSystem.Runtime.Components;
 using UnityEngine;
 using VarelaAloisio.Core;
 
