@@ -10967,8 +10967,9 @@ MonoBehaviour:
   labelFormat: 'Fury: {0}'
   _globalVolume: {fileID: 1089889339}
   maxVignetteIntensity: 0.8
-  maxLensDistortion: -0.4
+  maxLensDistortion: -0.7
   maxChromaticAberration: 0.5
+  valueAnimationSpeed: 1
 --- !u!114 &713967685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11139,8 +11140,8 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -50, y: 50}
-  m_SizeDelta: {x: 50, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 50, y: 300}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &801976540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11161,7 +11162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -5177388603050735206, guid: fb1d604393d99df70a49ffa83c7d9d57, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
