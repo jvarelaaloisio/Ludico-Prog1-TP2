@@ -20,6 +20,7 @@ namespace UI
         [SerializeField] private float maxLensDistortion = -0.7f;
         [SerializeField] private float maxChromaticAberration = 0.5f;
         [SerializeField] private float valueAnimationSpeed = 10f;
+        [SerializeField] private float aberrationFrequency = 10f;
 
         [AutoMap(How.Service, When.Start)]
         private IFuryManager _furyManager;
@@ -78,18 +79,13 @@ namespace UI
                 if (IsApproximately(_distortionTargetValue, _lensDistortion.intensity.value))
                     _lensDistortion.intensity.value = _distortionTargetValue;
             }
-            if (_aberration
-                && !IsApproximately(_aberrationTargetValue, _aberration.intensity.value))
-            {
-                _aberration.intensity.value += Time.deltaTime * _furyModificationSign * valueAnimationSpeed;
-                if (IsApproximately(_aberrationTargetValue, _aberration.intensity.value))
-                    _aberration.intensity.value = _aberrationTargetValue;
-            }
+            if (_aberration)
+                _aberration.intensity.value = Mathf.Sin(Time.time * aberrationFrequency) * _aberrationTargetValue;
 
             return;
 
             bool IsApproximately(float a, float b)
-                => Mathf.Abs(a - b) <= 0.1f;
+                => Mathf.Abs(a - b) <= 0.05f;
         }
 
         private void HandleFuryUpdated(float oldValue, float newValue)

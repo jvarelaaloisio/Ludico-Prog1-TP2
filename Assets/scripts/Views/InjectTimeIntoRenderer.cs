@@ -1,13 +1,16 @@
 using System.Threading;
 using UnityEngine;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Attributes;
 
 namespace Views
 {
-    public class InjectTimeIntoShader : MacacoBehaviour
+    public class InjectTimeIntoRenderer : MacacoBehaviour
     {
         private static readonly int TimeProperty = Shader.PropertyToID("_InjectedTime");
-        [SerializeField] private Material material;
+        [AutoMap(How.GetComponent, When.Reset | When.OnEnable)]
+        [SerializeField] private Renderer renderer;
+        
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -16,11 +19,13 @@ namespace Views
 
         private async void InjectTime(CancellationToken token)
         {
+            var block = new MaterialPropertyBlock();
             float start = Time.time;
             while (!token.IsCancellationRequested)
             {
                 float time = Time.time - start;
-                material.SetFloat(TimeProperty, time);
+                block.SetFloat(TimeProperty, time);
+                renderer.SetPropertyBlock(block);
                 await Awaitable.NextFrameAsync();
             }
         }
