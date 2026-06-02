@@ -13060,7 +13060,7 @@ MonoBehaviour:
   spriteToSwing: {fileID: 701810301}
   damageTrigger: {fileID: 1708658588}
   scale: 1
-  duration: 0.15
+  duration: 0.2
   rotationOffset: 0
   swingCurve:
     serializedVersion: 2
@@ -13392,7 +13392,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3713643351917670626, guid: 88eec46ae80ccc4d2badf7e9de0eafe3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4, g: 0.078431375, b: 0.078431375, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
