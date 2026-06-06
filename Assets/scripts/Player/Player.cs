@@ -11,6 +11,7 @@ namespace Player
     {
         [SerializeField] private Ref<ICharacter> character;
         [SerializeField] private InputActionReference attackInput;
+        [SerializeField] private InputActionReference throwInput;
         [SerializeField] private InputActionReference moveInput;
         private CancellationTokenSource _moveSource = null;
         protected override void OnEnable()
@@ -27,6 +28,12 @@ namespace Player
                 attackInput.action.performed += HandleAttackInput;
             }
 
+            if (throwInput)
+            {
+                throwInput.action.Enable();
+                throwInput.action.performed += HandleThrowInput;
+            }
+
             if (moveInput)
             {
                 moveInput.action.Enable();
@@ -34,6 +41,13 @@ namespace Player
                 moveInput.action.performed += HandleMoveInput;
                 moveInput.action.canceled += HandleMoveInput;
             }
+        }
+
+        private void HandleThrowInput(InputAction.CallbackContext data)
+        {
+            if (!character.HasValue)
+                return;
+            character.Value.TryThrowWeapon();
         }
 
         private void HandleMoveInput(InputAction.CallbackContext data)

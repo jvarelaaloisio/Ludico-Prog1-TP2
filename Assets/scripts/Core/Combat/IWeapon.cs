@@ -7,6 +7,7 @@ namespace Core.Combat
 {
     public interface IWeapon
     {
+        string name { get; }
         Task Attack(CancellationToken token);
         void SetOwner(ICharacter newOwner);
         void Release();

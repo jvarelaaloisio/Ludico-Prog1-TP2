@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core;
 using Core.Combat;
-using HealthSystem.Runtime.Components;
 using UnityEngine;
 using VarelaAloisio.Core;
 
@@ -13,6 +12,7 @@ namespace Combat
     {
         [SerializeField] private Transform spriteToSwing;
         [SerializeField] private Collider2D damageTrigger;
+        [SerializeField] private Collider2D pickUpTrigger;
         [SerializeField] private float scale = 1;
         [SerializeField] private float duration = .25f;
         [SerializeField] private float rotationOffset;
@@ -20,6 +20,8 @@ namespace Combat
         [SerializeField] private float cooldown = .25f;
         [SerializeField] private Ref<ICharacter> owner;
         [SerializeField] private float triggerDistanceFromOwner = 1f;
+        [SerializeField] private float secondsBeforeItCanBePickedUpAgain = .5f;
+        [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
         public bool IsOnCooldown { get; private set; }
         public event Action<Vector2> OnAttack; 
         [ContextMenu("Swing")]
@@ -48,8 +50,8 @@ namespace Combat
             if (!spriteToSwing)
                 LogError("No sprite to swing.");
             IsOnCooldown = true;
-            Vector3 originalPosition = transform.localPosition;
-            Quaternion originalRotation = transform.localRotation;
+            Vector3 originalPosition = spriteToSwing.localPosition;
+            Quaternion originalRotation = spriteToSwing.localRotation;
             if (damageTrigger)
             {
                 damageTrigger.gameObject.SetActive(true);
@@ -109,12 +111,17 @@ namespace Combat
         {
             owner.Value = newOwner;
             transform.SetParent(newOwner.transform);
+            transform.SetLocalPositionAndRotation(pickUpOffset, Quaternion.identity);
+            pickUpTrigger.gameObject.SetActive(false);
         }
 
-        public void Release()
+        public async void Release()
         {
             owner = null;
             transform.SetParent(null);
+            await Awaitable.WaitForSecondsAsync(secondsBeforeItCanBePickedUpAgain);
+            if (!DisableCancellationToken.IsCancellationRequested)
+                pickUpTrigger.gameObject.SetActive(true);
         }
     }
 }

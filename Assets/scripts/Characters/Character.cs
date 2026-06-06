@@ -20,6 +20,8 @@ namespace Characters
         private CancellationTokenSource _attackSource;
         public Vector2 Direction { get; set; } = Vector2.down;
         public IWeapon CurrentWeapon => currentWeapon.HasValue ? currentWeapon.Value : null;
+        public bool HasWeapon => currentWeapon.HasValue;
+
         public void PickUp(IWeapon weapon)
         {
             weapon.SetOwner(this);
@@ -38,6 +40,12 @@ namespace Characters
             _attackSource = new();
             currentWeapon.Value.Attack(LinkWithDisable(_attackSource.Token));
             return true;
+        }
+
+        public bool TryThrowWeapon()
+        {
+            LogError("Not Implemented");
+            return false;
         }
 
         public async void Move(CancellationToken token)
