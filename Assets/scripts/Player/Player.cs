@@ -1,8 +1,10 @@
 using System.Threading;
 using Core;
+using HealthSystem.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Attributes;
 using VarelaAloisio.Core.Utils;
 
 namespace Player
@@ -13,6 +15,8 @@ namespace Player
         [SerializeField] private InputActionReference attackInput;
         [SerializeField] private InputActionReference throwInput;
         [SerializeField] private InputActionReference moveInput;
+        [AutoMap(How.Service, When.Awake)]
+        private IGameManager _gameManager;
         private CancellationTokenSource _moveSource = null;
         protected override void OnEnable()
         {
@@ -41,7 +45,15 @@ namespace Player
                 moveInput.action.performed += HandleMoveInput;
                 moveInput.action.canceled += HandleMoveInput;
             }
+
+            if (character.Value.gameObject.TryGetComponent(out IHealthComponent health))
+                health.Health.OnDeath += HandleDeath;
+            else
+                LogError("Character doesn't have a health component");
         }
+
+        private void HandleDeath()
+            => _gameManager.HandlePlayerDeath();
 
         private void HandleThrowInput(InputAction.CallbackContext data)
         {

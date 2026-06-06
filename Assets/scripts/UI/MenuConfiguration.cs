@@ -13,8 +13,8 @@ namespace UI
 
         /// <summary /> Instantiates all buttons into the menu
         /// <param name="parent"></param>
-        /// <param name="SwitchTo"></param>
-        public void Setup(Transform parent, Action<string> SwitchTo)
+        /// <param name="switchTo"></param>
+        public void Setup(Transform parent, Action<string> switchTo)
         {
             RectTransform menu = Instantiate(menuPrefab, parent);
             menu.localScale = Vector3.one;
@@ -26,7 +26,7 @@ namespace UI
             foreach (var navBtn in navButtons)
             {
                 Button btn = navBtn.GetComponent<Button>();
-                btn.onClick.AddListener(() => SwitchTo(navBtn.targetMenuId));
+                btn.onClick.AddListener(() => switchTo(navBtn.targetMenuId));
             }
         }
     }

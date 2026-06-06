@@ -30,7 +30,8 @@ namespace VarelaAloisio.Scenes
 
         /// <inheritdoc />
         public IEnumerable<SceneAsyncOperation> Unload()
-            => Scenes.Select(scene => scene.BuildIndex)
+            => Scenes.Where(scene => !scene.IsPersistent)
+                     .Select(scene => scene.BuildIndex)
                      .Where(i => SceneManager.GetSceneByBuildIndex(i).isLoaded)
                      .Select(i => new SceneAsyncOperation(SceneUtility.GetScenePathByBuildIndex(i),
                                                           SceneManager.UnloadSceneAsync(i)));

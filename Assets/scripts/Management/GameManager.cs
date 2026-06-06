@@ -1,3 +1,4 @@
+using System;
 using Core;
 using UnityEngine;
 using VarelaAloisio.Core;
@@ -14,6 +15,10 @@ namespace Management
 
         [AutoMap(How.Service, When.Start)]
         private ILevelService _levelService;
+
+        public event Action<string> OnEnterLevel;
+        public event Action OnLose;
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void InitializeOnLoad()
             => Service.Flush();
@@ -33,16 +38,21 @@ namespace Management
         public void EnterGame()
         {
             _levelService.LoadLevel(gameLevel.Value);
+            OnEnterLevel?.Invoke(gameLevel.Value.name);
         }
         
         public void ExitGame()
         {
             #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;
+                UnityEditor.EditorApplication.isPlaying = false;
             #else
                 Application.Quit();
             #endif
         }
-        
+
+        public void HandlePlayerDeath()
+        {
+            OnLose?.Invoke();
+        }
     }
 }

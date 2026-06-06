@@ -173,24 +173,6 @@ namespace VarelaAloisio.Scenes
 
             IEnumerator UnloadOldLevel()
             {
-                foreach (string scenePath in _currentLoadedScenePaths)
-                {
-                    if (token.IsCancellationRequested)
-                    {
-                        Log($"Unload cancelled".Colored(C.Red));
-                        yield break;
-                    }
-                    var scene = SceneManager.GetSceneByPath(scenePath);
-                    if (!scene.IsValid())
-                        continue;
-                    
-                    var unloadOperation = SceneManager.UnloadSceneAsync(scenePath);
-
-                    var sceneOperation = new SceneAsyncOperation(scene, unloadOperation);
-                    _loadingState.UnloadingOperations.Add(sceneOperation);
-                    yield return unloadOperation;
-                    _loadingState.UnloadingOperations.Remove(sceneOperation);
-                }
                 _currentLoadedScenePaths.Clear();
                 var unloadReport = new StringBuilder(Unloaded + $"level {oldLevel.name}. Report:");
 
