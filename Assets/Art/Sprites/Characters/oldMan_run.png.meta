@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e029e507d7b412a9b5753664326367a
+guid: dd3ac6685925414a9a77dc2a5bd003d9
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -107,12 +107,6 @@ TextureImporter:
   - first:
       213: 908589425938220509
     second: oldMan_run_34
-  - first:
-      213: -7014372709284005795
-    second: oldMan_run_35
-  - first:
-      213: 8806585761764178339
-    second: oldMan_run_36
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -159,9 +153,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -208,13 +202,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: oldMan_run_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3969
+        width: 496
+        height: 992
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1563ae46d4ca9d770800000000000000
+      internalID: 8636123208865166929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: oldMan_run_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1623
-        width: 189
-        height: 360
+        x: 496
+        y: 3969
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,13 +246,35 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: oldMan_run_2
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 3969
+        width: 496
+        height: 992
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8250192e6f34ffa70800000000000000
+      internalID: 8862877319330596136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: oldMan_run_3
       rect:
         serializedVersion: 2
-        x: 354
-        y: 1611
-        width: 189
-        height: 366
+        x: 1488
+        y: 3969
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +293,10 @@ TextureImporter:
       name: oldMan_run_4
       rect:
         serializedVersion: 2
-        x: 608
-        y: 1617
-        width: 219
-        height: 358
+        x: 1984
+        y: 3969
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,10 +315,10 @@ TextureImporter:
       name: oldMan_run_5
       rect:
         serializedVersion: 2
-        x: 874
-        y: 1604
-        width: 189
-        height: 360
+        x: 2480
+        y: 3969
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,13 +334,35 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: oldMan_run_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2977
+        width: 496
+        height: 992
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf44f1a8c3631b320800000000000000
+      internalID: 2571896495848506620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: oldMan_run_7
       rect:
         serializedVersion: 2
-        x: 1089
-        y: 1598
-        width: 189
-        height: 366
+        x: 496
+        y: 2977
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,13 +378,35 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: oldMan_run_8
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 2977
+        width: 496
+        height: 992
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec3a82b81b3f95f0800000000000000
+      internalID: -747814035859555101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: oldMan_run_9
       rect:
         serializedVersion: 2
-        x: 1326
-        y: 1611
-        width: 219
-        height: 358
+        x: 1488
+        y: 2977
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,10 +425,10 @@ TextureImporter:
       name: oldMan_run_10
       rect:
         serializedVersion: 2
-        x: 69
-        y: 1232
-        width: 200
-        height: 362
+        x: 1984
+        y: 2977
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,10 +447,10 @@ TextureImporter:
       name: oldMan_run_11
       rect:
         serializedVersion: 2
-        x: 290
-        y: 1223
-        width: 195
-        height: 362
+        x: 2480
+        y: 2977
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,10 +469,10 @@ TextureImporter:
       name: oldMan_run_12
       rect:
         serializedVersion: 2
-        x: 509
-        y: 1213
-        width: 189
-        height: 361
+        x: 0
+        y: 1985
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,10 +491,10 @@ TextureImporter:
       name: oldMan_run_13
       rect:
         serializedVersion: 2
-        x: 716
-        y: 1208
-        width: 189
-        height: 362
+        x: 496
+        y: 1985
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,10 +513,10 @@ TextureImporter:
       name: oldMan_run_14
       rect:
         serializedVersion: 2
-        x: 922
-        y: 1210
-        width: 189
-        height: 364
+        x: 992
+        y: 1985
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -453,10 +535,10 @@ TextureImporter:
       name: oldMan_run_15
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 1214
-        width: 189
-        height: 361
+        x: 1488
+        y: 1985
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -475,10 +557,10 @@ TextureImporter:
       name: oldMan_run_16
       rect:
         serializedVersion: 2
-        x: 76
-        y: 823
-        width: 197
-        height: 374
+        x: 1984
+        y: 1985
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,10 +579,10 @@ TextureImporter:
       name: oldMan_run_17
       rect:
         serializedVersion: 2
-        x: 285
-        y: 809
-        width: 197
-        height: 370
+        x: 2480
+        y: 1985
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -519,10 +601,10 @@ TextureImporter:
       name: oldMan_run_18
       rect:
         serializedVersion: 2
-        x: 530
-        y: 807
-        width: 196
-        height: 367
+        x: 0
+        y: 993
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -541,10 +623,10 @@ TextureImporter:
       name: oldMan_run_19
       rect:
         serializedVersion: 2
-        x: 759
-        y: 802
-        width: 197
-        height: 374
+        x: 496
+        y: 993
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -563,10 +645,10 @@ TextureImporter:
       name: oldMan_run_20
       rect:
         serializedVersion: 2
-        x: 967
-        y: 804
-        width: 206
-        height: 372
+        x: 992
+        y: 993
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,13 +664,35 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: oldMan_run_21
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 993
+        width: 496
+        height: 992
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca65d56125e08cd0800000000000000
+      internalID: -2557792656741274929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: oldMan_run_22
       rect:
         serializedVersion: 2
-        x: 1187
-        y: 796
-        width: 209
-        height: 375
+        x: 1984
+        y: 993
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -607,10 +711,10 @@ TextureImporter:
       name: oldMan_run_23
       rect:
         serializedVersion: 2
-        x: 718
-        y: 848
-        width: 9
-        height: 13
+        x: 2480
+        y: 993
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -629,10 +733,10 @@ TextureImporter:
       name: oldMan_run_24
       rect:
         serializedVersion: 2
-        x: 66
-        y: 404
-        width: 194
-        height: 379
+        x: 0
+        y: 1
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -651,10 +755,10 @@ TextureImporter:
       name: oldMan_run_25
       rect:
         serializedVersion: 2
-        x: 290
-        y: 407
-        width: 205
-        height: 376
+        x: 496
+        y: 1
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -670,13 +774,35 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: oldMan_run_26
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1
+        width: 496
+        height: 992
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061a62198f9580b90800000000000000
+      internalID: -7275466273895046816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: oldMan_run_27
       rect:
         serializedVersion: 2
-        x: 518
-        y: 395
-        width: 232
-        height: 372
+        x: 1488
+        y: 1
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -695,10 +821,10 @@ TextureImporter:
       name: oldMan_run_28
       rect:
         serializedVersion: 2
-        x: 748
-        y: 392
-        width: 209
-        height: 369
+        x: 1984
+        y: 1
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -717,10 +843,10 @@ TextureImporter:
       name: oldMan_run_29
       rect:
         serializedVersion: 2
-        x: 980
-        y: 384
-        width: 209
-        height: 374
+        x: 2480
+        y: 1
+        width: 496
+        height: 992
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -735,165 +861,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: oldMan_run_30
-      rect:
-        serializedVersion: 2
-        x: 1191
-        y: 375
-        width: 232
-        height: 372
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc7b835b1cc693080800000000000000
-      internalID: -9207208383957387313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: oldMan_run_31
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 30
-        width: 204
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4da655eeb1cc02280800000000000000
-      internalID: -9070025229189420332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: oldMan_run_32
-      rect:
-        serializedVersion: 2
-        x: 319
-        y: 30
-        width: 192
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe301bc6da5748410800000000000000
-      internalID: 1478435965397697519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: oldMan_run_33
-      rect:
-        serializedVersion: 2
-        x: 561
-        y: 18
-        width: 222
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45ec42be5921ae600800000000000000
-      internalID: 498231143882346068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: oldMan_run_34
-      rect:
-        serializedVersion: 2
-        x: 815
-        y: 13
-        width: 204
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd549bbd445fb9c00800000000000000
-      internalID: 908589425938220509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: oldMan_run_35
-      rect:
-        serializedVersion: 2
-        x: 1070
-        y: 13
-        width: 192
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d58bee44f21f7ae90800000000000000
-      internalID: -7014372709284005795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: oldMan_run_36
-      rect:
-        serializedVersion: 2
-        x: 1311
-        y: 8
-        width: 222
-        height: 364
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a977fd4717473a70800000000000000
-      internalID: 8806585761764178339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d6d31e434cd3fc76b828fd1b257177cd
+    spriteID: 50742cb690b0b4134b1f6c1467c9a0f4
     internalID: 0
     vertices: []
     indices: 
@@ -901,7 +873,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":496.0,"y":992.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       oldMan_run_0: 8636123208865166929
       oldMan_run_1: 8309214721709397596
@@ -927,13 +901,6 @@ TextureImporter:
       oldMan_run_28: -3381156088110235700
       oldMan_run_29: -6963312525018511265
       oldMan_run_3: 6575471403670921723
-      oldMan_run_30: -9207208383957387313
-      oldMan_run_31: -9070025229189420332
-      oldMan_run_32: 1478435965397697519
-      oldMan_run_33: 498231143882346068
-      oldMan_run_34: 908589425938220509
-      oldMan_run_35: -7014372709284005795
-      oldMan_run_36: 8806585761764178339
       oldMan_run_4: 589817642989148458
       oldMan_run_5: 3782095908173398110
       oldMan_run_6: 2571896495848506620
