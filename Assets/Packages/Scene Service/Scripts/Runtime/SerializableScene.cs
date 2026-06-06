@@ -13,6 +13,7 @@ namespace VarelaAloisio.Scenes
         [SerializeField] private SceneAsset scene;
 #endif
         [SerializeField, SerializeReadOnly] private int buildIndex = -1;
+        [field: SerializeField] public bool IsPersistent { get; private set; }
         public int BuildIndex => buildIndex;
         public string Path => buildIndex >= 0
                                   ? SceneUtility.GetScenePathByBuildIndex(buildIndex)

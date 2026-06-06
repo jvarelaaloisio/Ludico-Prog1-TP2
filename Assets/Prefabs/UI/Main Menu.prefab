@@ -429,6 +429,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3122206204575267686}
     m_Modifications:
     - target: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9076200428400322508}
@@ -540,6 +544,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9076200428400322508}
   m_SourcePrefab: {fileID: 100100000, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+--- !u!114 &5973954088170873218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+  m_PrefabInstance: {fileID: 6380802204256672453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503731610398603141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &7903564682430896179 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
@@ -567,6 +582,7 @@ MonoBehaviour:
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: ExitGame
+  button: {fileID: 5973954088170873218}
 --- !u!1001 &6771719305876514791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6968500908840254836, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
       propertyPath: m_MatchWidthOrHeight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
       propertyPath: m_Name
@@ -694,10 +710,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3122206204575267686}
     m_Modifications:
-    - target: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7362362250410448247}
     - target: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EnterGame
@@ -804,14 +816,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7362362250410448247}
+      addedObject: {fileID: 6093941570259732366}
   m_SourcePrefab: {fileID: 100100000, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
 --- !u!1 &4870084149506568484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
   m_PrefabInstance: {fileID: 7861165844136942692}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7362362250410448247
+--- !u!114 &6093941570259732366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -820,23 +832,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 4870084149506568484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cd39da299dc89b75b08df8a75ff88b6, type: 3}
+  m_Script: {fileID: 11500000, guid: de2b18aff377460698fd1afa846e60f7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Ludico.Management.Runtime::Management.GameManager
+  m_EditorClassIdentifier: Ludico.UI.Buttons.Runtime::UI.Buttons.PlayButton
   logger:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
-  logTag: GameManager
-  defaultLevel:
-    reference: {fileID: 11400000, guid: c1b34d4a8c5fe3c57b2e8c1e994cb953, type: 2}
-  gameLevel:
-    reference: {fileID: 11400000, guid: eed24da4b230f55c4a9d591ccf548dce, type: 2}
+  logTag: PlayButton
+  button: {fileID: 7454283068805883683}
 --- !u!224 &6357476662247235218 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
   m_PrefabInstance: {fileID: 7861165844136942692}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7454283068805883683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+  m_PrefabInstance: {fileID: 7861165844136942692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870084149506568484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &8393711183353281212
 PrefabInstance:
   m_ObjectHideFlags: 0

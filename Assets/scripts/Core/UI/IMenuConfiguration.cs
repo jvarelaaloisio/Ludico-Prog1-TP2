@@ -7,7 +7,7 @@ namespace Core.UI
     {
         /// <summary /> Instantiates all buttons into the menu
         /// <param name="parent"></param>
-        /// <param name="SwitchTo"></param>
-        void Setup(Transform parent, Action<string> SwitchTo);
+        /// <param name="switchTo"></param>
+        void Setup(Transform parent, Action<string> switchTo);
     }
 }

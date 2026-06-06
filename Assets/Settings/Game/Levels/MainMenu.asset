@@ -15,10 +15,13 @@ MonoBehaviour:
   <ActiveScene>k__BackingField:
     scene: {fileID: 102900000, guid: 2e54b46812b5e6d9fbbd941a3544c4bb, type: 3}
     buildIndex: 2
+    <IsPersistent>k__BackingField: 0
   immediateBatch:
     <Scenes>k__BackingField:
     - scene: {fileID: 102900000, guid: e5488b9fa3e1b238a98188ed10985c35, type: 3}
       buildIndex: 1
+      <IsPersistent>k__BackingField: 1
     - scene: {fileID: 102900000, guid: 2e54b46812b5e6d9fbbd941a3544c4bb, type: 3}
       buildIndex: 2
+      <IsPersistent>k__BackingField: 1
   deferredBatches: []

@@ -11,7 +11,7 @@ namespace UI
 {
     public class FuryView : MacacoBehaviour
     {
-        [AutoMap(How.GetComponent, When.Reset | When.Awake)]
+        [AutoMap(How.GetComponentInChildren, When.Reset | When.Awake)]
         [SerializeField] private TMP_Text label;
         [SerializeField] private Image furyBarImage;
         [SerializeField] private string labelFormat = "Fury: {0}";
