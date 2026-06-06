@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7373101360937927034
 Transform:
@@ -152,7 +152,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1140964989077136604
 Transform:
@@ -181,12 +181,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8221661431299330137}
   - component: {fileID: 8465889842904501682}
+  - component: {fileID: 1511535741422532635}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8221661431299330137
 Transform:
@@ -262,3 +263,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1511535741422532635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6362217221808436035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53414b6c535d4fc64b37c3216aad82f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Views.Runtime::Views.SetOrderingBasedOnY
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: SetOrderingBasedOnY
+  renderer: {fileID: 8465889842904501682}

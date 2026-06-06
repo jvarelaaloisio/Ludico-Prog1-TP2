@@ -39,11 +39,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background Walls
+    uniqueID: 1501986193
+    locked: 0
+  - name: Floor and wall props
+    uniqueID: 996809515
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Characters
-    uniqueID: 996809515
     locked: 0
   - name: Collisions
     uniqueID: 579299395

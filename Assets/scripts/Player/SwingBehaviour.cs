@@ -48,8 +48,9 @@ namespace Player
                 _lastDirection = rigidBody.linearVelocity;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             if (input)
             {
                 input.action.Disable();

@@ -9,7 +9,7 @@ namespace Views
     {
         private static readonly int TimeProperty = Shader.PropertyToID("_InjectedTime");
         [AutoMap(How.GetComponent, When.Reset | When.OnEnable)]
-        [SerializeField] private Renderer renderer;
+        [SerializeField] private new Renderer renderer;
         
         protected override void OnEnable()
         {

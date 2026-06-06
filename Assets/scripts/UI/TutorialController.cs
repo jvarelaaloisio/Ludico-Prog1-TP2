@@ -7,8 +7,9 @@ namespace UI
     {
         [SerializeField] private GameObject tutorialCanvas;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             ShowTutorial();
         }
 

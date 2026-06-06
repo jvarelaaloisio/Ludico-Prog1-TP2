@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2185478030455856685}
   - component: {fileID: 4464059567138637414}
+  - component: {fileID: 6841663520828894521}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2185478030455856685
 Transform:
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 74078644958333231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91,6 +92,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6841663520828894521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74078644958333231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53414b6c535d4fc64b37c3216aad82f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Views.Runtime::Views.SetOrderingBasedOnY
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: SetOrderingBasedOnY
+  renderer: {fileID: 4464059567138637414}
+  offset: 3
 --- !u!1 &3826932702204539061
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +125,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2320788477145124760
 Transform:
@@ -140,7 +160,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2618486487012954572
 Transform:
@@ -151,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 7968905520359725584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0082, y: -0.3653, z: 0}
+  m_LocalPosition: {x: 0.0082, y: -0.3652998, z: 0}
   m_LocalScale: {x: 0.77081937, y: 0.6251435, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

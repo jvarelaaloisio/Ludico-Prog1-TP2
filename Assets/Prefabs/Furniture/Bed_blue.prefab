@@ -12,10 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed_blue
       objectReference: {fileID: 0}
+    - target: {fileID: 1383682885169055666, guid: b73e6b4486caa39158822a1ea480f7ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4693235107228700791, guid: b73e6b4486caa39158822a1ea480f7ab, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1761099898249480222, guid: 5204aeb1c88caf5a0afbd3b263d5ef0c, type: 3}
+    - target: {fileID: 7951294454850511823, guid: b73e6b4486caa39158822a1ea480f7ab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8896995499976757530, guid: b73e6b4486caa39158822a1ea480f7ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

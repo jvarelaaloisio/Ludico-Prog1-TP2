@@ -5,6 +5,7 @@ using VarelaAloisio.Core;
 
 namespace Views
 {
+    [Obsolete("Use SetOrderingBasedOnY instead")]
     public class WeaponLayerView : MacacoBehaviour
     {
         [Serializable]
@@ -14,7 +15,7 @@ namespace Views
             [field: SerializeField] public float DirectionY { get; private set; }
         }
         [SerializeField] private Ref<IWeapon> weapon;
-        [SerializeField] private SpriteRenderer renderer;
+        [SerializeField] private new SpriteRenderer renderer;
         [SerializeField] private SortingByDirection[] orderings;
 
         protected override void OnEnable()

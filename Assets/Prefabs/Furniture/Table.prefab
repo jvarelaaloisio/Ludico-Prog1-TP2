@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &553956543980322455
 Transform:
@@ -26,8 +26,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.25, y: -1.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7505417260933449007}
   - {fileID: 4897751028599170023}
@@ -43,12 +43,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7505417260933449007}
   - component: {fileID: 5207608989821024974}
+  - component: {fileID: 2669239724748535090}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7505417260933449007
 Transform:
@@ -124,6 +125,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2669239724748535090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392548194461359106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53414b6c535d4fc64b37c3216aad82f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Views.Runtime::Views.SetOrderingBasedOnY
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: SetOrderingBasedOnY
+  renderer: {fileID: 5207608989821024974}
+  offset: 0
 --- !u!1 &5990919286854147439
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +159,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4897751028599170023
 Transform:
@@ -190,6 +210,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.03, y: 1.44}
+  m_Offset: {x: 0.008087628, y: -0.09672247}
+  m_Size: {x: 1.0235325, y: 0.9456429}
   m_Direction: 1

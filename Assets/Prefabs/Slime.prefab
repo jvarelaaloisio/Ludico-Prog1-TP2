@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 6457579622762508909}
   - component: {fileID: 4159834500469892346}
   - component: {fileID: 6678940020782590434}
+  - component: {fileID: 3432267317550141986}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -368,4 +369,23 @@ MonoBehaviour:
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: AddFuryOnDeath
-  furyToAdd: 0.2
+  furyToAdd: 0.1
+--- !u!114 &3432267317550141986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4941262998972508103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53414b6c535d4fc64b37c3216aad82f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Views.Runtime::Views.SetOrderingBasedOnY
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: SetOrderingBasedOnY
+  renderer: {fileID: 9126109054398055513}
+  offset: 0
