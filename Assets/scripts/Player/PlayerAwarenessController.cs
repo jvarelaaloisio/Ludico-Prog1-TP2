@@ -1,4 +1,5 @@
 using Core;
+using HealthSystem.Runtime;
 using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
@@ -13,6 +14,10 @@ public class PlayerAwarenessController : MonoBehaviour
     [SerializeField] private float playerAwarenessDistance = 4f; // distancia a la que el enemy puede ver al player
 
     private Transform player; // referencia al transform del player
+    [SerializeField] private float attackDistance = 2f;
+    [SerializeField] private float attackCooldown = 0.5f;
+    [SerializeField] private float knockback = 10f;
+    private float _lastAttackTime = -1f;
 
     private void Awake()
     {
@@ -43,5 +48,14 @@ public class PlayerAwarenessController : MonoBehaviour
 
         // si la distancia es menor o igual al rango, lo ve
         isAware = sqrDistance <= sqrAwarenessDistance;
+        if (sqrDistance <= attackDistance
+            && _lastAttackTime + attackCooldown <= Time.time
+            && player.TryGetComponent(out IHealthComponent health))
+        {
+            health.TakeDamage(1);
+            if (player.TryGetComponent(out Rigidbody2D rigidbody2D))
+                rigidbody2D.AddForce(DirectionToPlayer * knockback, ForceMode2D.Impulse);
+            _lastAttackTime = Time.time;
+        }
     }
 }
