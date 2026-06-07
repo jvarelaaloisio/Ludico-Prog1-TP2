@@ -33,5 +33,9 @@ namespace Management
             Log($"{amount} fury received. Fury: {Fury} -> {newFury}");
             Fury = newFury;
         }
+        void IFuryManager.ResetFury()
+        {
+            Fury = 0;
+        }
     }
 }

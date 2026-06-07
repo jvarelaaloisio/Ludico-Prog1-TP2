@@ -315,6 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAwarenessController
   playerAwarenessDistance: 4
+  attackDistance: 6
+  attackCooldown: 0.5
+  knockback: 10
 --- !u!114 &4159834500469892346
 MonoBehaviour:
   m_ObjectHideFlags: 0

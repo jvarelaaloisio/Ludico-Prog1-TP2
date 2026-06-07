@@ -22,7 +22,7 @@ namespace UI
         [SerializeField] private float valueAnimationSpeed = 10f;
         [SerializeField] private float aberrationFrequency = 10f;
 
-        [AutoMap(How.Service, When.Start)]
+        [AutoMap(How.Service, When.OnEnable)]
         private IFuryManager _furyManager;
         private Vignette _vignette;
         private LensDistortion _lensDistortion;
@@ -33,27 +33,27 @@ namespace UI
         private float _aberrationTargetValue;
         private float _furyModificationSign;
 
-
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
-
-            if (_furyManager is not null)
-            {
-                _furyManager.OnFuryUpdated += HandleFuryUpdated;
-
-                if (label)
-                    label.SetText(string.Format(labelFormat, _furyManager.Fury));
-
-                if (furyBarImage)
-                    furyBarImage.fillAmount = _furyManager.Fury;
-            }
+            base.Awake();
             if (_globalVolume)
             {
                 _globalVolume.profile.TryGet(out _vignette);
                 _globalVolume.profile.TryGet(out _lensDistortion);
                 _globalVolume.profile.TryGet(out _aberration);
             }
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _furyManager.OnFuryUpdated += HandleFuryUpdated;
+
+            if (label)
+                label.SetText(string.Format(labelFormat, _furyManager.Fury));
+
+            if (furyBarImage)
+                furyBarImage.fillAmount = _furyManager.Fury;
         }
 
         private void Update()
@@ -102,8 +102,7 @@ namespace UI
         protected override void OnDisable()
         {
             base.OnDisable();
-            if (_furyManager is not null)
-                _furyManager.OnFuryUpdated -= HandleFuryUpdated;
+            _furyManager.OnFuryUpdated -= HandleFuryUpdated;
         }
     }
 }
