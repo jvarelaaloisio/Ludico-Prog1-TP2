@@ -2,8 +2,10 @@ using System;
 using System.Threading;
 using Core;
 using Core.Combat;
+using Core.Game;
 using UnityEngine;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Utils;
 
 namespace Characters
 {
@@ -24,13 +26,13 @@ namespace Characters
 
         public void PickUp(IWeapon weapon)
         {
-            weapon.SetOwner(this);
             if (currentWeapon.HasValue)
-                currentWeapon.Value.Release();
+                return;
+            weapon.SetOwner(this);
             currentWeapon.Value = weapon;
         }
 
-        public bool TryAttack()
+        public bool TryStartAttacking()
         {
             if (!currentWeapon.HasValue
                 || currentWeapon.Value.IsOnCooldown)
@@ -38,14 +40,24 @@ namespace Characters
             _attackSource?.Cancel();
             _attackSource?.Dispose();
             _attackSource = new();
-            currentWeapon.Value.Attack(LinkWithDisable(_attackSource.Token));
+            currentWeapon.Value.HoldTrigger(LinkWithDisable(_attackSource.Token));
             return true;
+        }
+
+        public void StopAttacking()
+        {
+            TokenUtils.CancelAndDispose(ref _attackSource);
+            if (HasWeapon)
+                CurrentWeapon.ReleaseTrigger();
         }
 
         public bool TryThrowWeapon()
         {
-            LogError("Not Implemented");
-            return false;
+            if (!HasWeapon)
+                return false;
+
+            CurrentWeapon.Throw(Direction);
+            return true;
         }
 
         public async void Move(CancellationToken token)

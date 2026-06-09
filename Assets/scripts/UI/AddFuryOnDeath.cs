@@ -3,6 +3,7 @@ using UnityEngine;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Attributes;
 using Core;
+using Core.Game;
 using HealthSystem.Runtime.Components;
 
 

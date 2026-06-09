@@ -1,5 +1,6 @@
 using Core;
 using Core.Combat;
+using Core.Game;
 using UnityEngine;
 using VarelaAloisio.Core;
 

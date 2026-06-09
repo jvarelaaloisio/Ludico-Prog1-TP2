@@ -186,6 +186,7 @@ MonoBehaviour:
   - reference: {fileID: 1728358617}
   mainMenuId: Menu_Main_View
   gameplayMenuId: UI_Gameplay
+  loseMenuId: Menu_GameOver
   gameplayLevelName: House
 --- !u!1 &980869937
 GameObject:
@@ -242,6 +243,12 @@ MonoBehaviour:
   logTag: Menu
   <ButtonsParent>k__BackingField: {fileID: 980869938}
   configuration: {fileID: 11400000, guid: 56cf960106a272d4798d9db1710b60ba, type: 2}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1204730710
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +304,75 @@ MonoBehaviour:
   logTag: Menu
   <ButtonsParent>k__BackingField: {fileID: 1204730711}
   configuration: {fileID: 11400000, guid: d7af4c42c7ac55547957c34794e31b64, type: 2}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1587687598}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1488916084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488916086}
+  - component: {fileID: 1488916085}
+  m_Layer: 0
+  m_Name: Gameplay Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1488916085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488916084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6009db065a74b0d9411553d5751b590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.PlaySound
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: PlaySound
+  sound: {fileID: 11400000, guid: bc663d2ff192c320c86707d0c1e12b43, type: 2}
+  avoidPlayingMultipleTimesInParallel: 1
+--- !u!4 &1488916086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488916084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.81317, y: -8.96526, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506894079
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +428,12 @@ MonoBehaviour:
   logTag: Menu
   <ButtonsParent>k__BackingField: {fileID: 1506894080}
   configuration: {fileID: 11400000, guid: acb83297f96a8cd4ba1ffe733e4b3640, type: 2}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1551052248
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +489,63 @@ MonoBehaviour:
   logTag: Menu
   <ButtonsParent>k__BackingField: {fileID: 1551052249}
   configuration: {fileID: 11400000, guid: dbefaaedf33bf914f8df47753bfa3b46, type: 2}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1587687597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1587687599}
+  - component: {fileID: 1587687598}
+  m_Layer: 0
+  m_Name: Menu Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1587687598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587687597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6009db065a74b0d9411553d5751b590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.PlaySound
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: PlaySound
+  sound: {fileID: 11400000, guid: 27b663befd4239e5281903a255df65cc, type: 2}
+  avoidPlayingMultipleTimesInParallel: 1
+--- !u!4 &1587687599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587687597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.81317, y: -8.96526, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728358616
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +582,48 @@ MonoBehaviour:
   logTag: Menu
   <ButtonsParent>k__BackingField: {fileID: 1728358618}
   configuration: {fileID: 11400000, guid: c25ef3e72c6783136b26351390cdeaae, type: 2}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1587687598}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1488916085}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onClose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1488916085}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1728358618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -624,3 +805,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 2039799523}
   - {fileID: 582232000}
+  - {fileID: 1587687599}
+  - {fileID: 1488916086}

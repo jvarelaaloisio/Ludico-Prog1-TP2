@@ -1,5 +1,6 @@
 using System.Threading;
 using Core;
+using Core.Game;
 using HealthSystem.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -104,7 +105,7 @@ namespace Player
         private void HandleAttackInput(InputAction.CallbackContext _)
         {
             if (character.HasValue)
-                character.Value.TryAttack();
+                character.Value.TryStartAttacking();
         }
     }
 }

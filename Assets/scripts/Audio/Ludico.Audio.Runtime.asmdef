@@ -1,0 +1,17 @@
+{
+    "name": "Ludico.Audio.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:48e0a263f230421488517ccf8a70b634",
+        "GUID:5d59c013de547b936b4ef165121034db"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

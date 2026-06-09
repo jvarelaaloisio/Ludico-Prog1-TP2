@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core;
 using Core.Combat;
+using Core.Game;
 using UnityEngine;
 using VarelaAloisio.Core;
 
@@ -13,6 +14,7 @@ namespace Combat
         [SerializeField] private Transform spriteToSwing;
         [SerializeField] private Collider2D damageTrigger;
         [SerializeField] private Collider2D pickUpTrigger;
+        [SerializeField] private new Rigidbody2D rigidbody;
         [SerializeField] private float scale = 1;
         [SerializeField] private float duration = .25f;
         [SerializeField] private float rotationOffset;
@@ -22,11 +24,12 @@ namespace Combat
         [SerializeField] private float triggerDistanceFromOwner = 1f;
         [SerializeField] private float secondsBeforeItCanBePickedUpAgain = .5f;
         [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
+        [SerializeField] private float throwForce = 10;
         public bool IsOnCooldown { get; private set; }
         public event Action<Vector2> OnAttack; 
         [ContextMenu("Swing")]
         private void DoTestRotation()
-            => _ = Attack(DisableCancellationToken);
+            => HoldTrigger(DisableCancellationToken);
 
         protected override void Reset()
         {
@@ -43,7 +46,7 @@ namespace Combat
                 damageTrigger.gameObject.SetActive(false);
         }
 
-        public async Task Attack(CancellationToken token)
+        public async void HoldTrigger(CancellationToken token)
         {
             if (!owner.HasValue)
                 LogError("Need an owner to swing");
@@ -95,6 +98,11 @@ namespace Combat
             }
         }
 
+        public void ReleaseTrigger()
+        {
+            LogError("Not Implemented");
+        }
+
         /// <summary /> This formula converts angles into a rotation offset.
         /// The conversion is based on this table of values:
         /// <p>Direction | Angles | result</p>
@@ -113,12 +121,18 @@ namespace Combat
             transform.SetParent(newOwner.transform);
             transform.SetLocalPositionAndRotation(pickUpOffset, Quaternion.identity);
             pickUpTrigger.gameObject.SetActive(false);
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        public async void Release()
+        public async void Throw(Vector2 direction)
         {
             owner = null;
             transform.SetParent(null);
+            await Awaitable.FixedUpdateAsync();
+            if (DisableCancellationToken.IsCancellationRequested)
+                return;
+            rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            rigidbody.AddForce(direction * throwForce, ForceMode2D.Impulse);
             await Awaitable.WaitForSecondsAsync(secondsBeforeItCanBePickedUpAgain);
             if (!DisableCancellationToken.IsCancellationRequested)
                 pickUpTrigger.gameObject.SetActive(true);

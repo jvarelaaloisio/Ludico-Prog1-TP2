@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events; // con esto manejamos eventos
 using Core;
+using Core.Game;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Attributes;
 

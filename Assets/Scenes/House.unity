@@ -467,6 +467,7 @@ MonoBehaviour:
   logTag: SetOrderingBasedOnY
   renderer: {fileID: 800257976}
   offset: 0
+  precision: 10
 --- !u!212 &800257976 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4602031670231215150, guid: 710fb7a9e90eaae4bb97ae36a7be3482, type: 3}
@@ -2458,7 +2459,7 @@ MonoBehaviour:
   character:
     reference: {fileID: 548487341}
   attackInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  throwInput: {fileID: 0}
+  throwInput: {fileID: -2283882457086168135, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!4 &1125275024
 Transform:
@@ -11844,10 +11845,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5287312425905499549, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
-      propertyPath: owner.reference
-      value: 
-      objectReference: {fileID: 548487341}
     - target: {fileID: 5880501953002490520, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: m_Name
       value: Melee Weapon

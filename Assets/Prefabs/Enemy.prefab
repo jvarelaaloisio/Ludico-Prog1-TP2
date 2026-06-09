@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c80e4700ff04274698365c8fdbae7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageOnTouch
-  damageAmount: 10
-  targetTag: 
+  damage: 0
+  knockbackForce: 100
 --- !u!1 &2732607075530615766
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deca13b06e3a6804b92dcdc7c6f702e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  moveSpeed: 1
+  goalSpeed: 20
+  acceleration: 40
 --- !u!114 &8372143398299921920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,8 +312,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798af16d69f992c4cb63fbea4fbe4341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: 
   maxHealth: 100
   currentHealth: 0
+  furyReward: 0.1
+  enemyTag: Enemy
   OnDamageTaken:
     m_PersistentCalls:
       m_Calls: []
@@ -344,3 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAwarenessController
   playerAwarenessDistance: 4
+  attackDistance: 2
+  attackCooldown: 0.5
+  knockback: 10

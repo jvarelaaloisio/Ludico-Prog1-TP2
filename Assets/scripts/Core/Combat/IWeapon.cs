@@ -1,6 +1,6 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
+using Core.Game;
 using UnityEngine;
 
 namespace Core.Combat
@@ -8,9 +8,10 @@ namespace Core.Combat
     public interface IWeapon
     {
         string name { get; }
-        Task Attack(CancellationToken token);
+        void HoldTrigger(CancellationToken token);
+        void ReleaseTrigger();
         void SetOwner(ICharacter newOwner);
-        void Release();
+        void Throw(Vector2 direction);
         bool IsOnCooldown { get; }
         event Action<Vector2> OnAttack;
     }

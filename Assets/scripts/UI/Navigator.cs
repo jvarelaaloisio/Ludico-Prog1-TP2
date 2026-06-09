@@ -1,5 +1,6 @@
 using System;
 using Core;
+using Core.Game;
 using Core.UI;
 using UnityEngine;
 using VarelaAloisio.Core;
@@ -35,9 +36,21 @@ namespace UI
                 menu.Value.Configuration.Setup(menu.Value.ButtonsParent, SwitchMenu);
             }
 
-            SwitchMenu(mainMenuId);
             _gameManager.OnEnterLevel += HandleEnterLevel;
             _gameManager.OnLose += HandleLose;
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            SwitchMenu(mainMenuId);
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            _gameManager.OnEnterLevel -= HandleEnterLevel;
+            _gameManager.OnLose -= HandleLose;
         }
 
         private void HandleEnterLevel(string levelName)
@@ -54,10 +67,13 @@ namespace UI
             foreach (var menu in menus)
             {
                 if (!menu.HasValue) continue;
-                
+
                 bool isTargetMenu = menu.Value.ButtonsParent.gameObject.name == id;
-                
-                menu.Value.ButtonsParent.gameObject.SetActive(isTargetMenu);
+
+                if (isTargetMenu)
+                    menu.Value.Open();
+                else
+                    menu.Value.Close();
             }
 
             Debug.Log("Changing to menu: " + id);

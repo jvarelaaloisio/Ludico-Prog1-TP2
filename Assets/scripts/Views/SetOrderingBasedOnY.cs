@@ -12,6 +12,9 @@ namespace Views
         [Tooltip("This offset will be added to the final result of the calculation." +
                  "\nUse this to correct any ordering errors that the calculations can't fix.")]
         [SerializeField] private int offset;
+        [Tooltip("How many numbers after the comma for the Y position are taken in account." +
+                 "\ne.g.: If precision is 10, the first decimal is taken into account. If its 100, the first 2 are taken into account and so on.")]
+        [SerializeField] private int precision = 10;
 
         protected override void Start()
         {
@@ -30,6 +33,6 @@ namespace Views
         }
 
         private void SetSortingOrder()
-            => renderer.sortingOrder = (int)(transform.position.y * -10) + offset;
+            => renderer.sortingOrder = (int)(transform.position.y * -precision) + offset;
     }
 }

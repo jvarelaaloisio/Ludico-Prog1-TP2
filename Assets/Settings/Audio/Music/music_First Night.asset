@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111e0d786ff4dad9ca0b2240de92c1f, type: 3}
+  m_Name: music_First Night
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.SoundContainer
+  sequenceMode: 2
+  clips:
+  - {fileID: 8300000, guid: 289dbfa0571b7a344990b7f9020f3e65, type: 3}
+  volume: 0.15
+  minPitch: 1
+  maxPitch: 1
+  loop: 1
+  spatialBlend: 0
+  minDistance: 1
+  maxDistance: 500
+  outputMixer: {fileID: 8028485366288273133, guid: 62d3cbe83145731bf8d9f02a859689d2, type: 2}

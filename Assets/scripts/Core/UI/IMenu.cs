@@ -9,5 +9,7 @@ namespace Core.UI
         GameObject gameObject { get; }
         IMenuConfiguration Configuration { get; }
         Transform ButtonsParent { get; }
+        void Open();
+        void Close();
     }
 }

@@ -363,6 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6423170244262328851}
   - component: {fileID: 5287312425905499549}
+  - component: {fileID: 8830069200327371038}
   m_Layer: 0
   m_Name: Melee Weapon
   m_TagString: Untagged
@@ -408,6 +409,7 @@ MonoBehaviour:
   spriteToSwing: {fileID: 8303468485204763816}
   damageTrigger: {fileID: 7044799822240065097}
   pickUpTrigger: {fileID: 2873258026629596002}
+  rigidbody: {fileID: 8830069200327371038}
   scale: 1
   duration: 0.2
   rotationOffset: 0
@@ -441,6 +443,34 @@ MonoBehaviour:
   triggerDistanceFromOwner: 1
   secondsBeforeItCanBePickedUpAgain: 0.5
   pickUpOffset: {x: -0.45, y: 0.25, z: 0}
+  throwForce: 10
+--- !u!50 &8830069200327371038
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5880501953002490520}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6622735281369567065
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,3 +582,4 @@ MonoBehaviour:
   logTag: SetOrderingBasedOnY
   renderer: {fileID: 4255484390225183934}
   offset: 0
+  precision: 10
