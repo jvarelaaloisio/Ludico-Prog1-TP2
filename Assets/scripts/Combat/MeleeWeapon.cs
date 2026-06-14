@@ -13,7 +13,10 @@ namespace Combat
     {
         [SerializeField] private Transform spriteToSwing;
         [SerializeField] private Collider2D damageTrigger;
+        [SerializeField] private Collider2D thrownDamageTrigger;
         [SerializeField] private Collider2D pickUpTrigger;
+        [Tooltip("The collider for when the weapon is on the ground")]
+        [SerializeField] private Collider2D groundCollider;
         [SerializeField] private new Rigidbody2D rigidbody;
         [SerializeField] private float scale = 1;
         [SerializeField] private float duration = .25f;
@@ -22,6 +25,7 @@ namespace Combat
         [SerializeField] private float cooldown = .25f;
         [SerializeField] private Ref<ICharacter> owner;
         [SerializeField] private float triggerDistanceFromOwner = 1f;
+        [SerializeField] private float secondsBeforeReactivatingCollision = .15f;
         [SerializeField] private float secondsBeforeItCanBePickedUpAgain = .5f;
         [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
         [SerializeField] private float throwForce = 10;
@@ -49,9 +53,15 @@ namespace Combat
         public async void HoldTrigger(CancellationToken token)
         {
             if (!owner.HasValue)
+            {
                 LogError("Need an owner to swing");
+                return;
+            }
             if (!spriteToSwing)
+            {
                 LogError("No sprite to swing.");
+                return;
+            }
             IsOnCooldown = true;
             Vector3 originalPosition = spriteToSwing.localPosition;
             Quaternion originalRotation = spriteToSwing.localRotation;
@@ -121,21 +131,34 @@ namespace Combat
             transform.SetParent(newOwner.transform);
             transform.SetLocalPositionAndRotation(pickUpOffset, Quaternion.identity);
             pickUpTrigger.gameObject.SetActive(false);
+            groundCollider.gameObject.SetActive(false);
+            thrownDamageTrigger.gameObject.SetActive(false);
+            rigidbody.linearVelocity = Vector3.zero;
+            rigidbody.angularVelocity = 0;
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
         public async void Throw(Vector2 direction)
         {
-            owner = null;
+            owner.Value = null;
             transform.SetParent(null);
+            thrownDamageTrigger.gameObject.SetActive(true);
+
             await Awaitable.FixedUpdateAsync();
             if (DisableCancellationToken.IsCancellationRequested)
                 return;
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             rigidbody.AddForce(direction * throwForce, ForceMode2D.Impulse);
-            await Awaitable.WaitForSecondsAsync(secondsBeforeItCanBePickedUpAgain);
-            if (!DisableCancellationToken.IsCancellationRequested)
-                pickUpTrigger.gameObject.SetActive(true);
+
+            await Awaitable.WaitForSecondsAsync(secondsBeforeReactivatingCollision);
+            if (DisableCancellationToken.IsCancellationRequested)
+                return;
+            groundCollider.gameObject.SetActive(true);
+
+            await Awaitable.WaitForSecondsAsync(secondsBeforeItCanBePickedUpAgain - secondsBeforeReactivatingCollision);
+            if (DisableCancellationToken.IsCancellationRequested)
+                return;
+            pickUpTrigger.gameObject.SetActive(true);
         }
     }
 }

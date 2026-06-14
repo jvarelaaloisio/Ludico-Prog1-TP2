@@ -16,7 +16,7 @@ namespace Player
         [SerializeField] private InputActionReference attackInput;
         [SerializeField] private InputActionReference throwInput;
         [SerializeField] private InputActionReference moveInput;
-        [AutoMap(How.Service, When.Awake)]
+        [AutoMap(How.Service, When.Awake, OnError.Ignore)]
         private IGameManager _gameManager;
         private CancellationTokenSource _moveSource = null;
         protected override void OnEnable()
@@ -54,7 +54,7 @@ namespace Player
         }
 
         private void HandleDeath()
-            => _gameManager.HandlePlayerDeath();
+            => _gameManager?.HandlePlayerDeath();
 
         private void HandleThrowInput(InputAction.CallbackContext data)
         {

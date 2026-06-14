@@ -232,7 +232,7 @@ namespace VarelaAloisio.Core
                 logger.LogError(logTag,
                                 $"Member {member.Name.Colored(color)} {"not found".Colored(Color.darkRed)} via {attr.How.Colored(color)} at {attr.When.Colored(color)}",
                                 this);
-                switch (attr.OnError)
+                switch (attr.OnNotFound)
                 {
                     case OnError.DisableComponent:
                         logger.LogWarning(logTag, $"Disabling {name.Colored(color)}.{GetType().Name.Colored(color)}.", this);
@@ -240,6 +240,8 @@ namespace VarelaAloisio.Core
                         break;
                     case OnError.ThrowException:
                         throw new Exception($"Failed to map {name}.{GetType().Name}.{member.Name}");
+                    case OnError.Ignore:
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

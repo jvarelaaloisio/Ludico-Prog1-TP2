@@ -567,6 +567,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Cycle Camera Mode Cheat",
+                    "type": "Button",
+                    "id": "361a335a-0b02-42d5-8221-8af1fc1c85fc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -996,6 +1005,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "309476b3-86dd-493a-bce8-a37c5f184c7d",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cycle Camera Mode Cheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

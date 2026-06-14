@@ -20,6 +20,7 @@ namespace VarelaAloisio.Core.Attributes
     [Flags]
     public enum OnError
     {
+        Ignore = 0,
         DisableComponent = 1,
         ThrowException = 2,
     }
@@ -27,15 +28,15 @@ namespace VarelaAloisio.Core.Attributes
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, Inherited = true, AllowMultiple = false)]
     public sealed class AutoMap : Attribute
     {
-        public AutoMap(How how, When when, OnError onError = OnError.DisableComponent)
+        public AutoMap(How how, When when, OnError onNotFound = OnError.DisableComponent)
         {
             How = how;
             When = when;
-            OnError = onError;
+            OnNotFound = onNotFound;
         }
 
         public How How { get; }
         public When When { get; }
-        public OnError OnError { get; }
+        public OnError OnNotFound { get; }
     }
 }

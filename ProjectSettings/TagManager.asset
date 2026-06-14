@@ -14,9 +14,9 @@ TagManager:
   - UI
   - Collision
   - PickUps
-  - 
-  - 
-  - 
+  - Throwables ground collision
+  - Player Collision
+  - Enemies
   - 
   - 
   - 

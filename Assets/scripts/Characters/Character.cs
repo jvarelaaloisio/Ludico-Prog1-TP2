@@ -56,7 +56,9 @@ namespace Characters
             if (!HasWeapon)
                 return false;
 
+            TokenUtils.CancelAndDispose(ref _attackSource);
             CurrentWeapon.Throw(Direction);
+            currentWeapon.Value = null;
             return true;
         }
 

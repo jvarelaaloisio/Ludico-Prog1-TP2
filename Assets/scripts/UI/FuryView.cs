@@ -1,3 +1,4 @@
+using System;
 using Core;
 using Core.Game;
 using TMPro;
@@ -16,7 +17,6 @@ namespace UI
         [SerializeField] private TMP_Text label;
         [SerializeField] private Image furyBarImage;
         [SerializeField] private string labelFormat = "Fury: {0}";
-        [SerializeField] private Volume _globalVolume;
         [SerializeField] private float maxVignetteIntensity = 0.8f;
         [SerializeField] private float maxLensDistortion = -0.7f;
         [SerializeField] private float maxChromaticAberration = 0.5f;
@@ -34,15 +34,28 @@ namespace UI
         private float _aberrationTargetValue;
         private float _furyModificationSign;
 
-        protected override void Awake()
+        protected override async void Start()
         {
-            base.Awake();
-            if (_globalVolume)
+            try
             {
-                _globalVolume.profile.TryGet(out _vignette);
-                _globalVolume.profile.TryGet(out _lensDistortion);
-                _globalVolume.profile.TryGet(out _aberration);
+                base.Start();
+
+                Camera camera;
+                while (!Service.TryGet(out camera)
+                       && !DisableCancellationToken.IsCancellationRequested)
+                    await Awaitable.NextFrameAsync();
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+
+                var globalVolume = camera?.GetComponentInChildren<Volume>();
+                if (!globalVolume)
+                    return;
+
+                globalVolume.profile.TryGet(out _vignette);
+                globalVolume.profile.TryGet(out _lensDistortion);
+                globalVolume.profile.TryGet(out _aberration);
             }
+            catch (Exception e) { LogException(e); }
         }
 
         protected override void OnEnable()
@@ -55,6 +68,7 @@ namespace UI
 
             if (furyBarImage)
                 furyBarImage.fillAmount = _furyManager.Fury;
+            HandleFuryUpdated(_furyManager.Fury, _furyManager.Fury);
         }
 
         private void Update()
