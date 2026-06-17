@@ -2,8 +2,10 @@ using System;
 using System.Threading;
 using Core.Combat;
 using Core.Game;
+using HealthSystem.Runtime;
 using UnityEngine;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Attributes;
 using VarelaAloisio.Core.Extensions;
 using VarelaAloisio.Core.Utils;
 
@@ -13,6 +15,8 @@ namespace Characters
     {
         [SerializeField] private Ref<IWeapon> currentWeapon;
         [SerializeField] private Ref<IKnockbackHandler> knockbackHandler;
+        [AutoMap(How.GetComponentInChildren, When.Reset | When.Awake, OnError.Ignore)]
+        [SerializeField] private Ref<IHealthComponent> healthComponent;
         [Header("Movement")]
         [SerializeField] private float goalSpeed = 30;
         [SerializeField] private float acceleration = 60;
@@ -20,12 +24,18 @@ namespace Characters
         [SerializeField] private float brakeMultiplier = .85f;
 
         private CancellationTokenSource _attackSource;
-        private bool _isStunned;
         public event Action<IWeapon> OnPickUp;
         public event Action<IWeapon> OnThrow;
+        /// <inheritdoc />
+        public event Action OnStun;
+        /// <inheritdoc />
+        public event Action OnRecovery;
+        /// <inheritdoc />
+        public bool IsStunned { get; private set; }
         public Vector2 Direction { get; set; } = Vector2.down;
         public IWeapon CurrentWeapon => currentWeapon.HasValue ? currentWeapon.Value : null;
         public bool HasWeapon => currentWeapon.HasValue;
+        public IHealthComponent HealthComponent => healthComponent.Value;
 
         protected override void Reset()
         {
@@ -40,7 +50,7 @@ namespace Characters
         protected override void OnEnable()
         {
             base.OnEnable();
-            _isStunned = false;
+            IsStunned = false;
         }
 
         public void PickUp(IWeapon weapon)
@@ -54,7 +64,7 @@ namespace Characters
 
         public bool TryStartAttacking()
         {
-            if (_isStunned
+            if (IsStunned
                 || !currentWeapon.HasValue
                 || currentWeapon.Value.IsOnCooldown)
                 return false;
@@ -74,7 +84,7 @@ namespace Characters
 
         public bool TryThrowWeapon()
         {
-            if (_isStunned
+            if (IsStunned
                 || !HasWeapon)
                 return false;
 
@@ -92,7 +102,7 @@ namespace Characters
                 CancellationTokenRegistration registration = token.Register(Brake);
                 while (!token.IsCancellationRequested)
                 {
-                    if (!_isStunned)
+                    if (!IsStunned)
                     {
                         Vector2 currentVelocity = rigidBody.linearVelocity;
                         if (Vector2.Angle(currentVelocity, Direction) > 45)
@@ -117,9 +127,11 @@ namespace Characters
             {
                 if (knockbackHandler.HasValue)
                     knockbackHandler.Value.Handle(direction, 1);
-                _isStunned = true;
+                IsStunned = true;
+                OnStun?.Invoke();
                 await Awaitable.WaitForSecondsAsync(duration);
-                _isStunned = false;
+                IsStunned = false;
+                OnRecovery?.Invoke();
             }
             catch (Exception e) { LogException(e); }
         }

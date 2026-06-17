@@ -8,7 +8,7 @@ namespace Management
     [Service(typeof(ICharacterRepository))]
     public class CharacterRepository : MacacoBehaviour, ICharacterRepository
     {
-        private Dictionary<string, ICharacter> _characters;
+        private readonly Dictionary<string, ICharacter> _characters = new ();
         public void AddCharacter(ICharacter character, string id)
             => _characters[id] = character;
 

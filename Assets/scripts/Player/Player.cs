@@ -29,7 +29,8 @@ namespace Player
             if (attackInput)
             {
                 attackInput.action.Enable();
-                attackInput.action.performed += HandleAttackInput;
+                attackInput.action.started += HandleAttackInputStarted;
+                attackInput.action.canceled += HandleAttackInputCanceled;
             }
 
             if (throwInput)
@@ -104,14 +105,21 @@ namespace Player
             if (attackInput)
             {
                 attackInput.action.Disable();
-                attackInput.action.performed -= HandleAttackInput;
+                attackInput.action.started -= HandleAttackInputStarted;
+                attackInput.action.canceled -= HandleAttackInputCanceled;
             }
         }
 
-        private void HandleAttackInput(InputAction.CallbackContext _)
+        private void HandleAttackInputStarted(InputAction.CallbackContext _)
         {
             if (character.HasValue)
                 character.Value.TryStartAttacking();
+        }
+
+        private void HandleAttackInputCanceled(InputAction.CallbackContext _)
+        {
+            if (character.HasValue)
+                character.Value.StopAttacking();
         }
     }
 }

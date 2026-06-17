@@ -152,13 +152,12 @@ namespace VarelaAloisio.Core
                 LogError($"Seems {nameof(SetupAutomapFields)} wasn't called correctly. Are you overriding Awake without calling base?");
                 return;
             }
+
             foreach ((FieldInfo field, AutoMap attr) in _autoMappedFields.Where(FieldIsAtMoment))
-                if (!TryMapField(field, attr))
-                    return;
+                TryMapField(field, attr);
 
             foreach ((PropertyInfo field, AutoMap attr) in _autoMappedProperties.Where(PropertyIsAtMoment))
-                if(!TryMapProperty(field, attr))
-                    return;
+                TryMapProperty(field, attr);
             return;
 
             bool FieldIsAtMoment((FieldInfo _, AutoMap attr) field)
@@ -176,6 +175,9 @@ namespace VarelaAloisio.Core
             if (isRef)
             {
                 PropertyInfo valueProp = info.FieldType.GetProperty("Value");
+                if (valueProp is null)
+                    return false;
+
                 object refTarget = info.GetValue(this);
 
             #region Construct ref if it is null
@@ -187,10 +189,25 @@ namespace VarelaAloisio.Core
                 }
 
             #endregion
-                valueProp?.SetMethod?.Invoke(refTarget, new[] { obj });
+
+            #region Assign only if there is no value set already
+
+                object currentValue = valueProp.GetValue(refTarget);
+                if (currentValue is null)
+                    valueProp.SetValue(refTarget, obj);
+
+            #endregion
             }
             else
-                info.SetValue(this, obj);
+            {
+            #region Assign only if there is no value set already
+
+                object currentValue = info.GetValue(this);
+                if (currentValue is null)
+                    info.SetValue(this, obj);
+
+            #endregion
+            }
 
             return true;
         }
@@ -208,10 +225,47 @@ namespace VarelaAloisio.Core
             if (isRef)
             {
                 PropertyInfo valueProp = info.PropertyType.GetProperty("Value", BindingFlags.NonPublic | BindingFlags.Instance);
-                valueProp?.SetMethod?.Invoke(obj, new[] { obj });
+                if (valueProp is null)
+                    return false;
+
+                if (!info.CanRead)
+                {
+                    valueProp?.SetMethod?.Invoke(obj, new[] { obj });
+                    return true;
+                }
+
+                object refTarget = info.GetValue(this);
+
+            #region Construct ref if it is null
+
+                if (refTarget is null)
+                {
+                    refTarget = Activator.CreateInstance(info.PropertyType);
+                    info.SetValue(this, refTarget);
+                }
+
+            #endregion
+
+            #region Assign only if there is no value set already
+
+                object currentValue = valueProp.GetValue(refTarget);
+
+                if (currentValue is null)
+                    valueProp.SetValue(refTarget, obj);
+
+            #endregion
             }
             else
-                setter?.Invoke(this, new[] { obj });
+            {
+            #region Assign only if there is no value set already
+
+                object currentValue = info.GetValue(this);
+
+                if (currentValue is null)
+                    setter?.Invoke(this, new[] { obj });
+
+            #endregion
+            }
 
             return true;
         }

@@ -52,7 +52,19 @@ MonoBehaviour:
   setupInAwake: 1
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3074324980699418694}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHeal:
     m_PersistentCalls:
       m_Calls:
@@ -75,6 +87,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Views.HealthLabel, Ludico.Views.Runtime
         m_MethodName: HandleOnDamage
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 262805944958376458}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -179,6 +203,57 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!1 &693969431925410576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3173734357131398036}
+  - component: {fileID: 3074324980699418694}
+  m_Layer: 0
+  m_Name: Death Sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3173734357131398036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693969431925410576}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.682039, y: 15.66191, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2722391669782138479}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3074324980699418694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693969431925410576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6009db065a74b0d9411553d5751b590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.PlaySound
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: PlaySound
+  sound: {fileID: 11400000, guid: 82c695a266a31be3882353343a393280, type: 2}
+  avoidPlayingMultipleTimesInParallel: 0
 --- !u!1 &1972482017883350990
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +353,8 @@ Transform:
   - {fileID: 1830919778296450455}
   - {fileID: 1598545003097111041}
   - {fileID: 3916669646425794946}
+  - {fileID: 2047133443021901132}
+  - {fileID: 3173734357131398036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6802928025236528362
@@ -384,6 +461,7 @@ GameObject:
   - component: {fileID: 218181890406032673}
   - component: {fileID: 4925577129961949734}
   - component: {fileID: 3491095191656400984}
+  - component: {fileID: 3439560963847684482}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -511,7 +589,7 @@ MonoBehaviour:
   isMovingParameter:
     <Name>k__BackingField: isWalking
   isAttackingParameter:
-    <Name>k__BackingField: isAttacking
+    <Name>k__BackingField: Attack
   velocityXParameter:
     <Name>k__BackingField: directionX
   velocityYParameter:
@@ -537,6 +615,28 @@ MonoBehaviour:
   renderer: {fileID: 4602031670231215150}
   offset: 0
   precision: 10
+--- !u!114 &3439560963847684482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773795686105607435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ea6175752d44a7b2e1444dc0971f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Views.Runtime::Views.StunnableMaterialView
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: StunnableMaterialView
+  stunnable:
+    reference: {fileID: 8480614288270814573}
+  renderer: {fileID: 4602031670231215150}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  stunnedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &3278367097213094118
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +766,57 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!1 &3449873571745972347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2047133443021901132}
+  - component: {fileID: 262805944958376458}
+  m_Layer: 0
+  m_Name: Hit Sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2047133443021901132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449873571745972347}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.682039, y: 15.66191, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2722391669782138479}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262805944958376458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449873571745972347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6009db065a74b0d9411553d5751b590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.PlaySound
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: PlaySound
+  sound: {fileID: 11400000, guid: 60eb71e51aa3c46dc9dbccae98fad5bb, type: 2}
+  avoidPlayingMultipleTimesInParallel: 0
 --- !u!1 &3913244080712114914
 GameObject:
   m_ObjectHideFlags: 0

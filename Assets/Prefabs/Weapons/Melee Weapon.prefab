@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &719947797744224405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2079137425863659920}
+  - component: {fileID: 8965934805307249419}
+  m_Layer: 0
+  m_Name: Slash Sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2079137425863659920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719947797744224405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.71655524, w: 0.6975304}
+  m_LocalPosition: {x: -10.458078, y: -16.567348, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6423170244262328851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8965934805307249419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719947797744224405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6009db065a74b0d9411553d5751b590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.PlaySound
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: PlaySound
+  sound: {fileID: 0}
+  avoidPlayingMultipleTimesInParallel: 0
 --- !u!1 &1099839962282373249
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Ludico.Player.Runtime::DamageOnTouch
   damage: 2
-  knockbackForce: 10
   onlyDamageOnceAfterEnable: 1
   onDamage:
     m_PersistentCalls:
@@ -202,6 +252,57 @@ Transform:
   - {fileID: 7073001351123141384}
   m_Father: {fileID: 6423170244262328851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3087320891290059121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6924663870701010501}
+  - component: {fileID: 8233397424771110757}
+  m_Layer: 0
+  m_Name: Prepare Sfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6924663870701010501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087320891290059121}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.71655524, w: 0.6975304}
+  m_LocalPosition: {x: -10.458078, y: -16.567348, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6423170244262328851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8233397424771110757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087320891290059121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6009db065a74b0d9411553d5751b590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.PlaySound
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: PlaySound
+  sound: {fileID: 0}
+  avoidPlayingMultipleTimesInParallel: 0
 --- !u!1 &3149096067466825188
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,12 +511,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 579299395
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3713643351917670626, guid: 88eec46ae80ccc4d2badf7e9de0eafe3, type: 3}
-  m_Color: {r: 0.4, g: 0.078431375, b: 0.078431375, a: 1}
+  m_Color: {r: 0.2, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -522,7 +623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Ludico.Player.Runtime::DamageOnTouch
   damage: 1
-  knockbackForce: 15
   onlyDamageOnceAfterEnable: 1
   onDamage:
     m_PersistentCalls:
@@ -702,6 +802,8 @@ Transform:
   - {fileID: 5276555208086271676}
   - {fileID: 9006332637479359031}
   - {fileID: 3734810024501711447}
+  - {fileID: 6924663870701010501}
+  - {fileID: 2079137425863659920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -51.445}
 --- !u!114 &5287312425905499549
@@ -758,11 +860,42 @@ MonoBehaviour:
   owner:
     reference: {fileID: 0}
   triggerDistanceFromOwner: 1
+  stunDuration: 0.5
   secondsBeforeReactivatingCollision: 0.15
   secondsBeforeItCanBePickedUpAgain: 0.5
   pickUpOffset: {x: -0.45, y: 0.25, z: 0}
   throwForce: 20
   throwTorque: 5
+  onPrepareAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8233397424771110757}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8965934805307249419}
+        m_TargetAssemblyTypeName: Audio.PlaySound, Ludico.Audio.Runtime
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &8830069200327371038
 Rigidbody2D:
   serializedVersion: 5

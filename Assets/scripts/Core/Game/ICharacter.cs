@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Core.Combat;
+using HealthSystem.Runtime;
 using UnityEngine;
 
 namespace Core.Game
@@ -12,6 +13,7 @@ namespace Core.Game
         Vector2 Direction { get; set; }
         IWeapon CurrentWeapon { get; }
         bool HasWeapon { get; }
+        IHealthComponent HealthComponent { get; }
         void PickUp(IWeapon weapon);
         bool TryStartAttacking();
         bool TryThrowWeapon();

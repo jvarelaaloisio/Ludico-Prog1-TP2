@@ -18,7 +18,8 @@ namespace Audio
         public void Play()
         {
             if (_currentPlayer is { IsFree: false }
-                && avoidPlayingMultipleTimesInParallel)
+                && avoidPlayingMultipleTimesInParallel
+                || !sound)
                 return;
             Log($"Playing {sound.name}");
             _currentPlayer = _audioManager.Play(sound);

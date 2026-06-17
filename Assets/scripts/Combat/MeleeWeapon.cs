@@ -3,7 +3,10 @@ using System.Threading;
 using Core.Combat;
 using Core.Game;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.XR;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Utils;
 
 namespace Combat
 {
@@ -23,16 +26,28 @@ namespace Combat
         [SerializeField] private float cooldown = .25f;
         [SerializeField] private Ref<ICharacter> owner;
         [SerializeField] private float triggerDistanceFromOwner = 1f;
+        [SerializeField] private float  stunDuration = .5f;
         [SerializeField] private float secondsBeforeReactivatingCollision = .15f;
         [SerializeField] private float secondsBeforeItCanBePickedUpAgain = .5f;
         [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
         [SerializeField] private float throwForce = 10;
         [SerializeField] private float throwTorque = 10;
+        [SerializeField] private UnityEvent onPrepareAttack;
+        [SerializeField] private UnityEvent onDoAttack;
+        private CancellationTokenSource _attackTokenSource;
+        private float _currentCharge = float.NaN;
         public bool IsOnCooldown { get; private set; }
-        public event Action<Vector2> OnAttack; 
+        public event Action<Vector2> OnAttack;
         [ContextMenu("Swing")]
         private void DoTestRotation()
             => HoldTrigger(DisableCancellationToken);
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (damageTrigger)
+                damageTrigger.OnHit += HandleHit;
+        }
 
         protected override void Start()
         {
@@ -41,8 +56,27 @@ namespace Combat
                 damageTrigger.gameObject.SetActive(false);
         }
 
-        public async void HoldTrigger(CancellationToken token)
+        protected override void OnDisable()
         {
+            base.OnDisable();
+            if (damageTrigger)
+                damageTrigger.OnHit -= HandleHit;
+        }
+
+        public void HoldTrigger(CancellationToken token)
+        {
+            OnAttack?.Invoke(owner.Value.Direction);
+            onPrepareAttack.Invoke();
+            _currentCharge = 0;
+        }
+
+        public async void ReleaseTrigger()
+        {
+            if(float.IsNaN(_currentCharge)
+               || IsOnCooldown)
+                return;
+            _attackTokenSource = new CancellationTokenSource();
+            CancellationToken token = LinkWithDisable(_attackTokenSource.Token);
             if (!owner.HasValue)
             {
                 LogError("Need an owner to swing");
@@ -63,7 +97,7 @@ namespace Combat
                                                    + (Vector3)(owner.Value.Direction * triggerDistanceFromOwner);
                 damageTrigger.transform.up = owner.Value.Direction;
             }
-            OnAttack?.Invoke(owner.Value.Direction);
+            onDoAttack.Invoke();
             CancellationTokenRegistration registration = token.Register(CleanUp);
             const float pi = Mathf.PI;
             float now = Time.time;
@@ -99,11 +133,6 @@ namespace Combat
             }
         }
 
-        public void ReleaseTrigger()
-        {
-            LogError("Not Implemented");
-        }
-
         /// <summary /> This formula converts angles into a rotation offset.
         /// The conversion is based on this table of values:
         /// <p>Direction | Angles | result</p>
@@ -132,6 +161,7 @@ namespace Combat
 
         public async void Throw(Vector2 direction)
         {
+            TokenUtils.CancelAndDispose(ref _attackTokenSource);
             owner.Value = null;
             transform.SetParent(null);
             thrownDamageTrigger.gameObject.SetActive(true);
@@ -162,6 +192,33 @@ namespace Combat
                 if (owner.HasValue)
                     damageTrigger.dontDamageTags.Remove(owner.Value.gameObject.tag);
             }
+        }
+
+        private async void HandleHit(Collider2D other)
+        {
+            try
+            {
+                if (!owner.HasValue)
+                {
+                    LogError($"{nameof(HandleHit)} called without an owner set");
+                    return;
+                }
+                if (!other.transform.TryGetComponent(out IStunnable stunnable)
+                    && (!other.transform.parent
+                        || !other.transform.parent.TryGetComponent(out stunnable)))
+                {
+                    Debug.LogWarning($"Neither attack target ({other.name}) nor it's parent has an {nameof(IStunnable)} component.");
+                    return;
+                }
+
+                Vector2 direction = (other.transform.position - owner.Value.transform.position).normalized;
+                await Awaitable.FixedUpdateAsync();
+                if (destroyCancellationToken.IsCancellationRequested)
+                    return;
+                stunnable.Stun(stunDuration, direction);
+                Debug.DrawRay(other.transform.position, direction, Color.yellow);
+            }
+            catch (Exception e) { LogException(e); }
         }
     }
 }

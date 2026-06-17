@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111e0d786ff4dad9ca0b2240de92c1f, type: 3}
+  m_Name: sfx_player hit
+  m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.SoundContainer
+  sequenceMode: 1
+  clips:
+  - {fileID: 8300000, guid: d57621f4f569bdf48b2804a554a39614, type: 3}
+  - {fileID: 8300000, guid: ba1d145c3c246c641beede2c7ea89213, type: 3}
+  - {fileID: 8300000, guid: 35914e75b9e7d394db5d7ff465788a0d, type: 3}
+  volume: 0.25
+  minPitch: 0.75
+  maxPitch: 1.25
+  loop: 0
+  spatialBlend: 0
+  minDistance: 1
+  maxDistance: 500
+  outputMixer: {fileID: 1615188019940073181, guid: 62d3cbe83145731bf8d9f02a859689d2, type: 2}

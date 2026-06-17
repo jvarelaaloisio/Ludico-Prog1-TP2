@@ -12,19 +12,22 @@ namespace Views
         [SerializeField] private Animator animator;
         [Header("Animation ids")]
         [SerializeField] private AnimatorParameter isMovingParameter = new("isWalking");
-        [SerializeField] private AnimatorParameter isAttackingParameter = new("isAttacking");
+        [SerializeField] private AnimatorParameter isAttackingParameter = new("Attack");
         [SerializeField] private AnimatorParameter velocityXParameter = new("directionX");
         [SerializeField] private AnimatorParameter velocityYParameter = new("directionY");
         [SerializeField] private float minVelocityToMove = 0.25f;
+        private IStunnable _stunnable;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            if (character.HasValue)
-            {
-                character.Value.OnPickUp += HandleWeaponPickedUp;
-                character.Value.OnThrow += HandleWeaponThrown;
-            }
+            if (!character.HasValue)
+                return;
+
+            character.Value.OnPickUp += HandleWeaponPickedUp;
+            character.Value.OnThrow += HandleWeaponThrown;
+            if (character.Value is IStunnable stunnable)
+                _stunnable = stunnable;
         }
 
         private void Update()
@@ -33,13 +36,15 @@ namespace Views
                 || !rigidBody)
                 return;
 
-            Vector2 direction = character.Value.Direction;
-            velocityXParameter.SetFloat(animator, direction.x);
-            velocityYParameter.SetFloat(animator, direction.y);
+            if (_stunnable is null or {IsStunned: false})
+            {
+                Vector2 direction = character.Value.Direction;
+                velocityXParameter.SetFloat(animator, direction.x);
+                velocityYParameter.SetFloat(animator, direction.y);
+            }
 
             bool isWalking = rigidBody.linearVelocity.magnitude > minVelocityToMove;
             isMovingParameter.SetBool(animator, isWalking);
-
         }
 
         protected override void OnDisable()

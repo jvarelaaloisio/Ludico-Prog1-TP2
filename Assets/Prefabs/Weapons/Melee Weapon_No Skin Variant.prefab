@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &51654722898497038
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4255484390225183934, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_SortingOrder
+      value: 147
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880501953002490520, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5880501953002490520, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_Name
+      value: Melee Weapon_No Skin Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.905
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423170244262328851, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6622735281369567065, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233397424771110757, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 11400000, guid: fdd740d563e4c8be1bbbfcd4fe70113e, type: 2}
+    - target: {fileID: 8965934805307249419, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 11400000, guid: a20988c9b701ad7bbbca36b62731be8f, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}

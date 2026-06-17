@@ -296,6 +296,182 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49e3d018db0380d0b706360fdc094a2
+      internalID: 1384370998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a511f55a2e31a4d6cb491fbd9e45cb9b
+      internalID: -674529675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_10
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5475434e22d9cd9d196afde8ff0bf95d
+      internalID: -572743135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_11
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b575393b1ff5ea78325cdd88865f5f
+      internalID: -514469474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_12
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1105cdbf1b3dd8d926ef97244f1172
+      internalID: -1569893561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_13
+      rect:
+        serializedVersion: 2
+        x: 3100
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244609b72ae5cdb6e813eb1ef1a75a94
+      internalID: 472627457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_14
+      rect:
+        serializedVersion: 2
+        x: 3720
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15bfe1bcc4cf483a80bd682a924a7a4
+      internalID: 768106085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_demon_back_15
+      rect:
+        serializedVersion: 2
+        x: 4340
+        y: 3721
+        width: 620
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59151f6832c8ed0c29996758475708d1
+      internalID: -354216884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -316,12 +492,20 @@ TextureImporter:
     nameFileIdTable:
       chicken_demon_back_0: -1194596292
       chicken_demon_back_1: 139940640
+      chicken_demon_back_10: -572743135
+      chicken_demon_back_11: -514469474
+      chicken_demon_back_12: -1569893561
+      chicken_demon_back_13: 472627457
+      chicken_demon_back_14: 768106085
+      chicken_demon_back_15: -354216884
       chicken_demon_back_2: -958826926
       chicken_demon_back_3: -1768175579
       chicken_demon_back_4: 1400868711
       chicken_demon_back_5: -1863447768
       chicken_demon_back_6: -1636601581
       chicken_demon_back_7: 71518384
+      chicken_demon_back_8: 1384370998
+      chicken_demon_back_9: -674529675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

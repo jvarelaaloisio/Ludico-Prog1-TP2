@@ -17,8 +17,10 @@ namespace Combat
             try
             {
                 await Awaitable.FixedUpdateAsync();
-                if (!DisableCancellationToken.IsCancellationRequested && rigidbody)
-                    rigidbody.AddForce(direction * force * forceMultiplier, ForceMode2D.Impulse);
+                if (DisableCancellationToken.IsCancellationRequested || !rigidbody)
+                    return;
+                rigidbody.AddForce(direction * force * forceMultiplier, ForceMode2D.Impulse);
+                DrawRay(rigidbody.position, direction * force * forceMultiplier, Color.red);
             }
             catch (Exception e) { LogException(e); }
         }
