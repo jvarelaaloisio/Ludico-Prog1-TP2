@@ -1,7 +1,5 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
-using Core;
 using Core.Combat;
 using Core.Game;
 using UnityEngine;
@@ -12,7 +10,7 @@ namespace Combat
     public class MeleeWeapon : MacacoBehaviour, IWeapon
     {
         [SerializeField] private Transform spriteToSwing;
-        [SerializeField] private Collider2D damageTrigger;
+        [SerializeField] private DamageWithKnockback damageTrigger;
         [SerializeField] private Collider2D thrownDamageTrigger;
         [SerializeField] private Collider2D pickUpTrigger;
         [Tooltip("The collider for when the weapon is on the ground")]
@@ -29,19 +27,12 @@ namespace Combat
         [SerializeField] private float secondsBeforeItCanBePickedUpAgain = .5f;
         [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
         [SerializeField] private float throwForce = 10;
+        [SerializeField] private float throwTorque = 10;
         public bool IsOnCooldown { get; private set; }
         public event Action<Vector2> OnAttack; 
         [ContextMenu("Swing")]
         private void DoTestRotation()
             => HoldTrigger(DisableCancellationToken);
-
-        protected override void Reset()
-        {
-            base.Reset();
-            damageTrigger = GetComponent<Collider2D>();
-            damageTrigger ??= gameObject.AddComponent<BoxCollider2D>();
-            damageTrigger.isTrigger = true;
-        }
 
         protected override void Start()
         {
@@ -136,6 +127,7 @@ namespace Combat
             rigidbody.linearVelocity = Vector3.zero;
             rigidbody.angularVelocity = 0;
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            damageTrigger.dontDamageTags.Add(newOwner.gameObject.tag);
         }
 
         public async void Throw(Vector2 direction)
@@ -143,12 +135,14 @@ namespace Combat
             owner.Value = null;
             transform.SetParent(null);
             thrownDamageTrigger.gameObject.SetActive(true);
+            CancellationTokenRegistration cleanUpRegistration = DisableCancellationToken.Register(CleanUp);
 
             await Awaitable.FixedUpdateAsync();
             if (DisableCancellationToken.IsCancellationRequested)
                 return;
             rigidbody.bodyType = RigidbodyType2D.Dynamic;
             rigidbody.AddForce(direction * throwForce, ForceMode2D.Impulse);
+            rigidbody.AddTorque(throwTorque, ForceMode2D.Impulse);
 
             await Awaitable.WaitForSecondsAsync(secondsBeforeReactivatingCollision);
             if (DisableCancellationToken.IsCancellationRequested)
@@ -159,6 +153,15 @@ namespace Combat
             if (DisableCancellationToken.IsCancellationRequested)
                 return;
             pickUpTrigger.gameObject.SetActive(true);
+            CleanUp();
+            await cleanUpRegistration.DisposeAsync();
+            return;
+
+            void CleanUp()
+            {
+                if (owner.HasValue)
+                    damageTrigger.dontDamageTags.Remove(owner.Value.gameObject.tag);
+            }
         }
     }
 }

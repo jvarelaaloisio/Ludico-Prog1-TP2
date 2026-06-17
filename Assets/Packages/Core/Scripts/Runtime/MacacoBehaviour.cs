@@ -177,6 +177,16 @@ namespace VarelaAloisio.Core
             {
                 PropertyInfo valueProp = info.FieldType.GetProperty("Value");
                 object refTarget = info.GetValue(this);
+
+            #region Construct ref if it is null
+
+                if (refTarget is null)
+                {
+                    refTarget = Activator.CreateInstance(info.FieldType);
+                    info.SetValue(this, refTarget);
+                }
+
+            #endregion
                 valueProp?.SetMethod?.Invoke(refTarget, new[] { obj });
             }
             else

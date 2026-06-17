@@ -1,5 +1,4 @@
-using System;
-using Core;
+using Core.Combat;
 using Core.Game;
 using UnityEngine;
 using VarelaAloisio.Core;
@@ -13,9 +12,20 @@ namespace Views
         [SerializeField] private Animator animator;
         [Header("Animation ids")]
         [SerializeField] private AnimatorParameter isMovingParameter = new("isWalking");
+        [SerializeField] private AnimatorParameter isAttackingParameter = new("isAttacking");
         [SerializeField] private AnimatorParameter velocityXParameter = new("directionX");
         [SerializeField] private AnimatorParameter velocityYParameter = new("directionY");
         [SerializeField] private float minVelocityToMove = 0.25f;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (character.HasValue)
+            {
+                character.Value.OnPickUp += HandleWeaponPickedUp;
+                character.Value.OnThrow += HandleWeaponThrown;
+            }
+        }
 
         private void Update()
         {
@@ -38,9 +48,19 @@ namespace Views
             if (animator)
             {
                 isMovingParameter.SetBool(animator, false);
+                isAttackingParameter.SetBool(animator, false);
                 velocityXParameter.SetFloat(animator, 0);
                 velocityYParameter.SetFloat(animator, 0);
             }
         }
+
+        private void HandleWeaponPickedUp(IWeapon weapon)
+            => weapon.OnAttack += HandleAttack;
+
+        private void HandleWeaponThrown(IWeapon weapon)
+            => weapon.OnAttack -= HandleAttack;
+
+        private void HandleAttack(Vector2 direction)
+            => isAttackingParameter.SetTrigger(animator);
     }
 }

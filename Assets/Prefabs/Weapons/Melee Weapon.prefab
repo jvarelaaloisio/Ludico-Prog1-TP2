@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Ludico.Player.Runtime::DamageOnTouch
   damage: 2
-  knockbackForce: 0
+  knockbackForce: 10
+  onlyDamageOnceAfterEnable: 1
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -168,6 +169,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dontDamageTags: []
 --- !u!1 &1587133349034826862
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,10 +522,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Ludico.Player.Runtime::DamageOnTouch
   damage: 1
-  knockbackForce: 10
+  knockbackForce: 15
+  onlyDamageOnceAfterEnable: 1
   onDamage:
     m_PersistentCalls:
       m_Calls: []
+  dontDamageTags: []
 --- !u!1 &3849203035726943112
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +722,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: Weapon
   spriteToSwing: {fileID: 8303468485204763816}
-  damageTrigger: {fileID: 7044799822240065097}
+  damageTrigger: {fileID: 5281037052550421686}
   thrownDamageTrigger: {fileID: 9161237307435950553}
   pickUpTrigger: {fileID: 2873258026629596002}
   groundCollider: {fileID: 3064441595923715784}
@@ -758,6 +762,7 @@ MonoBehaviour:
   secondsBeforeItCanBePickedUpAgain: 0.5
   pickUpOffset: {x: -0.45, y: 0.25, z: 0}
   throwForce: 20
+  throwTorque: 5
 --- !u!50 &8830069200327371038
 Rigidbody2D:
   serializedVersion: 5
@@ -865,7 +870,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 17
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 483d50395e8ba8f37b210f0914163bcc, type: 3}
   m_Color: {r: 0.6886792, g: 0.4970185, b: 0.4970185, a: 1}

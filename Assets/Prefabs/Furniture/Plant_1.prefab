@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 129
   m_MaskInteraction: 0
   m_Sprite: {fileID: 305741970619394885, guid: 5204aeb1c88caf5a0afbd3b263d5ef0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -111,6 +111,7 @@ MonoBehaviour:
   logTag: SetOrderingBasedOnY
   renderer: {fileID: 4464059567138637414}
   offset: 3
+  precision: 10
 --- !u!1 &3826932702204539061
 GameObject:
   m_ObjectHideFlags: 0

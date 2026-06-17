@@ -1,0 +1,17 @@
+{
+    "name": "Ludico.Components.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "VarelaAloisio.Core.Runtime",
+        "Ludico.Core.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

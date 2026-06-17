@@ -1,7 +1,6 @@
 using System.Threading;
-using Core;
 using Core.Game;
-using HealthSystem.Runtime;
+using HealthSystem.Runtime.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VarelaAloisio.Core;
@@ -47,10 +46,17 @@ namespace Player
                 moveInput.action.canceled += HandleMoveInput;
             }
 
-            if (character.Value.gameObject.TryGetComponent(out IHealthComponent health))
-                health.Health.OnDeath += HandleDeath;
-            else
-                LogError("Character doesn't have a health component");
+            if (!character.Value.gameObject.TryGetComponent(out HealthComponent health))
+            {
+                health = character.Value.gameObject.GetComponentInChildren<HealthComponent>();
+                if (health is null)
+                {
+                    LogError("Character doesn't have a health component");
+                    return;
+                }
+            }
+            health.Setup();
+            health.Health.OnDeath += HandleDeath;
         }
 
         private void HandleDeath()

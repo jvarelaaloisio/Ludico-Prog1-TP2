@@ -113,7 +113,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: -20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: a2bd967fcc1199fe78f2743720d202b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,6 +143,8 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: SetOrderingBasedOnY
   renderer: {fileID: 5916161546427429940}
+  offset: 0
+  precision: 10
 --- !u!1 &5415195152390881445
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 579299395
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}

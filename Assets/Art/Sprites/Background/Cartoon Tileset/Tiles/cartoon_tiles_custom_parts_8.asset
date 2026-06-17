@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: cartoon_tiles_custom_parts_8
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
   m_Sprite: {fileID: -1056933913, guid: eed4a82524af511ea9a6fee3f6c4aad6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34901962}
   m_Transform:
     e00: 1
     e01: 0

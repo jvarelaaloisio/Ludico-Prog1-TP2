@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Core.Combat;
 using UnityEngine;
@@ -19,5 +20,7 @@ namespace Core.Game
         void Move(CancellationToken token);
 
         void StopAttacking();
+        event Action<IWeapon> OnPickUp;
+        event Action<IWeapon> OnThrow;
     }
 }

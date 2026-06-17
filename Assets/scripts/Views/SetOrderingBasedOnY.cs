@@ -16,6 +16,12 @@ namespace Views
                  "\ne.g.: If precision is 10, the first decimal is taken into account. If its 100, the first 2 are taken into account and so on.")]
         [SerializeField] private int precision = 10;
 
+        private void OnValidate()
+        {
+            if (!Application.isPlaying && renderer)
+                SetSortingOrder();
+        }
+
         protected override void Start()
         {
             base.Start();

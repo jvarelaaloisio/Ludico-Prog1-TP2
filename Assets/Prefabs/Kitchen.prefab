@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 1678296924358123315}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 155
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: ee3dc90545572f0719d6d240abe95b68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -194,7 +194,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: SetOrderingBasedOnY
   renderer: {fileID: 435862091750043446}
-  offset: 0
+  offset: 1
   precision: 10
 --- !u!1 &1836553847106266377
 GameObject:
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 154
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4638043003672056620, guid: eaf361db9db69cf46b99e8ddb622d119, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 2186152560288234455}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.02, y: 2.5622387, z: 0}
+  m_LocalPosition: {x: -6.02, y: 2.442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -436,7 +436,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 105
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6106151065240408750, guid: eaf361db9db69cf46b99e8ddb622d119, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -502,7 +502,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.5853338, y: -0.20134592}
+  m_Offset: {x: -0.5853338, y: -0.005039215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.49186656, y: 0.3174978}
@@ -512,7 +512,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.764265, y: 0.78792477}
+  m_Size: {x: 2.764265, y: 1.1805382}
   m_EdgeRadius: 0
 --- !u!1 &3537529364402872358
 GameObject:
@@ -634,7 +634,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 154
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2494193451368479091, guid: eaf361db9db69cf46b99e8ddb622d119, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -737,7 +737,7 @@ Transform:
   m_GameObject: {fileID: 6906428558084044525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.098, y: -2.294, z: 0}
+  m_LocalPosition: {x: -7.098, y: -2.406, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 5207608989821024974, guid: 8c0ace0a5e9e2372f9bc5e5583c9f7e7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 154
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -872,6 +876,10 @@ PrefabInstance:
     - target: {fileID: 1725026246436963083, guid: 64420fba9724566419f69688b4206de5, type: 3}
       propertyPath: m_Name
       value: Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465889842904501682, guid: 64420fba9724566419f69688b4206de5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -953,7 +961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4464059567138637414, guid: 9ce4dfb320db7efffb0116441559a961, type: 3}
       propertyPath: m_SortingOrder
-      value: 50
+      value: 158
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1017,6 +1025,14 @@ PrefabInstance:
     - target: {fileID: 2358045091137968677, guid: 7764aad83ed05918289f867ec7a7817f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3951267921577000240, guid: 7764aad83ed05918289f867ec7a7817f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.881
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916161546427429940, guid: 7764aad83ed05918289f867ec7a7817f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

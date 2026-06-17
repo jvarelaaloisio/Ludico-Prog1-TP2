@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: bbb2c1e5f7cc82a2bb22816df53427a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3218415463234762492
+    second: wife_reactions_0
+  - first:
+      213: -9059937178979409471
+    second: wife_reactions_1
+  - first:
+      213: 665990194854235938
+    second: wife_reactions_2
+  - first:
+      213: 1381313461691623036
+    second: wife_reactions_3
+  - first:
+      213: -381538136667960748
+    second: wife_reactions_4
+  - first:
+      213: -3793449765309269967
+    second: wife_reactions_5
+  - first:
+      213: -7529116841529004041
+    second: wife_reactions_6
+  - first:
+      213: -8020652347542538282
+    second: wife_reactions_7
+  - first:
+      213: 5280042525302300626
+    second: wife_reactions_8
+  - first:
+      213: -3750829579598765583
+    second: wife_reactions_9
+  - first:
+      213: 4483554098119316184
+    second: wife_reactions_10
+  - first:
+      213: -6455940312471821470
+    second: wife_reactions_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wife_reactions_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 4062
+        width: 424
+        height: 794
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf67bb9dfcb1aac20800000000000000
+      internalID: 3218415463234762492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_1
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 4063
+        width: 426
+        height: 788
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1e3972323a44280800000000000000
+      internalID: -9059937178979409471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_2
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 4061
+        width: 428
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f0e2cbd821e3900800000000000000
+      internalID: 665990194854235938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_3
+      rect:
+        serializedVersion: 2
+        x: 1521
+        y: 4061
+        width: 423
+        height: 794
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76289f56496b2310800000000000000
+      internalID: 1381313461691623036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3072
+        width: 427
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a44af061184baf0800000000000000
+      internalID: -381538136667960748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3071
+        width: 428
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 138b3797985fa5bc0800000000000000
+      internalID: -3793449765309269967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_6
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 3073
+        width: 426
+        height: 788
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ffa044af14338790800000000000000
+      internalID: -7529116841529004041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_7
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 3071
+        width: 424
+        height: 794
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d7f2d56f2be0b090800000000000000
+      internalID: -8020652347542538282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 2078
+        width: 427
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df999fa3ba764940800000000000000
+      internalID: 5280042525302300626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_9
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 2079
+        width: 427
+        height: 788
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f1ecfebe5062fbc0800000000000000
+      internalID: -3750829579598765583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_10
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 2077
+        width: 426
+        height: 790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d216a582b8c83e30800000000000000
+      internalID: 4483554098119316184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_reactions_11
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 2077
+        width: 428
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2632ef7ad74e766a0800000000000000
+      internalID: -6455940312471821470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wife_reactions_0: 3218415463234762492
+      wife_reactions_1: -9059937178979409471
+      wife_reactions_10: 4483554098119316184
+      wife_reactions_11: -6455940312471821470
+      wife_reactions_2: 665990194854235938
+      wife_reactions_3: 1381313461691623036
+      wife_reactions_4: -381538136667960748
+      wife_reactions_5: -3793449765309269967
+      wife_reactions_6: -7529116841529004041
+      wife_reactions_7: -8020652347542538282
+      wife_reactions_8: 5280042525302300626
+      wife_reactions_9: -3750829579598765583
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

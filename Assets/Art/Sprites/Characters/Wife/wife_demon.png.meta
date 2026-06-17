@@ -1,0 +1,1365 @@
+fileFormatVersion: 2
+guid: ae890060e092ea3d2a342ad3684446bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9028448520053412849
+    second: wife_demon_0
+  - first:
+      213: -3646554799697147355
+    second: wife_demon_1
+  - first:
+      213: -7030060645298131335
+    second: wife_demon_2
+  - first:
+      213: 1091690082091703215
+    second: wife_demon_3
+  - first:
+      213: -8922568788834970857
+    second: wife_demon_4
+  - first:
+      213: 5154470786766833734
+    second: wife_demon_5
+  - first:
+      213: -4112998559860009085
+    second: wife_demon_6
+  - first:
+      213: -5795872690959844530
+    second: wife_demon_7
+  - first:
+      213: 2385467588840009929
+    second: wife_demon_8
+  - first:
+      213: -3675054691729908559
+    second: wife_demon_9
+  - first:
+      213: 2937898040148936942
+    second: wife_demon_10
+  - first:
+      213: -6658356236313460983
+    second: wife_demon_11
+  - first:
+      213: 6185089563955227975
+    second: wife_demon_12
+  - first:
+      213: 4814128225472128488
+    second: wife_demon_13
+  - first:
+      213: 6336623000759224946
+    second: wife_demon_14
+  - first:
+      213: 2962383049536262752
+    second: wife_demon_15
+  - first:
+      213: 6934608896298827351
+    second: wife_demon_16
+  - first:
+      213: 5709532206640642394
+    second: wife_demon_17
+  - first:
+      213: -6913176704889735232
+    second: wife_demon_18
+  - first:
+      213: -8870682393411179862
+    second: wife_demon_19
+  - first:
+      213: -8199084345418392160
+    second: wife_demon_20
+  - first:
+      213: -6852679629717821397
+    second: wife_demon_21
+  - first:
+      213: 2971447209777393079
+    second: wife_demon_22
+  - first:
+      213: -4072382863711959063
+    second: wife_demon_23
+  - first:
+      213: 5921778812130227961
+    second: wife_demon_24
+  - first:
+      213: -3757012841381499667
+    second: wife_demon_25
+  - first:
+      213: -1932128412722008697
+    second: wife_demon_26
+  - first:
+      213: 4894998023650615194
+    second: wife_demon_27
+  - first:
+      213: -4479358983847462125
+    second: wife_demon_28
+  - first:
+      213: -6858322664205091482
+    second: wife_demon_29
+  - first:
+      213: -2610960149205910562
+    second: wife_demon_30
+  - first:
+      213: 1857562382536648779
+    second: wife_demon_31
+  - first:
+      213: -5370224475535639763
+    second: wife_demon_32
+  - first:
+      213: 9153313374859917547
+    second: wife_demon_33
+  - first:
+      213: -1046900549758157309
+    second: wife_demon_34
+  - first:
+      213: -1952621532143663769
+    second: wife_demon_35
+  - first:
+      213: 5318915423086740629
+    second: wife_demon_36
+  - first:
+      213: -4310883860674210396
+    second: wife_demon_37
+  - first:
+      213: 303912114070126144
+    second: wife_demon_38
+  - first:
+      213: 3469600820708550437
+    second: wife_demon_39
+  - first:
+      213: -5790753250090027412
+    second: wife_demon_40
+  - first:
+      213: 5277887359364576995
+    second: wife_demon_41
+  - first:
+      213: -6649599024902517209
+    second: wife_demon_42
+  - first:
+      213: -8436791248270281594
+    second: wife_demon_43
+  - first:
+      213: -3182252926997899346
+    second: wife_demon_44
+  - first:
+      213: -7820210545294893786
+    second: wife_demon_45
+  - first:
+      213: 5786065925105496356
+    second: wife_demon_46
+  - first:
+      213: -9130588926906265326
+    second: wife_demon_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wife_demon_0
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 4421
+        width: 234
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ca051e7e184b280800000000000000
+      internalID: -9028448520053412849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_1
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 4588
+        width: 73
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52a4e0edab5d46dc0800000000000000
+      internalID: -3646554799697147355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_2
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 4431
+        width: 239
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e2d870715307e90800000000000000
+      internalID: -7030060645298131335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_3
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 4432
+        width: 245
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab94eb7856762f00800000000000000
+      internalID: 1091690082091703215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_4
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 4427
+        width: 296
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7131189d5faac2480800000000000000
+      internalID: -8922568788834970857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_5
+      rect:
+        serializedVersion: 2
+        x: 2371
+        y: 4617
+        width: 96
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6488d5afedb588740800000000000000
+      internalID: 5154470786766833734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_6
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 4424
+        width: 224
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387d9d5f991bbe6c0800000000000000
+      internalID: -4112998559860009085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_7
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 4421
+        width: 229
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b73f3de7ce09fa0800000000000000
+      internalID: -5795872690959844530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_8
+      rect:
+        serializedVersion: 2
+        x: 3892
+        y: 4423
+        width: 228
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c034002222ea1120800000000000000
+      internalID: 2385467588840009929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_9
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 4523
+        width: 55
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc5e49aa359ffcc0800000000000000
+      internalID: -3675054691729908559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_10
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 4587
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8c46da3b285c820800000000000000
+      internalID: 2937898040148936942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_11
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 4555
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90f7782d744c893a0800000000000000
+      internalID: -6658356236313460983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_12
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 4554
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74de68b303ad5d550800000000000000
+      internalID: 6185089563955227975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_13
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 3800
+        width: 234
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e5a27e5d183fc240800000000000000
+      internalID: 4814128225472128488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_14
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 4018
+        width: 76
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ac2dbdb0530f750800000000000000
+      internalID: 6336623000759224946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_15
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 3808
+        width: 278
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0625f3c20bf7c1920800000000000000
+      internalID: 2962383049536262752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_16
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 3995
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75eb720dc0eac3060800000000000000
+      internalID: 6934608896298827351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_17
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 3999
+        width: 78
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59b772aa455c3f40800000000000000
+      internalID: 5709532206640642394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_18
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 3808
+        width: 257
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7ba8b1a667f00a0800000000000000
+      internalID: -6913176704889735232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_19
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 3975
+        width: 75
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa2a61bc5105e480800000000000000
+      internalID: -8870682393411179862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_20
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 3807
+        width: 269
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0addedb7a30073e80800000000000000
+      internalID: -8199084345418392160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_21
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 3972
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b282d1f0f2466e0a0800000000000000
+      internalID: -6852679629717821397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_22
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 3932
+        width: 74
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd6b9f6e73bc3920800000000000000
+      internalID: 2971447209777393079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_23
+      rect:
+        serializedVersion: 2
+        x: 2353
+        y: 3912
+        width: 52
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e78f03ac5dfb77c0800000000000000
+      internalID: -4072382863711959063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_24
+      rect:
+        serializedVersion: 2
+        x: 2643
+        y: 3806
+        width: 382
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6f47764726e2250800000000000000
+      internalID: 5921778812130227961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_25
+      rect:
+        serializedVersion: 2
+        x: 3266
+        y: 3805
+        width: 377
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: decefdce9b86cdbc0800000000000000
+      internalID: -3757012841381499667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_26
+      rect:
+        serializedVersion: 2
+        x: 3887
+        y: 3805
+        width: 377
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78de34b0273bf25e0800000000000000
+      internalID: -1932128412722008697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_27
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 3957
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f1fe784c68ee340800000000000000
+      internalID: 4894998023650615194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_28
+      rect:
+        serializedVersion: 2
+        x: 2358
+        y: 3810
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b3152acbe16d1c0800000000000000
+      internalID: -4479358983847462125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_29
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 3181
+        width: 228
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66d7b05bfd752d0a0800000000000000
+      internalID: -6858322664205091482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_30
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 3397
+        width: 76
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb71e7e39104cbd0800000000000000
+      internalID: -2610960149205910562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_31
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 3187
+        width: 278
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b48a937252367c910800000000000000
+      internalID: 1857562382536648779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_32
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 3374
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bf69bca412975b0800000000000000
+      internalID: -5370224475535639763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_33
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 3378
+        width: 78
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be87b52a40a170f70800000000000000
+      internalID: 9153313374859917547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_34
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 3188
+        width: 257
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ef0882f79a871f0800000000000000
+      internalID: -1046900549758157309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_35
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 3354
+        width: 75
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7654ccbdf05e6e4e0800000000000000
+      internalID: -1952621532143663769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_36
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 3183
+        width: 221
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5948e6f756590d940800000000000000
+      internalID: 5318915423086740629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_37
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 3182
+        width: 224
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a59c8008f9ac24c0800000000000000
+      internalID: -4310883860674210396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_38
+      rect:
+        serializedVersion: 2
+        x: 3270
+        y: 3179
+        width: 229
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e76122576b73400800000000000000
+      internalID: 303912114070126144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_39
+      rect:
+        serializedVersion: 2
+        x: 3889
+        y: 3179
+        width: 234
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527acbe409f762030800000000000000
+      internalID: 3469600820708550437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_40
+      rect:
+        serializedVersion: 2
+        x: 1435
+        y: 3351
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66f17a899c13afa0800000000000000
+      internalID: -5790753250090027412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_41
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 3327
+        width: 52
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e633730792de3940800000000000000
+      internalID: 5277887359364576995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_42
+      rect:
+        serializedVersion: 2
+        x: 2318
+        y: 3293
+        width: 40
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ec6edfae0e7b3a0800000000000000
+      internalID: -6649599024902517209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_43
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 3336
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 684b9ba4f0f7aea80800000000000000
+      internalID: -8436791248270281594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_44
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 2558
+        width: 229
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7d7dcb2dd56d3d0800000000000000
+      internalID: -3182252926997899346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_45
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 2575
+        width: 256
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d1fea31f7097390800000000000000
+      internalID: -7820210545294893786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_46
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 2564
+        width: 254
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 421b7e09d4c3c4050800000000000000
+      internalID: 5786065925105496356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wife_demon_47
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 2589
+        width: 233
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21113a53fb1a94180800000000000000
+      internalID: -9130588926906265326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wife_demon_0: -9028448520053412849
+      wife_demon_1: -3646554799697147355
+      wife_demon_10: 2937898040148936942
+      wife_demon_11: -6658356236313460983
+      wife_demon_12: 6185089563955227975
+      wife_demon_13: 4814128225472128488
+      wife_demon_14: 6336623000759224946
+      wife_demon_15: 2962383049536262752
+      wife_demon_16: 6934608896298827351
+      wife_demon_17: 5709532206640642394
+      wife_demon_18: -6913176704889735232
+      wife_demon_19: -8870682393411179862
+      wife_demon_2: -7030060645298131335
+      wife_demon_20: -8199084345418392160
+      wife_demon_21: -6852679629717821397
+      wife_demon_22: 2971447209777393079
+      wife_demon_23: -4072382863711959063
+      wife_demon_24: 5921778812130227961
+      wife_demon_25: -3757012841381499667
+      wife_demon_26: -1932128412722008697
+      wife_demon_27: 4894998023650615194
+      wife_demon_28: -4479358983847462125
+      wife_demon_29: -6858322664205091482
+      wife_demon_3: 1091690082091703215
+      wife_demon_30: -2610960149205910562
+      wife_demon_31: 1857562382536648779
+      wife_demon_32: -5370224475535639763
+      wife_demon_33: 9153313374859917547
+      wife_demon_34: -1046900549758157309
+      wife_demon_35: -1952621532143663769
+      wife_demon_36: 5318915423086740629
+      wife_demon_37: -4310883860674210396
+      wife_demon_38: 303912114070126144
+      wife_demon_39: 3469600820708550437
+      wife_demon_4: -8922568788834970857
+      wife_demon_40: -5790753250090027412
+      wife_demon_41: 5277887359364576995
+      wife_demon_42: -6649599024902517209
+      wife_demon_43: -8436791248270281594
+      wife_demon_44: -3182252926997899346
+      wife_demon_45: -7820210545294893786
+      wife_demon_46: 5786065925105496356
+      wife_demon_47: -9130588926906265326
+      wife_demon_5: 5154470786766833734
+      wife_demon_6: -4112998559860009085
+      wife_demon_7: -5795872690959844530
+      wife_demon_8: 2385467588840009929
+      wife_demon_9: -3675054691729908559
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
