@@ -23,7 +23,7 @@ namespace Combat
         /// <inheritdoc />
         
         public float MaxCharge
-            => MinCharge + DamageMultiplier?.Invoke(extraCharge) ?? extraCharge;
+            => MinCharge + (DamageMultiplier?.Invoke(extraCharge) ?? extraCharge);
 
         /// <inheritdoc />
         [field:SerializeField, SerializeReadOnly] public float Charge { get; private set; }

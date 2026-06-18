@@ -281,7 +281,6 @@ namespace Combat
                     return;
                 Log($"Punching self with -Velocity * {velocityCancellationAfterThrow} to slow down");
                 rigidbody.AddForce(-rigidbody.linearVelocity * velocityCancellationAfterThrow, ForceMode2D.Impulse);
-                rigidbody.AddTorque(-rigidbody.angularVelocity * velocityCancellationAfterThrow, ForceMode2D.Impulse);
 
                 await Awaitable.WaitForSecondsAsync(secondsToActivatePickup * 3 / 4);
                 if (DisableCancellationToken.IsCancellationRequested)
