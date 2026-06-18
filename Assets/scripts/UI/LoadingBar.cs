@@ -20,13 +20,13 @@ namespace UI
 
         public Task Show()
         {
-            canvas.enabled = true;
+            canvas.gameObject.SetActive(true);
             return Task.CompletedTask;
         }
 
         public Task Hide()
         {
-            canvas.enabled = false;
+            canvas.gameObject.SetActive(false);
             return Task.CompletedTask;
         }
     }
