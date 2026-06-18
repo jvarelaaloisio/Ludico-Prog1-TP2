@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events; // con esto manejamos eventos
 using Core;
@@ -5,7 +6,7 @@ using Core.Game;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Attributes;
 
-
+[Obsolete]
 public class Health : MacacoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
