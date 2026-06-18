@@ -94,16 +94,15 @@ namespace Combat
                 thrownDamageTrigger.OnHit -= HandleHit;
         }
 
-        public Task HoldTrigger(CancellationToken token)
+        public async Task HoldTrigger(CancellationToken token)
         {
-            if (IsOnCooldown)
-                return Task.CompletedTask;
+            while (IsOnCooldown && !token.IsCancellationRequested)
+                await Awaitable.NextFrameAsync();
             Log($"Holding trigger.");
             _isHoldingTrigger = true;
             attackCharger.Value?.StartCharging(token);
             OnHoldingTrigger?.Invoke(owner.Value.Direction);
             onPrepareAttack.Invoke();
-            return Task.CompletedTask;
         }
 
         public async Task ReleaseTrigger()
@@ -123,6 +122,8 @@ namespace Combat
                 LogError("No sprite to swing.");
                 return;
             }
+
+            _isHoldingTrigger = false;
             IsOnCooldown = true;
             onDoAttack.Invoke();
             OnSwing?.Invoke();

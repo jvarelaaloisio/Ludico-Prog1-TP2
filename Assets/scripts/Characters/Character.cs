@@ -65,8 +65,7 @@ namespace Characters
         public bool TryStartAttacking()
         {
             if (IsStunned
-                || !currentWeapon.HasValue
-                || currentWeapon.Value.IsOnCooldown)
+                || !currentWeapon.HasValue)
                 return false;
             _attackSource?.Cancel();
             _attackSource?.Dispose();
