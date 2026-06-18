@@ -16,8 +16,15 @@ namespace Combat
 
         /// <inheritdoc />
         [field: SerializeField] public float MinCharge { get; private set; } = 1;
+
+        [Tooltip("Max Charge = This + MinCharge")]
+        [SerializeField] private float extraCharge = 1;
+
         /// <inheritdoc />
-        [field: SerializeField] public float MaxCharge { get; private set; } = 2;
+        
+        public float MaxCharge
+            => MinCharge + DamageMultiplier?.Invoke(extraCharge) ?? extraCharge;
+
         /// <inheritdoc />
         [field:SerializeField, SerializeReadOnly] public float Charge { get; private set; }
         /// <inheritdoc />
@@ -29,7 +36,7 @@ namespace Combat
         /// <inheritdoc />
         public int RoundedDamage => Mathf.RoundToInt(Damage);
         /// <inheritdoc />
-        public float Damage => DamageMultiplier?.Invoke(Charge * baseDamage) ?? Charge * baseDamage;
+        public float Damage => (MinCharge + DamageMultiplier?.Invoke(Charge) ?? Charge) * baseDamage;
         /// <inheritdoc />
         public void ResetCharge()
             => Charge = 0;

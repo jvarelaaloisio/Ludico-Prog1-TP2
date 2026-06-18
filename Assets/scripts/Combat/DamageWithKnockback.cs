@@ -9,7 +9,7 @@ using VarelaAloisio.Core;
 
 namespace Combat
 {
-    public class DamageWithKnockback : DamageDealer, IDamageSourceConsumer
+    public class DamageWithKnockback : DamageDealer
     {
         [SerializeField] protected Ref<ILogger> logger;
         [SerializeField] private bool onlyDamageOnceAfterEnable = true;
@@ -24,7 +24,7 @@ namespace Combat
 
         private Vector3 _originalScale;
         public event Action<Collider2D> OnHit;
-        public IDamagePointsSource DamageSource { get; set; }
+        [SerializeField] private Ref<IDamagePointsSource> damageSource;
 
         private void Awake()
             => _originalScale = transform.localScale;
@@ -33,9 +33,9 @@ namespace Combat
         {
             _attackedColliders.Clear();
 
-            if (shouldScaleWithDamage && DamageSource is not null)
+            if (shouldScaleWithDamage && damageSource.HasValue)
             {
-                float scaleMultiplier = Mathf.Max(minScale, DamageSource.Damage * scaleDamageMultiplier);
+                float scaleMultiplier = Mathf.Max(minScale, damageSource.Value.Damage * scaleDamageMultiplier);
                 Vector3 scale = _originalScale * scaleMultiplier;
                 (logger.HasValue ? logger.Value : Debug.unityLogger).Log(name, $"Setting scale to {scale}", this);
                 transform.localScale = scale;
@@ -47,7 +47,7 @@ namespace Combat
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            int sourcedDamage = DamageSource?.RoundedDamage ?? 1 * damage;
+            int sourcedDamage = (damageSource.HasValue ? damageSource.Value.RoundedDamage : 1) * damage;
             if (dontDamageTags.Contains(other.gameObject.tag)
                 || (_attackedColliders.Contains(other) && onlyDamageOnceAfterEnable)
                 || !other.TryAttack(sourcedDamage))

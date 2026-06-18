@@ -81,20 +81,23 @@ namespace Player
 
         private void HandlePickUp(IWeapon weapon)
         {
-            if (weapon is {DamageSource: not null})
-                weapon.DamageSource.DamageMultiplier = MultiplyDamageByFury;
+            if (weapon is Component component)
+                foreach (IDamagePointsSource damageSource in component.GetComponentsInChildren<IDamagePointsSource>(true))
+                    damageSource.DamageMultiplier = MultiplyDamageByFury;
             else
                 LogWarning($"Weapon {weapon?.name} is either null or has no damage source. Fury won't apply to the damage!");
         }
 
         private void HandleThrow(IWeapon weapon)
         {
-            if (weapon is {DamageSource: not null})
-                weapon.DamageSource.DamageMultiplier = null;
+            //TODO: These lines are commented because, when throwing a weapon, we need it to still have the fury multiplier. At least until it lands.
+            // if (weapon is Component component)
+            //     foreach (IDamagePointsSource damageSource in component.GetComponentsInChildren<IDamagePointsSource>())
+            //         damageSource.DamageMultiplier = null;
         }
 
         private float MultiplyDamageByFury(float original)
-            => original * (1 + _furyManager.Fury);
+            => original * (_furyManager?.Fury ?? 1);
 
     #endregion
 

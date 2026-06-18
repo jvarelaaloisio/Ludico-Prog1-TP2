@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Core.Audio;
 using UnityEngine;
@@ -52,9 +53,16 @@ namespace Audio
 
             int GetNonRepeatingClipIndex()
             {
+                if (container.clips.Count < 2)
+                    return container.clips.Count - 1;
                 int selection;
+                int watchdog = 1000;
                 do
+                {
                     selection = UnityEngine.Random.Range(0, container.clips.Count);
+                    if (--watchdog < 0)
+                        throw new Exception("Watchdog hit for this operation.");
+                }
                 while (selection == container._lastClipIndex);
 
                 return selection;

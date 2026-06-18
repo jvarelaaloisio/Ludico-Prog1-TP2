@@ -22,12 +22,12 @@ namespace Audio
                 || !sound)
                 return;
             Log($"Playing {sound.name}");
-            _currentPlayer = _audioManager.Play(sound);
+            _currentPlayer = _audioManager?.Play(sound);
         }
 
         public void Stop()
         {
-            Log($"Stopping {sound.name}");
+            Log($"Stopping {sound?.name}");
             _currentPlayer?.Stop();
         }
     }

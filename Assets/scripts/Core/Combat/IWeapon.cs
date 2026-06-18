@@ -16,7 +16,6 @@ namespace Core.Combat
         event Action<Vector2> OnThrow;
         string name { get; }
         bool IsOnCooldown { get; }
-        IDamagePointsSource DamageSource { get; }
         Task HoldTrigger(CancellationToken token);
         Task ReleaseTrigger();
         void SetOwner(ICharacter newOwner);

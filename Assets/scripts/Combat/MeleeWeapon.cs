@@ -5,7 +5,6 @@ using Core.Combat;
 using Core.Game;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Utils;
 
@@ -20,8 +19,7 @@ namespace Combat
         [Tooltip("The collider for when the weapon is on the ground")]
         [SerializeField] private Collider2D groundCollider;
         [SerializeField] private new Rigidbody2D rigidbody;
-        [FormerlySerializedAs("damageCharger")] [SerializeField] private Ref<ICharger> attackCharger;
-        [SerializeField] private Ref<IDamagePointsSource> damageSource;
+        [SerializeField] private Ref<ICharger> attackCharger;
 
         [Space]
         [SerializeField] private float scale = 1;
@@ -39,12 +37,14 @@ namespace Combat
         [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
         [SerializeField] private float throwForce = 10;
         [SerializeField] private float throwTorque = 10;
+        [SerializeField] private float velocityCancellationAfterThrow = 0.9f;
         [SerializeField] private UnityEvent onPrepareAttack;
         [SerializeField] private UnityEvent onDoAttack;
         private CancellationTokenSource _attackTokenSource;
         private bool _isHoldingTrigger;
+        private Vector3 _originalPosition;
+        private Quaternion _originalRotation;
         public bool IsOnCooldown { get; private set; }
-        public IDamagePointsSource DamageSource => damageSource.HasValue ? damageSource.Value : null;
         public event Action<Vector2> OnHoldingTrigger;
 
         /// <inheritdoc />
@@ -77,12 +77,7 @@ namespace Combat
             base.Start();
             if (damageTrigger)
                 damageTrigger.gameObject.SetActive(false);
-
-            if (!damageSource.HasValue)
-                return;
-
-            foreach (IDamageSourceConsumer consumer in GetComponentsInChildren<IDamageSourceConsumer>(true))
-                consumer.DamageSource = damageSource.Value;
+            CacheSwingPositionAndRotation(out _originalPosition, out _originalRotation);
         }
 
         protected override void OnDisable()
@@ -98,6 +93,9 @@ namespace Combat
         {
             while (IsOnCooldown && !token.IsCancellationRequested)
                 await Awaitable.NextFrameAsync();
+            if (token.IsCancellationRequested)
+                return;
+
             Log($"Holding trigger.");
             _isHoldingTrigger = true;
             attackCharger.Value?.StartCharging(token);
@@ -125,9 +123,12 @@ namespace Combat
 
             _isHoldingTrigger = false;
             IsOnCooldown = true;
-            onDoAttack.Invoke();
-            OnSwing?.Invoke();
-            CacheSwingPositionAndRotation(out Vector3 originalPosition, out Quaternion originalRotation);
+            try
+            {
+                onDoAttack.Invoke();
+                OnSwing?.Invoke();
+            }
+            catch (Exception e) { LogException(e); }
             if (damageTrigger)
             {
                 damageTrigger.gameObject.SetActive(true);
@@ -135,7 +136,7 @@ namespace Combat
                                                    + (Vector3)(owner.Value.Direction * triggerDistanceFromOwner);
                 damageTrigger.transform.up = owner.Value.Direction;
             }
-            OnReleasedTrigger?.Invoke(originalPosition);
+            OnReleasedTrigger?.Invoke(_originalPosition);
             CancellationTokenRegistration registration = token.Register(CleanUp);
             float now = Time.time;
             float start = Time.time;
@@ -163,7 +164,7 @@ namespace Combat
                 Log($"Finished swinging. Cleaning up.");
                 if (damageTrigger)
                     damageTrigger.gameObject.SetActive(false);
-                SetPositionAndRotation(originalPosition, originalRotation);
+                SetPositionAndRotation(_originalPosition, _originalRotation);
                 IsOnCooldown = false;
                 attackCharger.Value?.ResetCharge();
                 OnSwung?.Invoke();
@@ -250,6 +251,7 @@ namespace Combat
             {
                 Log($"Throwing. Cancelling attack token.");
                 TokenUtils.CancelAndDispose(ref _attackTokenSource);
+                string ownerTag = owner.Value.gameObject.tag;
                 owner.Value = null;
                 transform.SetParent(null);
                 thrownDamageTrigger.gameObject.SetActive(true);
@@ -271,8 +273,17 @@ namespace Combat
                 groundCollider.gameObject.SetActive(true);
                 float secondsToActivatePickup = secondsBeforeItCanBePickedUpAgain - secondsBeforeReactivatingCollision;
 
+                await Awaitable.WaitForSecondsAsync(secondsToActivatePickup / 4);
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+                await Awaitable.FixedUpdateAsync();
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+                Log($"Punching self with -Velocity * {velocityCancellationAfterThrow} to slow down");
+                rigidbody.AddForce(-rigidbody.linearVelocity * velocityCancellationAfterThrow, ForceMode2D.Impulse);
+                rigidbody.AddTorque(-rigidbody.angularVelocity * velocityCancellationAfterThrow, ForceMode2D.Impulse);
 
-                await Awaitable.WaitForSecondsAsync(secondsToActivatePickup);
+                await Awaitable.WaitForSecondsAsync(secondsToActivatePickup * 3 / 4);
                 if (DisableCancellationToken.IsCancellationRequested)
                     return;
                 Log($"{secondsToActivatePickup} seconds have passed. Reactivating pickup trigger.");
@@ -280,18 +291,16 @@ namespace Combat
 
                 CleanUp();
                 await cleanUpRegistration.DisposeAsync();
+
+                void CleanUp()
+                {
+                    Log($"Cleaning up. Removing owner {ownerTag} from damage filter.");
+                    damageTrigger.dontDamageTags.Remove(ownerTag);
+                    thrownDamageTrigger.gameObject.SetActive(false);
+                    thrownDamageTrigger.dontDamageTags.Remove(ownerTag);
+                }
             }
             catch (Exception e) { LogException(e); }
-
-            void CleanUp()
-            {
-                if (!owner.HasValue)
-                    return;
-                string ownerTag = owner.Value.gameObject.tag;
-                Log($"Cleaning up. Removing owner {ownerTag} from damage filter.");
-                damageTrigger.dontDamageTags.Remove(ownerTag);
-                thrownDamageTrigger.dontDamageTags.Remove(ownerTag);
-            }
         }
 
         private async void HandleHit(Collider2D other)

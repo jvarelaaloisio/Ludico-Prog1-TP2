@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4255484390225183934, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: m_SortingOrder
-      value: 147
+      value: 156
       objectReference: {fileID: 0}
+    - target: {fileID: 5524174175879304842, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: damageSource.reference
+      value: 
+      objectReference: {fileID: 4868313153170980135}
     - target: {fileID: 5880501953002490520, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: m_Icon
       value: 
@@ -64,6 +68,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7419442619184104012, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: duration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419442619184104012, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: extraCharge
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419442619184104012, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: baseMaxCharge
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419442619184104012, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: <MaxCharge>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8233397424771110757, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: sound
       value: 
@@ -75,5 +95,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6786556037910931253, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4868313153170980135}
   m_SourcePrefab: {fileID: 100100000, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+--- !u!1 &6816536067645155643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6786556037910931253, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+  m_PrefabInstance: {fileID: 51654722898497038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4868313153170980135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816536067645155643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fd06f8dcb14bd6b18c8cbe2039aa61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Combat.Runtime::Combat.StaticDamageSource
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: StaticDamageSource
+  baseDamage: 10

@@ -42,6 +42,7 @@ namespace Views
                         _maxHp = health.MaxHP;
                         health.OnDamage += UpdateBar;
                         health.OnHeal += UpdateBar;
+                        _targetValue = (float)health.HP / health.MaxHP;
                         break;
                     }
                     await Awaitable.NextFrameAsync();

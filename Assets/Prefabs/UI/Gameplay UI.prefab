@@ -110,7 +110,7 @@ MonoBehaviour:
   logTag: HealthBar
   image: {fileID: 5412460922020798606}
   targetId: Player
-  animationSpeed: 0.5
+  animationSpeed: 0.1
 --- !u!1 &5690026612695052288
 GameObject:
   m_ObjectHideFlags: 0

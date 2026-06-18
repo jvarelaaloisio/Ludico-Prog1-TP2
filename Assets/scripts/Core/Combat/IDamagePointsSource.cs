@@ -5,7 +5,7 @@ namespace Core.Combat
     /// <summary /> Returns how much damage to do.
     public interface IDamagePointsSource
     {
-        /// <summary /> Function to add a multiplier to the attack. Not necessary for normal functionality.
+        /// <summary /> Function to add a multiplier to the attack. Not necessary for normal functional
         Func<float, float> DamageMultiplier { set; } 
         /// <summary /> How much damage to do.
         /// <remarks>Can change over time.</remarks>

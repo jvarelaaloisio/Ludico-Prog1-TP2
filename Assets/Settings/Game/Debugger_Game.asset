@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Debugger_Game
   m_EditorClassIdentifier: VarelaAloisio.Core.Runtime::VarelaAloisio.Core.Debugging.Debugger
   <logEnabled>k__BackingField: 1
-  logNames: 0
+  logNames: 1
   allowLog: 1
   allowWarning: 1
   allowError: 1
@@ -21,6 +21,7 @@ MonoBehaviour:
   allowException: 1
   drawLines: 1
   drawRays: 1
-  filteredTags: []
+  filteredTags:
+  - Character
   tagColor: {r: 0, g: 0, b: 0, a: 1}
   tagFormat: '<color=black>{0}: </color>'

@@ -62,7 +62,11 @@ namespace Views
         }
 
         private void HandleSwing()
-            => TokenUtils.CancelAndDispose(ref _controlPositionAndRotationTokenSource);
+        {
+            if (renderer)
+                renderer.sortingLayerID = SortingLayer.NameToID(layerWhileCharging);
+            TokenUtils.CancelAndDispose(ref _controlPositionAndRotationTokenSource);
+        }
 
         private void HandleSwung()
         {
@@ -76,6 +80,8 @@ namespace Views
         {
             TokenUtils.CancelAndDispose(ref _controlSizeTokenSource);
             TokenUtils.CancelAndDispose(ref _controlPositionAndRotationTokenSource);
+            if (renderer)
+                renderer.sortingLayerID = _defaultRendererSortingLayer;
         }
 
         private async Task ControlPositionWhileChargingWeapon(CancellationToken token)
@@ -112,15 +118,13 @@ namespace Views
                 return;
             }
 
-            if (renderer)
-                renderer.sortingLayerID = SortingLayer.NameToID(layerWhileCharging);
             Vector3 spriteOriginalScale = pivot.localScale;
             token.Register(CleanUp);
 
             while (!token.IsCancellationRequested)
             {
                 float lerp = Mathf.InverseLerp(damageCharger.Value.MinCharge, damageCharger.Value.MaxCharge, damageCharger.Value.Charge);
-                pivot.localScale = Vector3.one * Mathf.Lerp(spriteOriginalScale.x, maxScale, lerp);
+                pivot.localScale = Vector3.one * Mathf.Lerp(spriteOriginalScale.x, maxScale * damageCharger.Value.MaxCharge, lerp);
                 await Awaitable.NextFrameAsync();
             }
 
@@ -128,8 +132,6 @@ namespace Views
             {
                 if (pivot)
                     pivot.localScale = spriteOriginalScale;
-                if (renderer)
-                    renderer.sortingLayerID = _defaultRendererSortingLayer;
             }
         }
     }
