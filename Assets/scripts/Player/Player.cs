@@ -1,4 +1,5 @@
 using System.Threading;
+using Core.Combat;
 using Core.Game;
 using HealthSystem.Runtime.Components;
 using UnityEngine;
@@ -18,6 +19,9 @@ namespace Player
         [AutoMap(How.Service, When.Awake, OnError.Ignore)]
         private IGameManager _gameManager;
         private CancellationTokenSource _moveSource = null;
+        [AutoMap(How.Service, When.OnEnable, OnError.Ignore)]
+        private IFuryManager _furyManager;
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -47,6 +51,8 @@ namespace Player
                 moveInput.action.canceled += HandleMoveInput;
             }
 
+            character.Value.OnPickUp += HandlePickUp;
+            character.Value.OnThrow += HandleThrow;
             if (!character.Value.gameObject.TryGetComponent(out HealthComponent health))
             {
                 health = character.Value.gameObject.GetComponentInChildren<HealthComponent>();
@@ -60,15 +66,42 @@ namespace Player
             health.Health.OnDeath += HandleDeath;
         }
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            if (attackInput)
+            {
+                attackInput.action.Disable();
+                attackInput.action.started -= HandleAttackInputStarted;
+                attackInput.action.canceled -= HandleAttackInputCanceled;
+            }
+        }
+
+    #region Fury weapon damage multiplication
+
+        private void HandlePickUp(IWeapon weapon)
+        {
+            if (weapon is {DamageSource: not null})
+                weapon.DamageSource.DamageMultiplier = MultiplyDamageByFury;
+            else
+                LogWarning($"Weapon {weapon?.name} is either null or has no damage source. Fury won't apply to the damage!");
+        }
+
+        private void HandleThrow(IWeapon weapon)
+        {
+            if (weapon is {DamageSource: not null})
+                weapon.DamageSource.DamageMultiplier = null;
+        }
+
+        private float MultiplyDamageByFury(float original)
+            => original * (1 + _furyManager.Fury);
+
+    #endregion
+
         private void HandleDeath()
             => _gameManager?.HandlePlayerDeath();
 
-        private void HandleThrowInput(InputAction.CallbackContext data)
-        {
-            if (!character.HasValue)
-                return;
-            character.Value.TryThrowWeapon();
-        }
+    #region Input handling
 
         private void HandleMoveInput(InputAction.CallbackContext data)
         {
@@ -99,17 +132,6 @@ namespace Player
             }
         }
 
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            if (attackInput)
-            {
-                attackInput.action.Disable();
-                attackInput.action.started -= HandleAttackInputStarted;
-                attackInput.action.canceled -= HandleAttackInputCanceled;
-            }
-        }
-
         private void HandleAttackInputStarted(InputAction.CallbackContext _)
         {
             if (character.HasValue)
@@ -121,5 +143,14 @@ namespace Player
             if (character.HasValue)
                 character.Value.StopAttacking();
         }
+
+        private void HandleThrowInput(InputAction.CallbackContext _)
+        {
+            if (!character.HasValue)
+                return;
+            character.Value.TryThrowWeapon();
+        }
+
+    #endregion
     }
 }

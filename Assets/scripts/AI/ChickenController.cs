@@ -58,6 +58,7 @@ namespace AI
         {
             if (character.HasValue)
                 character.Value.gameObject.SetActive(false);
+            enabled = false;
         }
 
         private async void FetchPlayer()

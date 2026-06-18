@@ -55,7 +55,7 @@ namespace Characters
 
         public void PickUp(IWeapon weapon)
         {
-            if (currentWeapon.HasValue)
+            if (HasWeapon)
                 return;
             weapon.SetOwner(this);
             currentWeapon.Value = weapon;
@@ -71,7 +71,7 @@ namespace Characters
             _attackSource?.Cancel();
             _attackSource?.Dispose();
             _attackSource = new();
-            currentWeapon.Value.HoldTrigger(LinkWithDisable(_attackSource.Token));
+            _ = currentWeapon.Value.HoldTrigger(LinkWithDisable(_attackSource.Token));
             return true;
         }
 
@@ -79,7 +79,7 @@ namespace Characters
         {
             TokenUtils.CancelAndDispose(ref _attackSource);
             if (HasWeapon)
-                CurrentWeapon.ReleaseTrigger();
+                _ = CurrentWeapon.ReleaseTrigger();
         }
 
         public bool TryThrowWeapon()

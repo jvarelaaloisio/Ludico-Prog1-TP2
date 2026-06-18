@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 5524174175879304842, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: scaleDamageMultiplier
+      value: 0.625
+      objectReference: {fileID: 0}
     - target: {fileID: 5880501953002490520, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: m_Name
       value: Melee Weapon_Mate Skin Variant
@@ -120,6 +124,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7419442619184104012, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: baseDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419442619184104012, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: <MaxCharge>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847417633691680578, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: maxScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8092058705385268607, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: m_Color.b
       value: 0.27450982
@@ -131,6 +147,10 @@ PrefabInstance:
     - target: {fileID: 8092058705385268607, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
       propertyPath: m_Color.r
       value: 0.08235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303468485204763816, guid: 379e4af1b59b2df178cf02be98a87548, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

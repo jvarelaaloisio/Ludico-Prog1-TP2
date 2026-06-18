@@ -60,10 +60,10 @@ namespace Views
         }
 
         private void HandleWeaponPickedUp(IWeapon weapon)
-            => weapon.OnAttack += HandleAttack;
+            => weapon.OnHoldingTrigger += HandleAttack;
 
         private void HandleWeaponThrown(IWeapon weapon)
-            => weapon.OnAttack -= HandleAttack;
+            => weapon.OnHoldingTrigger -= HandleAttack;
 
         private void HandleAttack(Vector2 direction)
             => isAttackingParameter.SetTrigger(animator);

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fb1747c34e4f548fb73c28d72bb46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: VarelaAloisio.HealthSystem.Unity.Runtime::HealthSystem.Runtime.Components.HealthComponentExtended
-  <MaxHp>k__BackingField: 25
-  <InitialHp>k__BackingField: 25
+  <MaxHp>k__BackingField: 250
+  <InitialHp>k__BackingField: 250
   <CanOverFlowHp>k__BackingField: 0
   setupInAwake: 1
   onDeath:
@@ -405,6 +405,8 @@ MonoBehaviour:
     reference: {fileID: 0}
   knockbackHandler:
     reference: {fileID: 7259885307377752927}
+  healthComponent:
+    reference: {fileID: 0}
   goalSpeed: 30
   acceleration: 60
   rigidBody: {fileID: 6802928025236528362}
@@ -870,6 +872,7 @@ MonoBehaviour:
   logTag: AutoPickupWeapon
   character:
     reference: {fileID: 8480614288270814573}
+  collider2D: {fileID: 3083030259805177575}
 --- !u!212 &3956063226767618660
 SpriteRenderer:
   serializedVersion: 2
@@ -1165,3 +1168,5 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: HealthLabel
   label: {fileID: 6193772812317462283}
+  healthComponent:
+    reference: {fileID: 5664310741667697044}

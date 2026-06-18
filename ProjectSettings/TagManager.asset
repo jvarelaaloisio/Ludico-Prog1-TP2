@@ -48,6 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Effects
+    uniqueID: 2414241585
+    locked: 0
   - name: Collisions
     uniqueID: 579299395
     locked: 0

@@ -1,29 +1,36 @@
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using Core.Combat;
 using Core.Game;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.XR;
+using UnityEngine.Serialization;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Utils;
 
 namespace Combat
 {
-    public class MeleeWeapon : MacacoBehaviour, IWeapon
+    public class MeleeWeapon : MacacoBehaviour, IWeapon, ISwing
     {
         [SerializeField] private Transform spriteToSwing;
         [SerializeField] private DamageWithKnockback damageTrigger;
-        [SerializeField] private Collider2D thrownDamageTrigger;
+        [SerializeField] private DamageWithKnockback thrownDamageTrigger;
         [SerializeField] private Collider2D pickUpTrigger;
         [Tooltip("The collider for when the weapon is on the ground")]
         [SerializeField] private Collider2D groundCollider;
         [SerializeField] private new Rigidbody2D rigidbody;
+        [FormerlySerializedAs("damageCharger")] [SerializeField] private Ref<ICharger> attackCharger;
+        [SerializeField] private Ref<IDamagePointsSource> damageSource;
+
+        [Space]
         [SerializeField] private float scale = 1;
         [SerializeField] private float duration = .25f;
         [SerializeField] private float rotationOffset;
         [SerializeField] private AnimationCurve swingCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         [SerializeField] private float cooldown = .25f;
+
+        [Space]
         [SerializeField] private Ref<ICharacter> owner;
         [SerializeField] private float triggerDistanceFromOwner = 1f;
         [SerializeField] private float  stunDuration = .5f;
@@ -35,18 +42,34 @@ namespace Combat
         [SerializeField] private UnityEvent onPrepareAttack;
         [SerializeField] private UnityEvent onDoAttack;
         private CancellationTokenSource _attackTokenSource;
-        private float _currentCharge = float.NaN;
+        private bool _isHoldingTrigger;
         public bool IsOnCooldown { get; private set; }
-        public event Action<Vector2> OnAttack;
+        public IDamagePointsSource DamageSource => damageSource.HasValue ? damageSource.Value : null;
+        public event Action<Vector2> OnHoldingTrigger;
+
+        /// <inheritdoc />
+        public event Action<Vector2> OnReleasedTrigger;
+
+        /// <inheritdoc />
+        public event Action<Vector2> OnThrow;
+
+        /// <inheritdoc />
+        public event Action OnSwing;
+
+        /// <inheritdoc />
+        public event Action OnSwung;
+
         [ContextMenu("Swing")]
         private void DoTestRotation()
-            => HoldTrigger(DisableCancellationToken);
+            => _ = HoldTrigger(DisableCancellationToken);
 
         protected override void OnEnable()
         {
             base.OnEnable();
             if (damageTrigger)
                 damageTrigger.OnHit += HandleHit;
+            if (thrownDamageTrigger)
+                thrownDamageTrigger.OnHit += HandleHit;
         }
 
         protected override void Start()
@@ -54,6 +77,12 @@ namespace Combat
             base.Start();
             if (damageTrigger)
                 damageTrigger.gameObject.SetActive(false);
+
+            if (!damageSource.HasValue)
+                return;
+
+            foreach (IDamageSourceConsumer consumer in GetComponentsInChildren<IDamageSourceConsumer>(true))
+                consumer.DamageSource = damageSource.Value;
         }
 
         protected override void OnDisable()
@@ -61,20 +90,27 @@ namespace Combat
             base.OnDisable();
             if (damageTrigger)
                 damageTrigger.OnHit -= HandleHit;
+            if (thrownDamageTrigger)
+                thrownDamageTrigger.OnHit -= HandleHit;
         }
 
-        public void HoldTrigger(CancellationToken token)
+        public Task HoldTrigger(CancellationToken token)
         {
-            OnAttack?.Invoke(owner.Value.Direction);
+            if (IsOnCooldown)
+                return Task.CompletedTask;
+            Log($"Holding trigger.");
+            _isHoldingTrigger = true;
+            attackCharger.Value?.StartCharging(token);
+            OnHoldingTrigger?.Invoke(owner.Value.Direction);
             onPrepareAttack.Invoke();
-            _currentCharge = 0;
+            return Task.CompletedTask;
         }
 
-        public async void ReleaseTrigger()
+        public async Task ReleaseTrigger()
         {
-            if(float.IsNaN(_currentCharge)
-               || IsOnCooldown)
+            if(!_isHoldingTrigger || IsOnCooldown)
                 return;
+            Log("Trigger released. Swinging.");
             _attackTokenSource = new CancellationTokenSource();
             CancellationToken token = LinkWithDisable(_attackTokenSource.Token);
             if (!owner.HasValue)
@@ -88,8 +124,9 @@ namespace Combat
                 return;
             }
             IsOnCooldown = true;
-            Vector3 originalPosition = spriteToSwing.localPosition;
-            Quaternion originalRotation = spriteToSwing.localRotation;
+            onDoAttack.Invoke();
+            OnSwing?.Invoke();
+            CacheSwingPositionAndRotation(out Vector3 originalPosition, out Quaternion originalRotation);
             if (damageTrigger)
             {
                 damageTrigger.gameObject.SetActive(true);
@@ -97,21 +134,17 @@ namespace Combat
                                                    + (Vector3)(owner.Value.Direction * triggerDistanceFromOwner);
                 damageTrigger.transform.up = owner.Value.Direction;
             }
-            onDoAttack.Invoke();
+            OnReleasedTrigger?.Invoke(originalPosition);
             CancellationTokenRegistration registration = token.Register(CleanUp);
-            const float pi = Mathf.PI;
             float now = Time.time;
             float start = Time.time;
-            float rotationOffsetBasedOnDirection = GetRotationBasedOnDirection(owner.Value.Direction);
             while (now - start < duration)
             {
                 now = Time.time;
                 float lerp = swingCurve.Evaluate((now - start) / duration);
-                float x = (lerp + rotationOffset + rotationOffsetBasedOnDirection) * pi;
-                Vector3 position = owner.Value.transform.position + new Vector3(Mathf.Cos(x) * scale, Mathf.Sin(x) * scale);
-                Vector3 direction = new Vector3(-Mathf.Sin(x), Mathf.Cos(x));
-                DrawRay(position, direction, Color.red, 1);
-                spriteToSwing.SetPositionAndRotation(position, Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, -90));
+                Vector3 position = CalculatePosition(lerp);
+                Vector3 direction = CalculateDirection(lerp);
+                SetPositionAndDirection(position, direction);
                 await Awaitable.NextFrameAsync();
                 if (token.IsCancellationRequested)
                     return;
@@ -126,12 +159,61 @@ namespace Combat
 
             void CleanUp()
             {
+                Log($"Finished swinging. Cleaning up.");
                 if (damageTrigger)
                     damageTrigger.gameObject.SetActive(false);
-                spriteToSwing.SetLocalPositionAndRotation(originalPosition, originalRotation);
+                SetPositionAndRotation(originalPosition, originalRotation);
                 IsOnCooldown = false;
+                attackCharger.Value?.ResetCharge();
+                OnSwung?.Invoke();
             }
         }
+
+        public void CacheSwingPositionAndRotation(out Vector3 originalPosition, out Quaternion originalRotation)
+        {
+            originalPosition = spriteToSwing.localPosition;
+            originalRotation = spriteToSwing.localRotation;
+        }
+
+        /// <summary /> Calculate the position for a given point in the rotation, using owner's direction as base.
+        /// <param name="lerp">A [0..1] range representing the state of the rotation.
+        /// <para>0 is the start of the rotation, 1 is the end of it</para> </param>
+        public Vector3 CalculatePosition(float lerp)
+        {
+            const float pi = Mathf.PI;
+            Vector2 ownerDirection = owner.HasValue ? owner.Value.Direction : transform.up;
+            float rotationOffsetBasedOnDirection = GetRotationBasedOnDirection(ownerDirection);
+            float x = (lerp + rotationOffset + rotationOffsetBasedOnDirection) * pi;
+            Vector3 ownerPosition = owner.HasValue ? owner.Value.transform.position : transform.position;
+            return ownerPosition + new Vector3(Mathf.Cos(x) * scale, Mathf.Sin(x) * scale);
+        }
+
+        /// <summary /> Calculate the direction for a given point in the rotation, using owner's direction as base.
+        /// <param name="lerp">A [0..1] range representing the state of the rotation.
+        /// <para>0 is the start of the rotation, 1 is the end of it</para> </param>
+        public Vector3 CalculateDirection(float lerp)
+        {
+            const float pi = Mathf.PI;
+            Vector2 ownerDirection = owner.HasValue ? owner.Value.Direction : transform.up;
+            float rotationOffsetBasedOnDirection = GetRotationBasedOnDirection(ownerDirection);
+            float x = (lerp + rotationOffset + rotationOffsetBasedOnDirection) * pi;
+            return new Vector3(-Mathf.Sin(x), Mathf.Cos(x));
+        }
+
+        /// <summary>
+        /// Set the position and direction of the sprite. Use <see cref="CalculatePosition"/> and <see cref="CalculateDirection"/> to get the values you need.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="direction"></param>
+        public void SetPositionAndDirection(Vector3 position, Vector3 direction)
+        {
+            DrawRay(position, direction, Color.red, 1);
+            spriteToSwing.SetPositionAndRotation(position, Quaternion.LookRotation(Vector3.forward, direction) * Quaternion.Euler(0, 0, -90));
+        }
+
+        /// <inheritdoc />
+        public void SetPositionAndRotation(Vector3 originalPosition, Quaternion originalRotation)
+            => spriteToSwing.SetLocalPositionAndRotation(originalPosition, originalRotation);
 
         /// <summary /> This formula converts angles into a rotation offset.
         /// The conversion is based on this table of values:
@@ -147,6 +229,7 @@ namespace Combat
 
         public void SetOwner(ICharacter newOwner)
         {
+            Log($"Setting owner to {(owner.HasValue ? owner.Value.transform.name : null)}");
             owner.Value = newOwner;
             transform.SetParent(newOwner.transform);
             transform.SetLocalPositionAndRotation(pickUpOffset, Quaternion.identity);
@@ -157,40 +240,56 @@ namespace Combat
             rigidbody.angularVelocity = 0;
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
             damageTrigger.dontDamageTags.Add(newOwner.gameObject.tag);
+            thrownDamageTrigger.dontDamageTags.Add(newOwner.gameObject.tag);
         }
 
         public async void Throw(Vector2 direction)
         {
-            TokenUtils.CancelAndDispose(ref _attackTokenSource);
-            owner.Value = null;
-            transform.SetParent(null);
-            thrownDamageTrigger.gameObject.SetActive(true);
-            CancellationTokenRegistration cleanUpRegistration = DisableCancellationToken.Register(CleanUp);
+            try
+            {
+                Log($"Throwing. Cancelling attack token.");
+                TokenUtils.CancelAndDispose(ref _attackTokenSource);
+                owner.Value = null;
+                transform.SetParent(null);
+                thrownDamageTrigger.gameObject.SetActive(true);
+                spriteToSwing.localPosition = Vector3.zero;
+                CancellationTokenRegistration cleanUpRegistration = DisableCancellationToken.Register(CleanUp);
+                OnThrow?.Invoke(direction);
 
-            await Awaitable.FixedUpdateAsync();
-            if (DisableCancellationToken.IsCancellationRequested)
-                return;
-            rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            rigidbody.AddForce(direction * throwForce, ForceMode2D.Impulse);
-            rigidbody.AddTorque(throwTorque, ForceMode2D.Impulse);
+                await Awaitable.FixedUpdateAsync();
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+                rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                rigidbody.AddForce(direction * throwForce, ForceMode2D.Impulse);
+                rigidbody.AddTorque(throwTorque, ForceMode2D.Impulse);
 
-            await Awaitable.WaitForSecondsAsync(secondsBeforeReactivatingCollision);
-            if (DisableCancellationToken.IsCancellationRequested)
-                return;
-            groundCollider.gameObject.SetActive(true);
+                await Awaitable.WaitForSecondsAsync(secondsBeforeReactivatingCollision);
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+                Log($"{secondsBeforeReactivatingCollision} seconds have passed. Reactivating collision.");
+                groundCollider.gameObject.SetActive(true);
+                float secondsToActivatePickup = secondsBeforeItCanBePickedUpAgain - secondsBeforeReactivatingCollision;
 
-            await Awaitable.WaitForSecondsAsync(secondsBeforeItCanBePickedUpAgain - secondsBeforeReactivatingCollision);
-            if (DisableCancellationToken.IsCancellationRequested)
-                return;
-            pickUpTrigger.gameObject.SetActive(true);
-            CleanUp();
-            await cleanUpRegistration.DisposeAsync();
-            return;
+
+                await Awaitable.WaitForSecondsAsync(secondsToActivatePickup);
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+                Log($"{secondsToActivatePickup} seconds have passed. Reactivating pickup trigger.");
+                pickUpTrigger.gameObject.SetActive(true);
+
+                CleanUp();
+                await cleanUpRegistration.DisposeAsync();
+            }
+            catch (Exception e) { LogException(e); }
 
             void CleanUp()
             {
-                if (owner.HasValue)
-                    damageTrigger.dontDamageTags.Remove(owner.Value.gameObject.tag);
+                if (!owner.HasValue)
+                    return;
+                string ownerTag = owner.Value.gameObject.tag;
+                Log($"Cleaning up. Removing owner {ownerTag} from damage filter.");
+                damageTrigger.dontDamageTags.Remove(ownerTag);
+                thrownDamageTrigger.dontDamageTags.Remove(ownerTag);
             }
         }
 
@@ -198,11 +297,7 @@ namespace Combat
         {
             try
             {
-                if (!owner.HasValue)
-                {
-                    LogError($"{nameof(HandleHit)} called without an owner set");
-                    return;
-                }
+                Log($"Handling hit. Target: {other.gameObject.name}");
                 if (!other.transform.TryGetComponent(out IStunnable stunnable)
                     && (!other.transform.parent
                         || !other.transform.parent.TryGetComponent(out stunnable)))
@@ -211,10 +306,12 @@ namespace Combat
                     return;
                 }
 
-                Vector2 direction = (other.transform.position - owner.Value.transform.position).normalized;
+                Vector3 stunOrigin = owner.HasValue ? owner.Value.transform.position : transform.position;
+                Vector2 direction = (other.transform.position - stunOrigin).normalized;
                 await Awaitable.FixedUpdateAsync();
                 if (destroyCancellationToken.IsCancellationRequested)
                     return;
+                Log($"Stunning target ({other.name}) towards {direction} for {duration} seconds.");
                 stunnable.Stun(stunDuration, direction);
                 Debug.DrawRay(other.transform.position, direction, Color.yellow);
             }

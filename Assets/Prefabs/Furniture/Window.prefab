@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Intensity: 1.25
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 917d86592b1b6a3b0000000043688722
+  m_ApplyToSortingLayers: 917d86592b1b6a3b00000000436887223167e68f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 121
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7001595624339295524, guid: 5204aeb1c88caf5a0afbd3b263d5ef0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -26,11 +26,13 @@ namespace Views
         protected override void OnEnable()
         {
             base.OnEnable();
-            if (stunnable.HasValue)
+            if (!stunnable.HasValue)
             {
-                stunnable.Value.OnStun += HandleStun;
-                stunnable.Value.OnRecovery += HandleStunRecovery;
+                Debug.LogWarning($"{nameof(stunnable)} is null. Won't control color.");
+                return;
             }
+            stunnable.Value.OnStun += HandleStun;
+            stunnable.Value.OnRecovery += HandleStunRecovery;
         }
 
         private void HandleStun()

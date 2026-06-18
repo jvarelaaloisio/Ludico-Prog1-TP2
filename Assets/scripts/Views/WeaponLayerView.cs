@@ -27,10 +27,10 @@ namespace Views
                 return;
             }
 
-            weapon.Value.OnAttack += HandleAttack;
+            weapon.Value.OnHoldingTrigger += HandleHoldingTrigger;
         }
 
-        private void HandleAttack(Vector2 direction)
+        private void HandleHoldingTrigger(Vector2 direction)
         {
             direction.Normalize();
             foreach (SortingByDirection orderingByDirection in orderings)

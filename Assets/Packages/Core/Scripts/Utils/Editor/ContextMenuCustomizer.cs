@@ -26,6 +26,7 @@ namespace VarelaAloisio.Core.Editor
 				if (isComponent)
 				{
 					menu.AddItem(new GUIContent(ObjectNames.NicifyVariableName(nameof(GetComponent))), false, GetComponent, property);
+					menu.AddItem(new GUIContent(ObjectNames.NicifyVariableName(nameof(GetComponentInChildren))), false, GetComponentInChildren, property);
 				}
 			}
 			menu.AddItem(new GUIContent(ObjectNames.NicifyVariableName(nameof(ResetValue))), false, ResetValue, property);
@@ -34,6 +35,7 @@ namespace VarelaAloisio.Core.Editor
 			menu.AddItem(new GUIContent(ObjectNames.NicifyVariableName(nameof(SetToNone))), false, SetToNone, property);
 		}
 
+		//TODO: Add support for Ref<>
 		private static void GetComponent(object data)
 		{
 			if (data is not SerializedProperty property
@@ -46,7 +48,26 @@ namespace VarelaAloisio.Core.Editor
 				Debug.LogError($"Couldn't get component of type {typeFromPath} in {subject.name}");
 				return;
 			}
-			Undo.RegisterCompleteObjectUndo(property.serializedObject.targetObject, $"Set {property.serializedObject.targetObject.name}.{property.name} to ");
+			Undo.RegisterCompleteObjectUndo(property.serializedObject.targetObject, $"Set {property.serializedObject.targetObject.name}.{property.name} to {component.name}");
+			property.objectReferenceValue = component;
+			property.serializedObject.ApplyModifiedProperties();
+		}
+
+		//TODO: Add support for Ref<>
+		private static void GetComponentInChildren(object data)
+		{
+			if (data is not SerializedProperty property
+			    || property.serializedObject.targetObject is not Component subject)
+				return;
+
+			var typeFromPath = GetTypeFromPath(property.serializedObject.targetObject.GetType(), property.propertyPath);
+			var component = subject.GetComponentInChildren(typeFromPath);
+			if (!component)
+			{
+				Debug.LogError($"Couldn't get component of type {typeFromPath} in {subject.name}'s children");
+				return;
+			}
+			Undo.RegisterCompleteObjectUndo(property.serializedObject.targetObject, $"Set {property.serializedObject.targetObject.name}.{property.name} to {component.name}");
 			property.objectReferenceValue = component;
 			property.serializedObject.ApplyModifiedProperties();
 		}
