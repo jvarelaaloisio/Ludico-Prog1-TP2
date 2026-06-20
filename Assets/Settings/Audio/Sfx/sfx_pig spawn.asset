@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0111e0d786ff4dad9ca0b2240de92c1f, type: 3}
-  m_Name: sfx_mate attack_hit
+  m_Name: sfx_pig spawn
   m_EditorClassIdentifier: Ludico.Audio.Runtime::Audio.SoundContainer
   sequenceMode: 0
   clips:
-  - {fileID: 8300000, guid: 64f4a89dbf70f064aa8ecca4aee58182, type: 3}
-  - {fileID: 8300000, guid: 5c3d9aa50527dee4888073bacea5a52c, type: 3}
-  - {fileID: 8300000, guid: d003e203d425267458e8ebeb473af995, type: 3}
-  volume: 0.35
+  - {fileID: 8300000, guid: 21afd5d4a0d035140b88b488b1ba1c12, type: 3}
+  volume: 1
   minPitch: 1
   maxPitch: 1
   loop: 0
-  spatialBlend: 0
+  spatialBlend: 1
   minDistance: 1
   maxDistance: 500
   outputMixer: {fileID: 1615188019940073181, guid: 62d3cbe83145731bf8d9f02a859689d2, type: 2}

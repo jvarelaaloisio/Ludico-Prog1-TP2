@@ -15,6 +15,7 @@ namespace UI
         [SerializeField] private string mainMenuId = "Menu_Main_View";
         [SerializeField] private string gameplayMenuId = "UI_Gameplay";
         [SerializeField] private string loseMenuId = "Menu_GameOver";
+        [SerializeField] private string mainMenuLevelName = "MainMenu";
         [SerializeField] private string gameplayLevelName = "House";
         [AutoMap(How.Service, When.OnEnable)]
         private IGameManager _gameManager;
@@ -57,6 +58,8 @@ namespace UI
         {
             if (string.Equals(levelName, gameplayLevelName, StringComparison.CurrentCultureIgnoreCase))
                 SwitchMenu(gameplayMenuId);
+            if (string.Equals(levelName, mainMenuLevelName, StringComparison.CurrentCultureIgnoreCase))
+                SwitchMenu(mainMenuId);
         }
 
         private void HandleLose()

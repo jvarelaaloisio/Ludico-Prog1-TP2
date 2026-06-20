@@ -1,5 +1,5 @@
 using System;
-using Core;
+using System.Threading.Tasks;
 using Core.Game;
 using UnityEngine;
 using VarelaAloisio.Core;
@@ -18,7 +18,11 @@ namespace Management
         private ILevelService _levelService;
 
         public event Action<string> OnEnterLevel;
+
         public event Action OnLose;
+
+        /// <inheritdoc />
+        public event Action OnWinLevel;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void InitializeOnLoad()
@@ -40,6 +44,27 @@ namespace Management
         {
             _levelService.LoadLevel(gameLevel.Value);
             OnEnterLevel?.Invoke(gameLevel.Value.name);
+        }
+
+        /// <inheritdoc />
+        public async Task WinLevel(float delayBeforeGoingBackToMenu)
+        {
+            try
+            {
+                OnWinLevel?.Invoke();
+                await Awaitable.WaitForSecondsAsync(delayBeforeGoingBackToMenu);
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+
+                if (!defaultLevel.HasValue)
+                {
+                    LogError($"{nameof(defaultLevel)} is null.");
+                    return;
+                }
+                _levelService.UnloadLevel(gameLevel.Value);
+                OnEnterLevel?.Invoke(defaultLevel.Value.name);
+            }
+            catch (Exception e) { LogException(e); }
         }
         
         public void ExitGame()

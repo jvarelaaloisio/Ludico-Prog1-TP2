@@ -10,26 +10,28 @@ using VarelaAloisio.Core.Utils;
 
 namespace Player
 {
-    public class Player : MacacoBehaviour
+    public class Player : MacacoBehaviour, IController
     {
         [SerializeField] private Ref<ICharacter> character;
         [SerializeField] private InputActionReference attackInput;
         [SerializeField] private InputActionReference throwInput;
         [SerializeField] private InputActionReference moveInput;
+
+        [Space]
+        [SerializeField] private bool selfSetup;
+
         [AutoMap(How.Service, When.Awake, OnError.Ignore)]
         private IGameManager _gameManager;
         private CancellationTokenSource _moveSource = null;
         [AutoMap(How.Service, When.OnEnable, OnError.Ignore)]
         private IFuryManager _furyManager;
 
-        protected override void OnEnable()
+        public ICharacter Character => character.HasValue ? character.Value : null;
+
+        /// <inheritdoc />
+        public void Setup(ICharacter injectedCharacter)
         {
-            base.OnEnable();
-            if (!character.HasValue)
-            {
-                LogError("Character not set");
-                return;
-            }
+            character.Value = injectedCharacter;
             if (attackInput)
             {
                 attackInput.action.Enable();
@@ -64,6 +66,19 @@ namespace Player
             }
             health.Setup();
             health.Health.OnDeath += HandleDeath;
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (!selfSetup)
+                return;
+            if (!character.HasValue)
+            {
+                LogError("Character not set");
+                return;
+            }
+            Setup(character.Value);
         }
 
         protected override void OnDisable()

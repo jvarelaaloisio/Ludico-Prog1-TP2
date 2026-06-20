@@ -7,5 +7,7 @@
         /// </summary>
         /// <param name="newLevel">The level to change to</param>
         void LoadLevel(ILevel newLevel);
+
+        void UnloadLevel(ILevel level);
     }
 }

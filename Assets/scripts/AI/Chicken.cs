@@ -10,7 +10,7 @@ using VarelaAloisio.Core.Attributes;
 
 namespace AI
 {
-    public class ChickenController : MacacoBehaviour
+    public class Chicken : MacacoBehaviour, IController
     {
         [SerializeField] private Ref<ICharacter> character;
         [SerializeField] private string playerId = "Player";
@@ -23,14 +23,17 @@ namespace AI
         [SerializeField] private float attackDistance = 1;
         [SerializeField] private float attackTelegraphingDuration = .25f;
         [SerializeField] private float cooldownAfterAttacking = 1;
-        private HealthComponent _health;
 
-        protected override void OnEnable()
+        [Space]
+        [SerializeField] private bool selfSetup;
+
+        private HealthComponent _health;
+        public ICharacter Character => character.HasValue ? character.Value : null;
+
+        public void Setup(ICharacter injectedCharacter)
         {
-            base.OnEnable();
+            character.Value = injectedCharacter;
             FetchPlayer();
-            if (!character.HasValue)
-                return;
             _health = character.Value.gameObject.GetComponent<HealthComponent>()
                       ?? character.Value.gameObject.GetComponentInChildren<HealthComponent>();
 
@@ -38,6 +41,19 @@ namespace AI
                 return;
             _health.Setup();
             _health.Health.OnDeath += HandleDeath;
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (!selfSetup)
+                return;
+            if (!character.HasValue)
+            {
+                LogError("Character not set");
+                return;
+            }
+            Setup(character.Value);
         }
 
         protected override void OnDisable()

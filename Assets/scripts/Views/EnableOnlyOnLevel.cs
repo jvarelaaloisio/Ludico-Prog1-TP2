@@ -1,5 +1,4 @@
 using System;
-using Core;
 using Core.Game;
 using UnityEngine;
 using VarelaAloisio.Core;
@@ -16,13 +15,15 @@ namespace Views
         protected override void Awake()
         {
             base.Awake();
-            _gameManager.OnEnterLevel += HandleEnterLevel;
+            if (_gameManager is not null)
+                _gameManager.OnEnterLevel += HandleEnterLevel;
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            _gameManager.OnEnterLevel -= HandleEnterLevel;
+            if (_gameManager is not null)
+                _gameManager.OnEnterLevel -= HandleEnterLevel;
         }
 
         private void HandleEnterLevel(string levelName)

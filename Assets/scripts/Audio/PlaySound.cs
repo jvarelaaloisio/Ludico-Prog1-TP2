@@ -9,10 +9,19 @@ namespace Audio
     {
         [SerializeField] private SoundContainer sound;
         [SerializeField] private bool avoidPlayingMultipleTimesInParallel;
+        [SerializeField] private bool playOnAwake;
         [AutoMap(How.Service, When.Awake)]
         private IAudioManager _audioManager;
 
         private IAudioPlayer _currentPlayer;
+
+        /// <inheritdoc />
+        protected override void Awake()
+        {
+            base.Awake();
+            if (playOnAwake)
+                Play();
+        }
 
         [ContextMenu("Play")]
         public void Play()

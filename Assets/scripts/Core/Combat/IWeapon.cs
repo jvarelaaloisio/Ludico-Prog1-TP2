@@ -8,6 +8,7 @@ namespace Core.Combat
 {
     public interface IWeapon
     {
+        Transform transform { get; }
         /// <summary /> When the weapon starts attacking
         event Action<Vector2> OnHoldingTrigger;
         /// <summary /> When the weapon stops attacking

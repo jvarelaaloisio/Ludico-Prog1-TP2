@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using VarelaAloisio.Core.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -277,6 +278,34 @@ namespace VarelaAloisio.Scenes
             }
         }
 
+        public async void UnloadLevel(ILevel level)
+        {
+            int scenesUnloadedCount = 0;
+            _currentLoadedScenePaths.Clear();
+            var unloadReport = new StringBuilder(Unloaded + $"level {level.name}. Report:");
+
+            foreach (var unloadOperation in level.Unload())
+            {
+                double duration = Time.realtimeSinceStartupAsDouble;
+                    
+                _loadingState.UnloadingOperations.Add(unloadOperation);
+                if (DisableCancellationToken.IsCancellationRequested)
+                {
+                    Log($"Unload cancelled".Colored(C.Red));
+                    return;
+                }
+
+                int scenesToUnlad = level.TotalSceneCount;
+                await UpdateLevelLoadProgressAsync(unloadOperation, scenesUnloadedCount, scenesToUnlad);
+                _loadingState.UnloadingOperations.Remove(unloadOperation);
+                    
+                duration = Time.realtimeSinceStartupAsDouble - duration;
+                unloadReport.AppendLine($"{unloadOperation.Path} ({duration * 1000:F} ms)");
+                scenesUnloadedCount++;
+            }
+            Log(unloadReport.ToString());
+        }
+
         private static bool ProgressIsOver90Percent(AsyncOperation asyncOperation)
             => asyncOperation.progress >= 0.89f;
 
@@ -308,6 +337,17 @@ namespace VarelaAloisio.Scenes
                 float loadOperationProgress = loadOperation.AsyncOperation.progress + scenesAlreadyLoadedQty;
                 UpdateLoadingBarProgress(loadOperationProgress, totalScenesToLoadQty);
                 yield return null;
+            }
+        }
+        private async Task UpdateLevelLoadProgressAsync(SceneAsyncOperation loadOperation,
+                                                        int scenesAlreadyLoadedQty,
+                                                        int totalScenesToLoadQty)
+        {
+            while (!loadOperation.AsyncOperation.isDone)
+            {
+                float loadOperationProgress = loadOperation.AsyncOperation.progress + scenesAlreadyLoadedQty;
+                UpdateLoadingBarProgress(loadOperationProgress, totalScenesToLoadQty);
+                await Awaitable.NextFrameAsync();
             }
         }
 

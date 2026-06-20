@@ -187,6 +187,7 @@ MonoBehaviour:
   mainMenuId: Menu_Main_View
   gameplayMenuId: UI_Gameplay
   loseMenuId: Menu_GameOver
+  mainMenuLevelName: MainMenu
   gameplayLevelName: House
 --- !u!1 &980869937
 GameObject:
@@ -798,7 +799,7 @@ MonoBehaviour:
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: EnableOnlyOnLevel
-  levelName: UI
+  levelName: MainMenu
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
