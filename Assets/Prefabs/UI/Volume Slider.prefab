@@ -307,6 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8593719432691590309}
   - component: {fileID: 9135068545092711350}
+  - component: {fileID: 4501652800882866866}
   m_Layer: 5
   m_Name: Volume Slider
   m_TagString: Untagged
@@ -380,10 +381,29 @@ MonoBehaviour:
   m_FillRect: {fileID: 1918783692496970947}
   m_HandleRect: {fileID: 4414344379481315032}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4501652800882866866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713419172429728166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70be305ecb7340eb9dcf7c458a901b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.UI.Buttons.Runtime::UI.Buttons.AudioSlider
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: AudioSlider
+  slider: {fileID: 9135068545092711350}
+  channel: 0

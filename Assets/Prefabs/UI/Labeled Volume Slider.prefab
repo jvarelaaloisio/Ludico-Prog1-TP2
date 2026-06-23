@@ -104,8 +104,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5c2d360a06ad19e888b2fcb0e4cd8038, type: 2}
+  m_sharedMaterial: {fileID: 1604754402204362216, guid: 5c2d360a06ad19e888b2fcb0e4cd8038, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -183,11 +183,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 6666256018020482711}
     m_Modifications:
     - target: {fileID: 1918783692496970947, guid: e39731d4c42079fbbaa1f47ec153fdb1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918783692496970947, guid: e39731d4c42079fbbaa1f47ec153fdb1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4414344379481315032, guid: e39731d4c42079fbbaa1f47ec153fdb1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414344379481315032, guid: e39731d4c42079fbbaa1f47ec153fdb1, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414344379481315032, guid: e39731d4c42079fbbaa1f47ec153fdb1, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8593719432691590309, guid: e39731d4c42079fbbaa1f47ec153fdb1, type: 3}

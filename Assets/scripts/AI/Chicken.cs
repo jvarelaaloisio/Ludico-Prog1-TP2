@@ -177,6 +177,8 @@ namespace AI
                 try
                 {
                     await Awaitable.NextFrameAsync();
+                    if (player.Value.HealthComponent.Health.HP <= 0)
+                        return;
                     if (DisableCancellationToken.IsCancellationRequested)
                         return;
                     float distance = Vector3.Distance(player.Value.transform.position,

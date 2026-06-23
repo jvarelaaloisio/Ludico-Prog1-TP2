@@ -230,7 +230,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -375,13 +375,21 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3427270929784931160, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
+      propertyPath: logTag
+      value: Music Volume Slider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427270929784931160, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
+      propertyPath: channel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751727452919775033, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -4.999939
       objectReference: {fileID: 0}
     - target: {fileID: 6260737759562262380, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
       propertyPath: m_text
-      value: Ambiente
+      value: "M\xFAsica"
       objectReference: {fileID: 0}
     - target: {fileID: 6666256018020482711, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
       propertyPath: m_Pivot.x
@@ -672,6 +680,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3427270929784931160, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
+      propertyPath: logTag
+      value: Sfx Volume Slider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427270929784931160, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
+      propertyPath: channel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5751727452919775033, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -4.999939
@@ -829,6 +845,10 @@ PrefabInstance:
     - target: {fileID: 3218929470582861618, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427270929784931160, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
+      propertyPath: logTag
+      value: Master Volume Slider
       objectReference: {fileID: 0}
     - target: {fileID: 6260737759562262380, guid: 3d18d9b376c299e6a913301b7e90cfc0, type: 3}
       propertyPath: m_text

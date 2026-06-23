@@ -78,6 +78,7 @@ namespace Player
                 LogError("Character not set");
                 return;
             }
+            character.Value.gameObject.SetActive(true);
             Setup(character.Value);
         }
 
@@ -89,6 +90,20 @@ namespace Player
                 attackInput.action.Disable();
                 attackInput.action.started -= HandleAttackInputStarted;
                 attackInput.action.canceled -= HandleAttackInputCanceled;
+            }
+
+            if (throwInput)
+            {
+                throwInput.action.Disable();
+                throwInput.action.performed -= HandleThrowInput;
+            }
+
+            if (moveInput)
+            {
+                moveInput.action.Disable();
+                moveInput.action.started -= HandleMoveInput;
+                moveInput.action.performed -= HandleMoveInput;
+                moveInput.action.canceled -= HandleMoveInput;
             }
         }
 
@@ -117,7 +132,12 @@ namespace Player
     #endregion
 
         private void HandleDeath()
-            => _gameManager?.HandlePlayerDeath();
+        {
+            if (character.HasValue)
+                character.Value.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            _gameManager?.HandlePlayerDeath();
+        }
 
     #region Input handling
 

@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
+[Obsolete]
 public class EnemyMovement : MonoBehaviour
 {
     
     [SerializeField] private float goalSpeed = 20f;
-    [SerializeField] private float acceleration = 40f;
 
     private Rigidbody2D rb; // referencia al rigidbody del enemigo
     private PlayerAwarenessController awarenessController; // referencia al PlayerAwarenessController

@@ -40,9 +40,10 @@ namespace Views
                     {
                         Health health = character.HealthComponent.Health;
                         _maxHp = health.MaxHP;
-                        health.OnDamage += UpdateBar;
-                        health.OnHeal += UpdateBar;
-                        _targetValue = (float)health.HP / health.MaxHP;
+                        health.OnDamage += HandleHpChanged;
+                        health.OnHeal += HandleHpChanged;
+                        image.fillAmount = (float)health.HP / _maxHp;
+                        HandleHpChanged(0, health.HP);
                         break;
                     }
                     await Awaitable.NextFrameAsync();
@@ -54,10 +55,12 @@ namespace Views
         private void Update()
         {
             if (image
-                && !IsApproximately(_targetValue, image.fillAmount))
+                && (_modificationSign > 0 && image.fillAmount < _targetValue
+                    || (_modificationSign < 0 && image.fillAmount > _targetValue)))
             {
                 image.fillAmount += Time.deltaTime * _modificationSign * animationSpeed;
-                if (IsApproximately(_targetValue, image.fillAmount))
+                if ((_modificationSign > 0 && image.fillAmount >= _targetValue
+                     || (_modificationSign < 0 && image.fillAmount <= _targetValue)))
                     image.fillAmount = _targetValue;
             }
             bool IsApproximately(float a, float b)
@@ -70,12 +73,12 @@ namespace Views
             if (_characterRepository.TryGet(targetId, out ICharacter character))
             {
                 Health health = character.HealthComponent.Health;
-                health.OnDamage += UpdateBar;
-                health.OnHeal += UpdateBar;
+                health.OnDamage += HandleHpChanged;
+                health.OnHeal += HandleHpChanged;
             }
         }
 
-        private void UpdateBar(int before, int after)
+        private void HandleHpChanged(int before, int after)
         {
             _targetValue = (float)after / _maxHp;
             _modificationSign = Mathf.Sign(after - before);

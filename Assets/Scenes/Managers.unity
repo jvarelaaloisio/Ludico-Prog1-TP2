@@ -211,6 +211,20 @@ MonoBehaviour:
   - reference: {fileID: 1114892890}
   - reference: {fileID: 903206294}
   - reference: {fileID: 974915588}
+  mixer: {fileID: 24100000, guid: 62d3cbe83145731bf8d9f02a859689d2, type: 2}
+  parametersByChannel:
+  - editorName: Master => Master Volume
+    <Channel>k__BackingField: 0
+    <Name>k__BackingField: Master Volume
+    prefKey: audio.MasterVolume
+  - editorName: Music => Music Volume
+    <Channel>k__BackingField: 1
+    <Name>k__BackingField: Music Volume
+    prefKey: audio.MusicVolume
+  - editorName: Sfx => Sfx Volume
+    <Channel>k__BackingField: 2
+    <Name>k__BackingField: Sfx Volume
+    prefKey: audio.SfxVolume
 --- !u!4 &727384778
 Transform:
   m_ObjectHideFlags: 0

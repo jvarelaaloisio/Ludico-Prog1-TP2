@@ -20,6 +20,7 @@ namespace UI
             base.OnEnable();
             if (_gameManager is not null)
             {
+                _gameManager.OnEnterLevel += HandleEnterLevel;
                 _gameManager.OnWinLevel += HandleWin;
             }
         }
@@ -40,6 +41,12 @@ namespace UI
                          && !DisableCancellationToken.IsCancellationRequested);
             }
             catch (Exception e) { LogException(e); }
+        }
+
+        private void HandleEnterLevel(string levelName)
+        {
+            if (label)
+                label.alpha = 0;
         }
     }
 }
