@@ -43,7 +43,7 @@ MonoBehaviour:
         0.1254902, a: 1}'
     - line: '|   m_ShowUnitySplashScreen: 1'
     - line: '|   m_ShowUnitySplashLogo: 1'
-    - line: '|   m_SplashScreenOverlayOpacity: 0'
+    - line: '|   m_SplashScreenOverlayOpacity: 1'
     - line: '|   m_SplashScreenAnimation: 1'
     - line: '|   m_SplashScreenLogoStyle: 1'
     - line: '|   m_SplashScreenDrawMode: 0'
@@ -596,7 +596,7 @@ MonoBehaviour:
     - line: '|   splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid:
         efa7d69767862faffba2c2d784262399, type: 3}'
     - line: '|   splashScreenBackgroundSourcePortrait: {instanceID: 0}'
-    - line: '|   blurSplashScreenBackground: 0'
+    - line: '|   blurSplashScreenBackground: 1'
     - line: '|   spritePackerPolicy: '
     - line: '|   webGLMemorySize: 32'
     - line: '|   webGLExceptionSupport: 1'
