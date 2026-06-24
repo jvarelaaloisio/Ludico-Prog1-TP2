@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "VarelaAloisio.Core.Runtime",
-        "Ludico.Core.Runtime"
+        "Ludico.Core.Runtime",
+        "Unity.RenderPipelines.Universal.2D.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
