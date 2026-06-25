@@ -14,12 +14,12 @@ namespace Combat
     {
         [SerializeField] private Transform spriteToSwing;
         [SerializeField] private DamageWithKnockback damageTrigger;
-        [SerializeField] private DamageWithKnockback thrownDamageTrigger;
         [SerializeField] private Collider2D pickUpTrigger;
         [Tooltip("The collider for when the weapon is on the ground")]
         [SerializeField] private Collider2D groundCollider;
         [SerializeField] private new Rigidbody2D rigidbody;
         [SerializeField] private Ref<ICharger> attackCharger;
+        [SerializeField] private Ref<IThrower> thrower;
 
         [Space]
         [SerializeField] private float scale = 1;
@@ -32,12 +32,7 @@ namespace Combat
         [SerializeField] private Ref<ICharacter> owner;
         [SerializeField] private float triggerDistanceFromOwner = 1f;
         [SerializeField] private float  stunDuration = .5f;
-        [SerializeField] private float secondsBeforeReactivatingCollision = .15f;
-        [SerializeField] private float secondsBeforeItCanBePickedUpAgain = .5f;
         [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
-        [SerializeField] private float throwForce = 10;
-        [SerializeField] private float throwTorque = 10;
-        [SerializeField] private float velocityCancellationAfterThrow = 0.9f;
         [SerializeField] private UnityEvent onPrepareAttack;
         [SerializeField] private UnityEvent onDoAttack;
         private CancellationTokenSource _attackTokenSource;
@@ -68,8 +63,8 @@ namespace Combat
             base.OnEnable();
             if (damageTrigger)
                 damageTrigger.OnHit += HandleHit;
-            if (thrownDamageTrigger)
-                thrownDamageTrigger.OnHit += HandleHit;
+            if (thrower.HasValue)
+                thrower.Value.OnHit += HandleHit;
         }
 
         protected override void Start()
@@ -85,8 +80,8 @@ namespace Combat
             base.OnDisable();
             if (damageTrigger)
                 damageTrigger.OnHit -= HandleHit;
-            if (thrownDamageTrigger)
-                thrownDamageTrigger.OnHit -= HandleHit;
+            if (thrower.HasValue)
+                thrower.Value.OnHit -= HandleHit;
         }
 
         public async Task HoldTrigger(CancellationToken token)
@@ -237,16 +232,21 @@ namespace Combat
             transform.SetLocalPositionAndRotation(pickUpOffset, Quaternion.identity);
             pickUpTrigger.gameObject.SetActive(false);
             groundCollider.gameObject.SetActive(false);
-            thrownDamageTrigger.gameObject.SetActive(false);
+            if (thrower.HasValue)
+                thrower.Value.DeactivateDamage();
             rigidbody.linearVelocity = Vector3.zero;
             rigidbody.angularVelocity = 0;
             rigidbody.bodyType = RigidbodyType2D.Kinematic;
             damageTrigger.dontDamageTags.Add(newOwner.gameObject.tag);
-            thrownDamageTrigger.dontDamageTags.Add(newOwner.gameObject.tag);
         }
 
         public async void Throw(Vector2 direction)
         {
+            if (!thrower.HasValue)
+            {
+                LogError($"Thrower is null.");
+                return;
+            }
             try
             {
                 Log($"Throwing. Cancelling attack token.");
@@ -254,50 +254,11 @@ namespace Combat
                 string ownerTag = owner.Value.gameObject.tag;
                 owner.Value = null;
                 transform.SetParent(null);
-                thrownDamageTrigger.gameObject.SetActive(true);
                 spriteToSwing.localPosition = Vector3.zero;
-                CancellationTokenRegistration cleanUpRegistration = DisableCancellationToken.Register(CleanUp);
+
                 OnThrow?.Invoke(direction);
-
-                await Awaitable.FixedUpdateAsync();
-                if (DisableCancellationToken.IsCancellationRequested)
-                    return;
-                rigidbody.bodyType = RigidbodyType2D.Dynamic;
-                rigidbody.AddForce(direction * throwForce, ForceMode2D.Impulse);
-                rigidbody.AddTorque(throwTorque, ForceMode2D.Impulse);
-
-                await Awaitable.WaitForSecondsAsync(secondsBeforeReactivatingCollision);
-                if (DisableCancellationToken.IsCancellationRequested)
-                    return;
-                Log($"{secondsBeforeReactivatingCollision} seconds have passed. Reactivating collision.");
-                groundCollider.gameObject.SetActive(true);
-                float secondsToActivatePickup = secondsBeforeItCanBePickedUpAgain - secondsBeforeReactivatingCollision;
-
-                await Awaitable.WaitForSecondsAsync(secondsToActivatePickup / 4);
-                if (DisableCancellationToken.IsCancellationRequested)
-                    return;
-                await Awaitable.FixedUpdateAsync();
-                if (DisableCancellationToken.IsCancellationRequested)
-                    return;
-                Log($"Punching self with -Velocity * {velocityCancellationAfterThrow} to slow down");
-                rigidbody.AddForce(-rigidbody.linearVelocity * velocityCancellationAfterThrow, ForceMode2D.Impulse);
-
-                await Awaitable.WaitForSecondsAsync(secondsToActivatePickup * 3 / 4);
-                if (DisableCancellationToken.IsCancellationRequested)
-                    return;
-                Log($"{secondsToActivatePickup} seconds have passed. Reactivating pickup trigger.");
+                await thrower.Value.Do(rigidbody, groundCollider, direction, ownerTag);
                 pickUpTrigger.gameObject.SetActive(true);
-
-                CleanUp();
-                await cleanUpRegistration.DisposeAsync();
-
-                void CleanUp()
-                {
-                    Log($"Cleaning up. Removing owner {ownerTag} from damage filter.");
-                    damageTrigger.dontDamageTags.Remove(ownerTag);
-                    thrownDamageTrigger.gameObject.SetActive(false);
-                    thrownDamageTrigger.dontDamageTags.Remove(ownerTag);
-                }
             }
             catch (Exception e) { LogException(e); }
         }

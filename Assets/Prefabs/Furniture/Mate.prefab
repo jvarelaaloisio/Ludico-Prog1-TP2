@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 789226124818569990}
   - component: {fileID: 359493397909717810}
-  - component: {fileID: 4792056164805243210}
   - component: {fileID: 274603830452528259}
   m_Layer: 0
   m_Name: Sprite
@@ -93,26 +92,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
---- !u!114 &4792056164805243210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566075356567253815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53414b6c535d4fc64b37c3216aad82f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Ludico.Views.Runtime::Views.SetOrderingBasedOnY
-  logger:
-    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
-  gizmo:
-    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
-  logTag: SetOrderingBasedOnY
-  renderer: {fileID: 359493397909717810}
-  offset: 1
-  precision: 10
 --- !u!114 &274603830452528259
 MonoBehaviour:
   m_ObjectHideFlags: 0

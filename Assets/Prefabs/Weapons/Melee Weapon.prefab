@@ -51,6 +51,7 @@ MonoBehaviour:
   logTag: PlaySound
   sound: {fileID: 11400000, guid: 9c5be73a3f038e84795c21f7ef1ea113, type: 2}
   avoidPlayingMultipleTimesInParallel: 0
+  playOnAwake: 0
 --- !u!1 &1099839962282373249
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +330,7 @@ MonoBehaviour:
   logTag: PlaySound
   sound: {fileID: 11400000, guid: ee356b421bde73c48b7ced591fa66e55, type: 2}
   avoidPlayingMultipleTimesInParallel: 0
+  playOnAwake: 0
 --- !u!1 &3149096067466825188
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +719,7 @@ GameObject:
   - component: {fileID: 5287312425905499549}
   - component: {fileID: 8830069200327371038}
   - component: {fileID: 7847417633691680578}
+  - component: {fileID: 6404194942102895664}
   m_Layer: 0
   m_Name: Melee Weapon
   m_TagString: Untagged
@@ -767,12 +770,13 @@ MonoBehaviour:
   logTag: Weapon
   spriteToSwing: {fileID: 8303468485204763816}
   damageTrigger: {fileID: 5524174175879304842}
-  thrownDamageTrigger: {fileID: 7950345454663390300}
   pickUpTrigger: {fileID: 2873258026629596002}
   groundCollider: {fileID: 3064441595923715784}
   rigidbody: {fileID: 8830069200327371038}
   attackCharger:
     reference: {fileID: 7419442619184104012}
+  thrower:
+    reference: {fileID: 6404194942102895664}
   scale: 1.25
   duration: 0.2
   rotationOffset: 0
@@ -805,11 +809,7 @@ MonoBehaviour:
     reference: {fileID: 0}
   triggerDistanceFromOwner: 0.5
   stunDuration: 0.5
-  secondsBeforeReactivatingCollision: 0.15
-  secondsBeforeItCanBePickedUpAgain: 0.5
   pickUpOffset: {x: -0.45, y: 0.25, z: 0}
-  throwForce: 20
-  throwTorque: 5
   onPrepareAttack:
     m_PersistentCalls:
       m_Calls:
@@ -906,6 +906,30 @@ MonoBehaviour:
   renderer: {fileID: 4255484390225183934}
   layerWhileCharging: Effects
   maxScale: 0.5
+--- !u!114 &6404194942102895664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5880501953002490520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82273e85f8b540f3bc8e6b2a384d1b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Combat.Runtime::Combat.Thrower
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: Thrower
+  damageTrigger: {fileID: 7950345454663390300}
+  throwForce: 40
+  throwTorque: 3
+  velocityCancellationAfterThrow: 1
+  secondsBeforeReactivatingCollision: 0.15
+  secondsBeforeItCanBePickedUpAgain: 0.5
+  slowDownDamping: 3
 --- !u!1 &6320464086662451189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1036,7 @@ MonoBehaviour:
   logTag: PlaySound
   sound: {fileID: 0}
   avoidPlayingMultipleTimesInParallel: 0
+  playOnAwake: 0
 --- !u!1 &6622735281369567065
 GameObject:
   m_ObjectHideFlags: 0

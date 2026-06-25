@@ -2,7 +2,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core.Combat;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Utils;
 
@@ -13,7 +12,7 @@ namespace Views
         [SerializeField] private Ref<IWeapon> weapon;
         [SerializeField] private Ref<ISwing> swingable;
         [SerializeField] private Ref<ICharger> damageCharger;
-        [FormerlySerializedAs("sprite")] [SerializeField] private Transform pivot;
+        [SerializeField] private Transform pivot;
         [SerializeField] private new SpriteRenderer renderer;
         [SerializeField] private string layerWhileCharging = "Effects";
         [SerializeField] private float maxScale = 2;
