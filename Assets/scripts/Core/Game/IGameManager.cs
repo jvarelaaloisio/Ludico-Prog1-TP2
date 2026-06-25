@@ -7,10 +7,11 @@ namespace Core.Game
     {
         event Action OnLose;
         event Action OnWinLevel;
-        void EnterGame();
+        void GoToNextLevel();
         void ExitGame();
         void HandlePlayerDeath();
         event Action<string> OnEnterLevel;
         Task WinLevel(float delayBeforeGoingBackToMenu);
+        event Action<GameState> OnStateChange;
     }
 }

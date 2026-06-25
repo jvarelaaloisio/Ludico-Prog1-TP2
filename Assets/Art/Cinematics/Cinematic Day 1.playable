@@ -1451,6 +1451,38 @@ MonoBehaviour:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
+--- !u!114 &-1472302385220887094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
+  m_Time: 19.75
+  m_Retroactive: 0
+  m_EmitOnce: 1
+  m_Asset: {fileID: 11400000, guid: c52ab511ce557664b810df26d9e4dd89, type: 2}
+--- !u!114 &-1099160006555589206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
+  m_Time: 19.75
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: c52ab511ce557664b810df26d9e4dd89, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,7 +1514,7 @@ MonoBehaviour:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 0
-  m_MarkerTrack: {fileID: 0}
+  m_MarkerTrack: {fileID: 3158731497404404438}
 --- !u!114 &1902758541496105208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1523,25 +1555,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1568,25 +1582,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1803,6 +1799,30 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &3158731497404404438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a16748d9461eae46a725db9776d5390, type: 3}
+  m_Name: Markers
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.MarkerTrack
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -1099160006555589206}
 --- !u!114 &3170634232709211399
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -161,7 +161,8 @@ namespace VarelaAloisio.Scenes
             Application.backgroundLoadingPriority = ThreadPriority.Low;
             //THOUGHT: I think I added this delay because the player started in the air and Cinemachine needed to place itself.
             //We would probably benefit from adding a "Setup" system for the level
-            yield return new WaitForSeconds(delayBeforeHidingLoadScreen);
+            if (delayBeforeHidingLoadScreen > 0)
+                yield return new WaitForSeconds(delayBeforeHidingLoadScreen);
             SetupActiveScene(newLevel);
 
             loadingScreen.Value?.Hide();
@@ -257,7 +258,8 @@ namespace VarelaAloisio.Scenes
 
                         //TODO: Handle this with ThreadPriority instead of arbitrary delays
                         //THOUGHT: Is this really necessary?
-                        yield return new WaitForSeconds(delayBeforeActivatingScene);
+                        if (delayBeforeActivatingScene > 0)
+                            yield return new WaitForSeconds(delayBeforeActivatingScene);
 
                         double activationStartTime = Time.realtimeSinceStartupAsDouble;
                         Log(Activating + sceneName);
@@ -268,12 +270,14 @@ namespace VarelaAloisio.Scenes
                                       + $"\nWaiting {delayBetweenBatches * 1000}ms.".Colored(C.Black));
                         
                         //THOUGHT: Is this really necessary? Maybe just yield return null?
-                        yield return new WaitForSeconds(delayBeforeLoadingNextScene);
+                        if (delayBeforeLoadingNextScene > 0)
+                            yield return new WaitForSeconds(delayBeforeLoadingNextScene);
                     }
 
                     //THOUGHT: Again, is this really necessary? I think we should test changing all of these random delays to wait just a frame.
                     //We should also research how to slow down loading so it doesn't freeze the game at all.
-                    yield return new WaitForSeconds(delayBetweenBatches);
+                    if (delayBetweenBatches > 0)
+                        yield return new WaitForSeconds(delayBetweenBatches);
                 }
             }
         }

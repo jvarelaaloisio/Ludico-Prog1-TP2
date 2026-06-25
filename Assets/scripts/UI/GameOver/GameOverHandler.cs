@@ -14,7 +14,7 @@ namespace UI.GameOver
 
         public void RestartGame(){
             _furyManager?.ResetFury();
-            _gameManager?.EnterGame();
+            _gameManager?.GoToNextLevel();
         }
     }
 }

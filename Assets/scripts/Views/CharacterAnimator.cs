@@ -12,6 +12,7 @@ namespace Views
         [SerializeField] private Animator animator;
         [Header("Animation ids")]
         [SerializeField] private AnimatorParameter isMovingParameter = new("isWalking");
+        [SerializeField] private AnimatorParameter isStunnedParameter = new("isStunned");
         [SerializeField] private AnimatorParameter isAttackingParameter = new("Attack");
         [SerializeField] private AnimatorParameter velocityXParameter = new("directionX");
         [SerializeField] private AnimatorParameter velocityYParameter = new("directionY");
@@ -27,7 +28,11 @@ namespace Views
             character.Value.OnPickUp += HandleWeaponPickedUp;
             character.Value.OnThrow += HandleWeaponThrown;
             if (character.Value is IStunnable stunnable)
+            {
                 _stunnable = stunnable;
+                stunnable.OnStun += HandleStun;
+                stunnable.OnRecovery += HandleStunRecovery;
+            }
         }
 
         private void Update()
@@ -67,5 +72,11 @@ namespace Views
 
         private void HandleAttack(Vector2 direction)
             => isAttackingParameter.SetTrigger(animator);
+
+        private void HandleStun()
+            => isStunnedParameter.SetBool(animator, true);
+
+        private void HandleStunRecovery()
+            => isStunnedParameter.SetBool(animator, false);
     }
 }

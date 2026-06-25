@@ -169,10 +169,24 @@ MonoBehaviour:
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: Game Manager
+  levels:
+  - <Level>k__BackingField:
+      reference: {fileID: 11400000, guid: c1b34d4a8c5fe3c57b2e8c1e994cb953, type: 2}
+    <State>k__BackingField: 0
+  - <Level>k__BackingField:
+      reference: {fileID: 11400000, guid: 74c26123ff9417b48bb7c1363734e405, type: 2}
+    <State>k__BackingField: 1
+  - <Level>k__BackingField:
+      reference: {fileID: 11400000, guid: eed24da4b230f55c4a9d591ccf548dce, type: 2}
+    <State>k__BackingField: 2
   defaultLevel:
     reference: {fileID: 11400000, guid: c1b34d4a8c5fe3c57b2e8c1e994cb953, type: 2}
-  gameLevel:
+  currentLevel: 0
+  night1:
     reference: {fileID: 11400000, guid: eed24da4b230f55c4a9d591ccf548dce, type: 2}
+  night2:
+    reference: {fileID: 0}
+  <State>k__BackingField: 0
 --- !u!1 &350403196
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,14 +237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38679248, g: 0.38496798, b: 0.38496798, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.5019608, g: 0.019607844, b: 0, a: 0.2509804}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2413806693520163455, guid: 9f845b1466a4f840599e70b25ef567f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -281,10 +295,10 @@ MonoBehaviour:
   fill: {fileID: 2025386466}
   colors:
     serializedVersion: 2
-    key0: {r: 0, g: 0.77614963, b: 1, a: 1}
-    key1: {r: 1, g: 0.0489275, b: 0, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.5019608, g: 0.019607844, b: 0, a: 0}
+    key1: {r: 0.5019608, g: 0.019607844, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
@@ -299,8 +313,8 @@ MonoBehaviour:
     ctime7: 0
     atime0: 0
     atime1: 65535
-    atime2: 0
-    atime3: 0
+    atime2: 65535
+    atime3: 65535
     atime4: 0
     atime5: 0
     atime6: 0
@@ -325,11 +339,11 @@ RectTransform:
   - {fileID: 2025386468}
   m_Father: {fileID: 1071303888}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: -200, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1 &1027776025
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,9 +393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_Material: {fileID: -876546973899608171, guid: b330591fd5d94894688878ea42e0ccb8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -443,10 +457,10 @@ MonoBehaviour:
     reference: {fileID: 736782073}
   progressModelView:
     reference: {fileID: 736782073}
-  delayBeforeHidingLoadScreen: 0.5
-  delayBetweenBatches: 1
-  delayBeforeLoadingNextScene: 3
-  delayBeforeActivatingScene: 0.5
+  delayBeforeHidingLoadScreen: 0
+  delayBetweenBatches: 0
+  delayBeforeLoadingNextScene: 0
+  delayBeforeActivatingScene: 0
 --- !u!4 &1040359996
 Transform:
   m_ObjectHideFlags: 0
@@ -813,21 +827,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.5019608, g: 0.019607844, b: 0, a: 0.7490196}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 9ae47ef785c16a55a8aa894fe4af5f53, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 9f845b1466a4f840599e70b25ef567f5, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillMethod: 4
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &2025386467

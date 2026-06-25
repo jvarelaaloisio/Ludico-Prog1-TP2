@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI.unity
     guid: 2e54b46812b5e6d9fbbd941a3544c4bb
   - enabled: 1
+    path: Assets/Scenes/Cinematic Day 1.unity
+    guid: 85aee7aafc64334428701a39454855bc
+  - enabled: 1
     path: Assets/Scenes/House.unity
     guid: 50f44fe93b2d3f3e5868f8c083aaba21
   - enabled: 1

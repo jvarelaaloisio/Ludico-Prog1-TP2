@@ -1,5 +1,4 @@
 using System;
-using Core;
 using Core.Game;
 using Core.UI;
 using UnityEngine;
@@ -39,6 +38,7 @@ namespace UI
 
             _gameManager.OnEnterLevel += HandleEnterLevel;
             _gameManager.OnLose += HandleLose;
+            _gameManager.OnStateChange += HandleStateChange;
         }
 
         protected override void Start()
@@ -52,6 +52,7 @@ namespace UI
             base.OnDisable();
             _gameManager.OnEnterLevel -= HandleEnterLevel;
             _gameManager.OnLose -= HandleLose;
+            _gameManager.OnStateChange -= HandleStateChange;
         }
 
         private void HandleEnterLevel(string levelName)
@@ -64,6 +65,13 @@ namespace UI
 
         private void HandleLose()
             => SwitchMenu(loseMenuId);
+
+        private void HandleStateChange(GameState state)
+        {
+            bool isCinematic = state is GameState.Day1 or GameState.Day2;
+            menusParent.gameObject.SetActive(!isCinematic);
+            Log("Turning menu " + (isCinematic ? "Off" : "On"));
+        }
 
         private void SwitchMenu(string id)
         {

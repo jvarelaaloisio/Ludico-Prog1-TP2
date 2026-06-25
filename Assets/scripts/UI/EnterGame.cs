@@ -10,7 +10,7 @@ namespace UI
         {
             if (Service.TryGet(out IGameManager gameManager))
             {
-                gameManager.EnterGame();
+                gameManager.GoToNextLevel();
             }
             else
             {

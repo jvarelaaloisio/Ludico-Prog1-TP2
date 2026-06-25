@@ -38,6 +38,7 @@ namespace Views
                 SetSortingOrder();
         }
 
+        [ContextMenu("Set Order in Layer")]
         private void SetSortingOrder()
             => renderer.sortingOrder = (int)(transform.position.y * -precision) + offset;
     }

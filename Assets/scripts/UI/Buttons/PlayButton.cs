@@ -34,6 +34,6 @@ namespace UI.Buttons
         }
 
         private void HandleClick()
-            => _gameManager.EnterGame();
+            => _gameManager.GoToNextLevel();
     }
 }

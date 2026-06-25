@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c171c1b67cc597741847967842dbfc92, type: 3}
-  m_Name: House
+  m_Name: Night 1
   m_EditorClassIdentifier: VarelaAloisio.SceneManagement.Runtime::VarelaAloisio.Scenes.Level
   <ActiveScene>k__BackingField:
     scene: {fileID: 102900000, guid: 50f44fe93b2d3f3e5868f8c083aaba21, type: 3}
