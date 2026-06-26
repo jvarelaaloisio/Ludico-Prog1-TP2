@@ -67,9 +67,7 @@ namespace Characters
             if (IsStunned
                 || !currentWeapon.HasValue)
                 return false;
-            _attackSource?.Cancel();
-            _attackSource?.Dispose();
-            _attackSource = new();
+            TokenUtils.Recreate(ref _attackSource);
             _ = currentWeapon.Value.HoldTrigger(LinkWithDisable(_attackSource.Token));
             return true;
         }

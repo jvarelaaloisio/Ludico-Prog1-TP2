@@ -10,6 +10,8 @@ namespace UI
     public class Navigator : MacacoBehaviour
     {
         [SerializeField] private Transform menusParent;
+        [Tooltip("Used to hide all ui when a cinematic is showing")]
+        [SerializeField] private CanvasGroup mainCanvasGroup;
         [SerializeField] private Ref<IMenu>[] menus;
         [SerializeField] private string mainMenuId = "Menu_Main_View";
         [SerializeField] private string gameplayMenuId = "UI_Gameplay";
@@ -57,8 +59,6 @@ namespace UI
 
         private void HandleEnterLevel(string levelName)
         {
-            if (string.Equals(levelName, gameplayLevelName, StringComparison.CurrentCultureIgnoreCase))
-                SwitchMenu(gameplayMenuId);
             if (string.Equals(levelName, mainMenuLevelName, StringComparison.CurrentCultureIgnoreCase))
                 SwitchMenu(mainMenuId);
         }
@@ -68,9 +68,15 @@ namespace UI
 
         private void HandleStateChange(GameState state)
         {
+            //TODO: Change for a switch
             bool isCinematic = state is GameState.Day1 or GameState.Day2;
-            menusParent.gameObject.SetActive(!isCinematic);
+            mainCanvasGroup.alpha = isCinematic ? 0 : 1;
+            mainCanvasGroup.interactable = !isCinematic;
+            mainCanvasGroup.blocksRaycasts = !isCinematic;
             Log("Turning menu " + (isCinematic ? "Off" : "On"));
+            bool isGameplay = state is GameState.Night1 or GameState.Night2;
+            if (isGameplay)
+                SwitchMenu(gameplayMenuId);
         }
 
         private void SwitchMenu(string id)

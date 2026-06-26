@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using Core.Combat;
 using Core.Game;
 using UnityEngine;
+using UnityEngine.Events;
 using VarelaAloisio.Core;
+using VarelaAloisio.Core.Utils;
 
 namespace Combat
 {
@@ -15,14 +17,23 @@ namespace Combat
         [SerializeField] private Collider2D groundCollider;
         [SerializeField] private new Rigidbody2D rigidbody;
         [SerializeField] private Ref<IThrower> thrower;
+        [SerializeField] private Transform nozzle;
+        [SerializeField] private Transform bulletPrefab;
+        [SerializeField] private Ref<ICharacter> owner;
 
         [Space]
         [SerializeField] private float cooldown = .25f;
         [SerializeField] private float  stunDuration = .5f;
-        [SerializeField] private Vector3 pickUpOffset = new (-0.45f, -0.45f, 0f);
+        [SerializeField] private float pickUpOffset = 1;
+        [SerializeField] private int pellets = 3;
+        [SerializeField] private int spreadDegrees = 15;
+
+        [SerializeField] private UnityEvent onShoot;
 
         private CancellationTokenSource _attackTokenSource;
         private bool _isHoldingTrigger;
+        private float _lastShotTime;
+
         /// <inheritdoc />
         public event Action<Vector2> OnHoldingTrigger;
 
@@ -32,30 +43,95 @@ namespace Combat
         /// <inheritdoc />
         public event Action<Vector2> OnThrow;
 
-        public bool IsOnCooldown { get; private set; }
+        public bool IsOnCooldown => _lastShotTime + cooldown < Time.time;
+
+        private void Update()
+        {
+            if (owner.HasValue)
+            {
+                Vector2 direction = owner.Value.Direction;
+                transform.up = direction;
+                transform.localPosition = direction * pickUpOffset;
+            }
+        }
 
         /// <inheritdoc />
-        public Task HoldTrigger(CancellationToken token)
+        public async Task HoldTrigger(CancellationToken token)
         {
-            throw new NotImplementedException();
+            if (_isHoldingTrigger)
+                return;
+
+            Log($"Holding trigger.");
+            _isHoldingTrigger = true;
+            OnHoldingTrigger?.Invoke(owner.Value.Direction);
+            TokenUtils.Recreate(ref _attackTokenSource);
+            try
+            {
+                while (!token.IsCancellationRequested && !_attackTokenSource.Token.IsCancellationRequested)
+                {
+                    int side = 1;
+                    for (int i = 0; i < pellets; i++, side *= -1)
+                    {
+                        Quaternion rotation = nozzle.rotation * Quaternion.AngleAxis(spreadDegrees * i * side, Vector3.forward);
+                        Transform bullet = Instantiate(bulletPrefab, nozzle.position, rotation);
+
+                        if (!owner.HasValue)
+                            continue;
+
+                        foreach (DamageWithKnockback damageSource in bullet.GetComponentsInChildren<DamageWithKnockback>())
+                            damageSource.dontDamageTags.Add(owner.Value.gameObject.tag);
+                        _lastShotTime = Time.time;
+                    }
+                    onShoot.Invoke();
+                    await Awaitable.WaitForSecondsAsync(cooldown);
+                }
+            }
+            catch (Exception e) { LogException(e); }
         }
 
         /// <inheritdoc />
         public Task ReleaseTrigger()
         {
-            throw new NotImplementedException();
+            _isHoldingTrigger = false;
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
         public void SetOwner(ICharacter newOwner)
         {
-            throw new NotImplementedException();
+            Log($"Setting owner to {(owner.HasValue ? owner.Value.transform.name : null)}");
+            owner.Value = newOwner;
+            transform.SetParent(newOwner.transform);
+            pickUpTrigger.gameObject.SetActive(false);
+            groundCollider.gameObject.SetActive(false);
+            if (thrower.HasValue)
+                thrower.Value.DeactivateDamage();
+            rigidbody.linearVelocity = Vector3.zero;
+            rigidbody.angularVelocity = 0;
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
         /// <inheritdoc />
-        public void Throw(Vector2 direction)
+        public async void Throw(Vector2 direction)
         {
-            throw new NotImplementedException();
+            if (!thrower.HasValue)
+            {
+                LogError($"Thrower is null.");
+                return;
+            }
+            try
+            {
+                Log($"Throwing. Cancelling attack token.");
+                TokenUtils.CancelAndDispose(ref _attackTokenSource);
+                string ownerTag = owner.Value.gameObject.tag;
+                owner.Value = null;
+                transform.SetParent(null);
+
+                OnThrow?.Invoke(direction);
+                await thrower.Value.Do(rigidbody, groundCollider, direction, ownerTag);
+                pickUpTrigger.gameObject.SetActive(true);
+            }
+            catch (Exception e) { LogException(e); }
         }
     }
 }

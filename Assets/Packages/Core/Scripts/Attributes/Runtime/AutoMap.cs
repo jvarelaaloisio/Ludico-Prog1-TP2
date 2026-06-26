@@ -14,6 +14,7 @@ namespace VarelaAloisio.Core.Attributes
     {
         Reset = 1,
         Awake = 2,
+        ResetAndAwake = Reset | Awake,
         OnEnable = 4,
         Start = 8,
     }

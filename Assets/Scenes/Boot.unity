@@ -179,6 +179,12 @@ MonoBehaviour:
   - <Level>k__BackingField:
       reference: {fileID: 11400000, guid: eed24da4b230f55c4a9d591ccf548dce, type: 2}
     <State>k__BackingField: 2
+  - <Level>k__BackingField:
+      reference: {fileID: 11400000, guid: d169ec42357b2d84aa35cf82ce340684, type: 2}
+    <State>k__BackingField: 3
+  - <Level>k__BackingField:
+      reference: {fileID: 11400000, guid: 4af7c9209a27b3f41a78bbf5ca56a67f, type: 2}
+    <State>k__BackingField: 4
   defaultLevel:
     reference: {fileID: 11400000, guid: c1b34d4a8c5fe3c57b2e8c1e994cb953, type: 2}
   currentLevel: 0

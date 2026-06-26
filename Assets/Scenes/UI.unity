@@ -308,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582232000}
   - component: {fileID: 582232001}
+  - component: {fileID: 582232002}
   m_Layer: 5
   m_Name: Navigator_UI
   m_TagString: Untagged
@@ -357,6 +358,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: Navigator
   menusParent: {fileID: 582232000}
+  mainCanvasGroup: {fileID: 582232002}
   menus:
   - reference: {fileID: 1204730712}
   - reference: {fileID: 1506894081}
@@ -368,6 +370,18 @@ MonoBehaviour:
   loseMenuId: Menu_GameOver
   mainMenuLevelName: MainMenu
   gameplayLevelName: House
+--- !u!225 &582232002
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582231999}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &980869937
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,7 @@ namespace AI
 
             if (_health is null)
                 return;
+            LogWarning($"Health component not found");
             _health.Setup();
             _health.Health.OnDeath += HandleDeath;
         }
@@ -62,7 +63,6 @@ namespace AI
 
             if (_health is null)
                 return;
-            _health.Setup();
             _health.Health.OnDeath -= HandleDeath;
         }
 

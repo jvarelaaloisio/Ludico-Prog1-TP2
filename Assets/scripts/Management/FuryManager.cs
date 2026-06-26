@@ -17,6 +17,10 @@ namespace Management
 
         public event Action<float, float> OnFuryUpdated;
 
+        [ContextMenu("Raise On Fury Updated")]
+        private void RaiseOnFuryUpdated()
+            => OnFuryUpdated?.Invoke(fury, fury);
+
         public float Fury
         {
             get => fury;

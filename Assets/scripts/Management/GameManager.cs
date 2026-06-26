@@ -59,8 +59,13 @@ namespace Management
         }
 
         public void GoToNextLevel()
-            => SetConfig(levels[++currentLevel]);
- 
+        {
+            if (levels.Count > currentLevel
+                && levels[currentLevel].Level.HasValue)
+                _levelService.UnloadLevel(levels[currentLevel].Level.Value);
+            SetConfig(levels[(int)Mathf.Repeat(++currentLevel, levels.Count)]);
+        }
+
         /// <inheritdoc />
         public async Task WinLevel(float delayBeforeGoingBackToMenu)
         {
@@ -71,7 +76,7 @@ namespace Management
                 if (DisableCancellationToken.IsCancellationRequested)
                     return;
 
-                SetConfig(levels[++currentLevel]);
+                GoToNextLevel();
             }
             catch (Exception e) { LogException(e); }
         }
@@ -87,7 +92,7 @@ namespace Management
 
         public void HandlePlayerDeath()
         {
-            OnLose?.Invoke();
+            SetConfig(levels[currentLevel = 0]);
         }
 
         private void SetConfig(LevelState config)

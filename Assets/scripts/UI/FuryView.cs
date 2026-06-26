@@ -117,7 +117,8 @@ namespace UI
         protected override void OnDisable()
         {
             base.OnDisable();
-            _furyManager.OnFuryUpdated -= HandleFuryUpdated;
+            if (_furyManager is not null)
+                _furyManager.OnFuryUpdated -= HandleFuryUpdated;
         }
     }
 }

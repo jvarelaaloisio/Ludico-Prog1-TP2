@@ -16,14 +16,26 @@ namespace UI
 
         public void Open()
         {
+            if (!ButtonsParent)
+            {
+                LogError($"ButtonsParent is null.");
+                return;
+            }
             ButtonsParent.gameObject.SetActive(true);
             onOpen.Invoke();
         }
 
         public void Close()
         {
+            if (!ButtonsParent)
+            {
+                LogError($"ButtonsParent is null.");
+                return;
+            }
+            bool wasClosed = !ButtonsParent.gameObject.activeSelf;
             ButtonsParent.gameObject.SetActive(false);
-            onClose.Invoke();
+            if (!wasClosed)
+                onClose.Invoke();
         }
 
         protected override void Reset()

@@ -157,6 +157,9 @@ namespace AI
                     return;
                 }
                 await Awaitable.WaitForSecondsAsync(attackTelegraphingDuration);
+                if (DisableCancellationToken.IsCancellationRequested)
+                    return;
+
                 if (character.Value is IStunnable { IsStunned: true })
                 {
                     DecideNextState();

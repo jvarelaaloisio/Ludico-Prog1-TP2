@@ -38,6 +38,7 @@ namespace Audio
         {
             Log($"Stopping {sound?.name}");
             _currentPlayer?.Stop();
+            _currentPlayer = null;
         }
     }
 }

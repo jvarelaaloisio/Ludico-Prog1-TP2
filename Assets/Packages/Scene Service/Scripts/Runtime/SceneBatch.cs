@@ -24,6 +24,7 @@ namespace VarelaAloisio.Scenes
         /// <inheritdoc />
         public IEnumerable<SceneAsyncOperation> Load()
             => Scenes
+               .Where(scene => !scene.IsPersistent || !SceneManager.GetSceneByBuildIndex(scene.BuildIndex).isLoaded)
                .Select(scene => scene.BuildIndex)
                .Select(i => new SceneAsyncOperation(SceneUtility.GetScenePathByBuildIndex(i),
                                                     SceneManager.LoadSceneAsync(i, LoadSceneMode.Additive)));

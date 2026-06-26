@@ -39,6 +39,15 @@ namespace Management
             _furyManager.OnFuryUpdated += HandleFuryUpdated;
         }
 
+        /// <inheritdoc />
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            if (Service.TryGet(out _furyManager))
+                _furyManager.OnFuryUpdated -= HandleFuryUpdated;
+        }
+
         private void HandleFuryUpdated(float before, float after)
         {
             if (after < furyThresholdToSpawnPeacefulCharacter)
@@ -87,6 +96,7 @@ namespace Management
 
         private async Task EndLevel(CancellationToken token)
         {
+            _furyManager.ResetFury();
             if (!flashEffect.HasValue)
             {
                 LogError($"Flash effect is null.");

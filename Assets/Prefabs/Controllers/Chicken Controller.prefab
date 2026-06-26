@@ -58,4 +58,4 @@ MonoBehaviour:
   attackDistance: 1
   attackTelegraphingDuration: 0.4
   cooldownAfterAttacking: 0.75
-  selfSetup: 1
+  selfSetup: 0
