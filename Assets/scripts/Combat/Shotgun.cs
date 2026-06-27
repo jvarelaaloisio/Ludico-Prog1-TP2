@@ -43,13 +43,14 @@ namespace Combat
         /// <inheritdoc />
         public event Action<Vector2> OnThrow;
 
-        public bool IsOnCooldown => _lastShotTime + cooldown < Time.time;
+        public bool IsOnCooldown => _lastShotTime + cooldown > Time.time;
+        public float CooldownLeft => cooldown - (Time.time - _lastShotTime);
 
         private void Update()
         {
             if (owner.HasValue)
             {
-                Vector2 direction = owner.Value.Direction;
+                Vector2 direction = owner.Value.Direction.normalized;
                 transform.up = direction;
                 transform.localPosition = direction * pickUpOffset;
             }
@@ -67,6 +68,8 @@ namespace Combat
             TokenUtils.Recreate(ref _attackTokenSource);
             try
             {
+                if (IsOnCooldown)
+                    await Awaitable.WaitForSecondsAsync(CooldownLeft);
                 while (!token.IsCancellationRequested && !_attackTokenSource.Token.IsCancellationRequested)
                 {
                     int side = 1;

@@ -1661,6 +1661,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2050777354}
   m_SourcePrefab: {fileID: 100100000, guid: e761bb2e48be4d840836bf3484f55236, type: 3}
+--- !u!1 &587729662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 523753894406180271, guid: e761bb2e48be4d840836bf3484f55236, type: 3}
+  m_PrefabInstance: {fileID: 587729661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &598696190 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 927590878327462249, guid: d34341ff3c79761959cee8584b8b3cac, type: 3}
@@ -6196,6 +6201,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: PauseController
   pausePanel: {fileID: 851925930}
+  defaultSelection: {fileID: 587729662}
   pauseAction: {fileID: 8586852601627080666, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!4 &994526532
 Transform:

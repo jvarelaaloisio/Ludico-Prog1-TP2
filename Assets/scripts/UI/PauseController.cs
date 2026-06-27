@@ -1,5 +1,6 @@
 using Core.Game;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using VarelaAloisio.Core;
 
@@ -8,6 +9,7 @@ namespace UI
     public class PauseController : MacacoBehaviour
     {
         [SerializeField] private GameObject pausePanel;
+        [SerializeField] private GameObject defaultSelection;
         [SerializeField] private InputActionReference pauseAction;
 
         private bool _isPaused = false;
@@ -34,6 +36,8 @@ namespace UI
             _isPaused = !_isPaused;
             
             pausePanel.SetActive(_isPaused);
+            if (_isPaused)
+                EventSystem.current.SetSelectedGameObject(defaultSelection);
 
             Time.timeScale = _isPaused ? 0f : 1f;
         }

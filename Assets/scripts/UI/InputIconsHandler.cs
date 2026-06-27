@@ -15,25 +15,45 @@ namespace UI
 
         public void SetVersion(InputDevice device)
         {
-            switch (device)
+            switch (device.name)
             {
-                case Keyboard:
-                case Mouse:
+                case "Keyboard":
+                case "Mouse":
                     pcVersion.SetActive(true);
                     playStationVersion.SetActive(false);
                     xboxVersion.SetActive(false);
                     break;
-                case DualSenseGamepadHID:
+                case "DualSenseGamepadHID":
                     pcVersion.SetActive(false);
                     playStationVersion.SetActive(true);
                     xboxVersion.SetActive(false);
                     break;
-                case XInputController:
+                default:
                     pcVersion.SetActive(false);
                     playStationVersion.SetActive(false);
                     xboxVersion.SetActive(true);
-                    break;
+                break;
             }
+
+            // switch (device)
+            // {
+            //     case Keyboard:
+            //     case Mouse:
+            //         pcVersion.SetActive(true);
+            //         playStationVersion.SetActive(false);
+            //         xboxVersion.SetActive(false);
+            //         break;
+            //     case DualShockGamepad:
+            //         pcVersion.SetActive(false);
+            //         playStationVersion.SetActive(true);
+            //         xboxVersion.SetActive(false);
+            //         break;
+            //     case XInputController:
+            //         pcVersion.SetActive(false);
+            //         playStationVersion.SetActive(false);
+            //         xboxVersion.SetActive(true);
+            //         break;
+            // }
         }
     }
 }

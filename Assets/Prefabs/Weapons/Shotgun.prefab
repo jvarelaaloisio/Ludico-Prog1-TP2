@@ -320,7 +320,7 @@ MonoBehaviour:
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: PlaySound
-  sound: {fileID: 0}
+  sound: {fileID: 11400000, guid: 56cac68f67c52534ab9c48629359fd87, type: 2}
   avoidPlayingMultipleTimesInParallel: 0
   playOnAwake: 0
 --- !u!1 &2959556197455999883
@@ -544,7 +544,7 @@ MonoBehaviour:
   gizmo:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: PlaySound
-  sound: {fileID: 0}
+  sound: {fileID: 11400000, guid: 8d5a135d8b3d9e442a398b15c3c193ac, type: 2}
   avoidPlayingMultipleTimesInParallel: 0
   playOnAwake: 0
 --- !u!1 &4472525815328606475
