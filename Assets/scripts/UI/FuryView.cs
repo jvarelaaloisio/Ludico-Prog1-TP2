@@ -13,7 +13,7 @@ namespace UI
 {
     public class FuryView : MacacoBehaviour
     {
-        [AutoMap(How.GetComponentInChildren, When.Reset | When.Awake)]
+        [AutoMap(How.GetComponentInChildren, When.Reset | When.Awake, OnError.Ignore)]
         [SerializeField] private TMP_Text label;
         [SerializeField] private Image furyBarImage;
         [SerializeField] private string labelFormat = "Fury: {0}";
@@ -61,7 +61,8 @@ namespace UI
         protected override void OnEnable()
         {
             base.OnEnable();
-            _furyManager.OnFuryUpdated += HandleFuryUpdated;
+            if (_furyManager is not null)
+                _furyManager.OnFuryUpdated += HandleFuryUpdated;
 
             if (label)
                 label.SetText(string.Format(labelFormat, _furyManager.Fury));

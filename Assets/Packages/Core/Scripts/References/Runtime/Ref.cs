@@ -41,6 +41,27 @@ namespace VarelaAloisio.Core
         /// <param name="parent">The parent for the new instance</param>
         /// <returns>The new instance</returns>
         /// <exception cref="Exception">If this has no value, the instantiation yields no results or if the cast fails.</exception>
+        public T Instantiate(Transform parent = null)
+        {
+            Type type = typeof(T);
+            if (!HasValue)
+                throw new Exception($"Ref has no value assigned. Type: {type.Name}");
+            Object result = Object.Instantiate(reference, parent);
+            return result switch
+                   {
+                       T directCast
+                           => directCast,
+                       MonoBehaviour monoBehaviour when monoBehaviour.TryGetComponent(out T component)
+                           => component,
+                       _
+                           => throw new Exception($"Instantiated object of type {result.GetType().FullName} cannot be casted into {type.Name}")
+                   };
+        }
+
+        /// <summary /> Instantiates one object and tries to cast it into the type T.
+        /// <param name="parent">The parent for the new instance</param>
+        /// <returns>The new instance</returns>
+        /// <exception cref="Exception">If this has no value, the instantiation yields no results or if the cast fails.</exception>
         public async Task<T> InstantiateAsync(Transform parent = null)
         {
             var type = typeof(T);

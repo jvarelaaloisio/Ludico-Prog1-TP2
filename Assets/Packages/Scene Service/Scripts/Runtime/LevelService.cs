@@ -110,6 +110,7 @@ namespace VarelaAloisio.Scenes
         private CancellationTokenSource _loadTokenSource = new();
         private readonly LoadingState _loadingState = new();
         private readonly List<string> _currentLoadedScenePaths = new(20);
+        public event Action<string> OnLevelLoaded;
 
         protected override void Awake()
         {
@@ -170,6 +171,8 @@ namespace VarelaAloisio.Scenes
             yield return LoadBatches();
 
             Application.backgroundLoadingPriority = _defaultBackgroundLoadingPriority;
+
+            OnLevelLoaded?.Invoke(newLevel.name);
             
             yield break;
 

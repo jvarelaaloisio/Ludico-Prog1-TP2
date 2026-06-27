@@ -26,6 +26,9 @@ namespace Views
 
         /// <inheritdoc />
         public void OnControlTimeStop()
-            => dialogue.gameObject.SetActive(false);
+        {
+            if (dialogue)
+                dialogue.gameObject.SetActive(false);
+        }
     }
 }

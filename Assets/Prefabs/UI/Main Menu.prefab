@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ce89af5f2ec649b4245bb10b9ce43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ludico.UI.Runtime::UI.NavButton
-  targetMenuId: Menu_Credits_View
+  targetMenuId: Credits
 --- !u!1001 &6380802204256672453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,13 +772,46 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5440186142327215151, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 147197519574719773}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3444684567982437354}
   m_SourcePrefab: {fileID: 100100000, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
 --- !u!224 &1623150388641674184 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5440186142327215151, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
   m_PrefabInstance: {fileID: 6771719305876514791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2523918950507486230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
+  m_PrefabInstance: {fileID: 6771719305876514791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3444684567982437354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523918950507486230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae11b0b5d2f4d9bb85cf9d6e83c08b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.UI.Runtime::UI.Menu
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: Main Menu
+  <ButtonsParent>k__BackingField: {fileID: 1623150388641674184}
+  defaultSelection: {fileID: 4870084149506568484}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7861165844136942692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1084,4 +1117,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ce89af5f2ec649b4245bb10b9ce43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ludico.UI.Runtime::UI.NavButton
-  targetMenuId: Menu_Settings_View
+  targetMenuId: Settings

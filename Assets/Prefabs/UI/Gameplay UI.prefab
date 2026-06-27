@@ -653,6 +653,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5234013651472531703}
+    - targetCorrespondingSourceObject: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6905429888881995944}
     - targetCorrespondingSourceObject: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
       insertIndex: -1
@@ -663,6 +666,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9151094804221574129, guid: 7ec3927a5a23f18608ac116814f06de3, type: 3}
   m_PrefabInstance: {fileID: 8266308499684505807}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5234013651472531703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885216768454296382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae11b0b5d2f4d9bb85cf9d6e83c08b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.UI.Runtime::UI.Menu
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: Menu
+  <ButtonsParent>k__BackingField: {fileID: 4163788624616631520}
+  defaultSelection: {fileID: 0}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6905429888881995944
 MonoBehaviour:
   m_ObjectHideFlags: 0

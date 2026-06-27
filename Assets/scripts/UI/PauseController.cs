@@ -1,3 +1,4 @@
+using Core.Game;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VarelaAloisio.Core;
@@ -41,6 +42,17 @@ namespace UI
         {
             if (_isPaused)
                 TogglePause();
+        }
+
+        public void GoToMainMenu()
+        {
+            if (Service.TryGet(out IGameManager gameManager))
+            {
+                gameManager.HandlePlayerDeath();
+                Time.timeScale = 1f;
+            }
+            else
+                LogError($"GameManager not found");
         }
     }
 }

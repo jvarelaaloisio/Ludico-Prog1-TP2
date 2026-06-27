@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Game;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VarelaAloisio.Core;
 using VarelaAloisio.Core.Attributes;
 using VarelaAloisio.Scenes;
@@ -23,10 +22,6 @@ namespace Management
         [SerializeField] private List<LevelState> levels = new ();
         [SerializeField] private Ref<ILevel> defaultLevel;
         [SerializeField, SerializeReadOnly] private int currentLevel = 0;
-        [Obsolete]
-        [FormerlySerializedAs("gameLevel")] [SerializeField] private Ref<ILevel> night1;
-        [Obsolete]
-        [SerializeField] private Ref<ILevel> night2;
 
         [AutoMap(How.Service, When.Start)]
         private ILevelService _levelService;
@@ -55,7 +50,18 @@ namespace Management
                 LogError($"{nameof(defaultLevel)} is null.");
                 return;
             }
+
+            _levelService.OnLevelLoaded += HandleLevelLoaded;
             _levelService.LoadLevel(defaultLevel.Value);
+        }
+
+        private void HandleLevelLoaded(string levelName)
+        {
+            if (levelName != defaultLevel.Value.name)
+                return;
+
+            State = GameState.Menu;
+            OnStateChange?.Invoke(State);
         }
 
         public void GoToNextLevel()

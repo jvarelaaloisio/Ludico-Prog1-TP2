@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Core.Game;
 using Core.UI;
 using UnityEngine;
@@ -10,17 +11,21 @@ namespace UI
     public class Navigator : MacacoBehaviour
     {
         [SerializeField] private Transform menusParent;
+        [Tooltip("Used to fake the menu ui while everything instantiates")]
+        [SerializeField] private GameObject fakeMenu;
         [Tooltip("Used to hide all ui when a cinematic is showing")]
         [SerializeField] private CanvasGroup mainCanvasGroup;
-        [SerializeField] private Ref<IMenu>[] menus;
+        [SerializeField] private Ref<IMenu>[] menuPrefabs;
         [SerializeField] private string mainMenuId = "Menu_Main_View";
         [SerializeField] private string gameplayMenuId = "UI_Gameplay";
         [SerializeField] private string loseMenuId = "Menu_GameOver";
         [SerializeField] private string mainMenuLevelName = "MainMenu";
         [SerializeField] private string gameplayLevelName = "House";
+
         [AutoMap(How.Service, When.OnEnable)]
         private IGameManager _gameManager;
 
+        private List<IMenu> _runtimeInstantiatedMenus;
 
         protected override void Reset()
         {
@@ -31,27 +36,35 @@ namespace UI
         protected override void OnEnable()
         {
             base.OnEnable();
-            foreach (var menu in menus)
+            if (fakeMenu)
+                fakeMenu.SetActive(true);
+            _runtimeInstantiatedMenus = new List<IMenu>(menuPrefabs.Length);
+            foreach (var prefab in menuPrefabs)
             {
-                if (!menu.HasValue)
+                if (!prefab.HasValue)
                     continue;
-                menu.Value.Configuration.Setup(menu.Value.ButtonsParent, SwitchMenu);
+                IMenu menu = prefab.Instantiate(menusParent);
+                menu.Setup(SwitchMenu);
+                menu.gameObject.SetActive(menu.Is(mainMenuId));
+                _runtimeInstantiatedMenus.Add(menu);
             }
 
+            SwitchMenu(mainMenuId);
+            if (fakeMenu)
+                fakeMenu.SetActive(false);
+
+            if (_gameManager is null)
+                return;
             _gameManager.OnEnterLevel += HandleEnterLevel;
             _gameManager.OnLose += HandleLose;
             _gameManager.OnStateChange += HandleStateChange;
         }
 
-        protected override void Start()
-        {
-            base.Start();
-            SwitchMenu(mainMenuId);
-        }
-
         protected override void OnDisable()
         {
             base.OnDisable();
+            if (_gameManager is null)
+                return;
             _gameManager.OnEnterLevel -= HandleEnterLevel;
             _gameManager.OnLose -= HandleLose;
             _gameManager.OnStateChange -= HandleStateChange;
@@ -81,16 +94,12 @@ namespace UI
 
         private void SwitchMenu(string id)
         {
-            foreach (var menu in menus)
+            foreach (IMenu menu in _runtimeInstantiatedMenus)
             {
-                if (!menu.HasValue) continue;
-
-                bool isTargetMenu = menu.Value.ButtonsParent.gameObject.name == id;
-
-                if (isTargetMenu)
-                    menu.Value.Open();
+                if (menu.Is(id))
+                    menu.Open();
                 else
-                    menu.Value.Close();
+                    menu.Close();
             }
 
             Debug.Log("Changing to menu: " + id);

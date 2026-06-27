@@ -513,7 +513,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "15cef263-9014-4fd5-94d9-4e4a6234a6ef",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -594,6 +594,15 @@
                     "name": "Cycle Camera Mode Cheat",
                     "type": "Button",
                     "id": "361a335a-0b02-42d5-8221-8af1fc1c85fc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "a8c8e0b8-20ae-43eb-aa17-233884d39d6e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1038,6 +1047,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Cycle Camera Mode Cheat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af3f85a1-6c35-46ea-8804-f5c021b5eb09",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b648d11b-0b5d-4c88-bc7e-29915ba4a5b1",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,4 +1,7 @@
-﻿namespace VarelaAloisio.Scenes
+﻿using System;
+using UnityEngine;
+
+namespace VarelaAloisio.Scenes
 {
     public interface ILevelService
     {
@@ -9,5 +12,6 @@
         void LoadLevel(ILevel newLevel);
 
         void UnloadLevel(ILevel level);
+        event Action<string> OnLevelLoaded;
     }
 }

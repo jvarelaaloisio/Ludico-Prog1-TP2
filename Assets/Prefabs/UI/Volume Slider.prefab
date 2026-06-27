@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4414344379481315032}
   - component: {fileID: 1014723873810249941}
-  - component: {fileID: 8211454711805497485}
+  - component: {fileID: 4586741924576670469}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3265562283606605094}
   m_CullTransparentMesh: 1
---- !u!114 &8211454711805497485
+--- !u!114 &4586741924576670469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,10 +54,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3265562283606605094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87826a0b84a8b441a693daceb36ebd1, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Ludico.Components.Runtime::ImageWithRectUV
-  m_Material: {fileID: 2100000, guid: 1c0708f1bb7245248a6571857a0bad25, type: 2}
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3.5
+  m_PixelsPerUnitMultiplier: 4
 --- !u!1 &4757579155587106016
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.509434, g: 0.23309009, b: 0.23309009, a: 1}
     m_HighlightedColor: {r: 0.6, g: 0.27230766, b: 0.27230766, a: 1}
     m_PressedColor: {r: 0.75, g: 0.34038457, b: 0.34038457, a: 1}
-    m_SelectedColor: {r: 0.50980395, g: 0.23137255, b: 0.23137255, a: 1}
+    m_SelectedColor: {r: 0.48627454, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.15, g: 0.068076916, b: 0.068076916, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -377,7 +377,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4586741924576670469}
   m_FillRect: {fileID: 1918783692496970947}
   m_HandleRect: {fileID: 4414344379481315032}
   m_Direction: 0

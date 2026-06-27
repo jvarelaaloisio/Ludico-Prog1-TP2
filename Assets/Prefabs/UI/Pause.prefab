@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5607577911615494685}
   - component: {fileID: 1162439561231530405}
-  - component: {fileID: 5859139376326737921}
+  - component: {fileID: 4492129743919433431}
   m_Layer: 5
   m_Name: Scrim
   m_TagString: Untagged
@@ -81,7 +81,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2521946904564942463}
   m_CullTransparentMesh: 1
---- !u!114 &5859139376326737921
+--- !u!114 &4492129743919433431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,18 +90,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2521946904564942463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: c87826a0b84a8b441a693daceb36ebd1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
-  m_RaycastTarget: 1
+  m_EditorClassIdentifier: Ludico.Components.Runtime::ImageWithRectUV
+  m_Material: {fileID: 2100000, guid: e902f4712a4cbdc44afeb0136af1510a, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7482667652216324306, guid: 9ae47ef785c16a55a8aa894fe4af5f53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.5
 --- !u!1 &4772758053288442727
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +363,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9181931251849981000}
   - component: {fileID: 1350266345355227193}
-  - component: {fileID: 335493208762719395}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -400,36 +399,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7885007517912032937}
   m_CullTransparentMesh: 1
---- !u!114 &335493208762719395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7885007517912032937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87826a0b84a8b441a693daceb36ebd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Ludico.Components.Runtime::ImageWithRectUV
-  m_Material: {fileID: 2100000, guid: e902f4712a4cbdc44afeb0136af1510a, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -5177388603050735206, guid: fb1d604393d99df70a49ffa83c7d9d57, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
 --- !u!1001 &3011435286843416815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,10 +502,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6335158097104907733}
   m_SourcePrefab: {fileID: 100100000, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+--- !u!1 &523753894406180271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+  m_PrefabInstance: {fileID: 3011435286843416815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6335158097104907733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523753894406180271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6672eb6ffc4f4ee29f8c0c414bef6491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Player.Runtime::Player.SimulateButtonClickOnInput
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: SimulateButtonClickOnInput
+  input: {fileID: -1917710926311768158, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  button: {fileID: 2567142134775126952}
 --- !u!224 &2083186992174244377 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
   m_PrefabInstance: {fileID: 3011435286843416815}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2567142134775126952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+  m_PrefabInstance: {fileID: 3011435286843416815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523753894406180271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button

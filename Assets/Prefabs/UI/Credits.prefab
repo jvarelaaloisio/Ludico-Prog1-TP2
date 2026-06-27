@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 2778861140416584305}
   - component: {fileID: 1508045268581630826}
   - component: {fileID: 6662531059772571106}
+  - component: {fileID: 2623612630049111265}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -603,6 +604,31 @@ MonoBehaviour:
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
   enableDebug: 0
+--- !u!114 &2623612630049111265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772758053288442727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae11b0b5d2f4d9bb85cf9d6e83c08b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.UI.Runtime::UI.Menu
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: Credits
+  <ButtonsParent>k__BackingField: {fileID: 8627888006675715257}
+  defaultSelection: {fileID: 523753894406180271}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5887255682386054855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1417,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1343065791957418164}
+    - targetCorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3143727420538068652}
   m_SourcePrefab: {fileID: 100100000, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
@@ -1399,6 +1428,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
   m_PrefabInstance: {fileID: 3011435286843416815}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1343065791957418164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523753894406180271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6672eb6ffc4f4ee29f8c0c414bef6491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Ludico.Player.Runtime::Player.SimulateButtonClickOnInput
+  logger:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  gizmo:
+    reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
+  logTag: SimulateButtonClickOnInput
+  input: {fileID: -1917710926311768158, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  button: {fileID: 2567142134775126952}
 --- !u!114 &3143727420538068652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,9 +1459,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ce89af5f2ec649b4245bb10b9ce43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Ludico.UI.Runtime::UI.NavButton
-  targetMenuId: Menu_Main_View
+  targetMenuId: Main Menu
 --- !u!224 &2083186992174244377 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
   m_PrefabInstance: {fileID: 3011435286843416815}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2567142134775126952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 750577608706849607, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+  m_PrefabInstance: {fileID: 3011435286843416815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523753894406180271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button

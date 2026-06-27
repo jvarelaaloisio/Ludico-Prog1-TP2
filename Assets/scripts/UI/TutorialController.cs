@@ -1,36 +1,44 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using VarelaAloisio.Core;
 
 namespace UI
 {
     public class TutorialController : MacacoBehaviour
     {
-        [SerializeField] private GameObject tutorialCanvas;
+        [SerializeField] private InputIconsHandler[] handlers;
+        [SerializeField] private InputActionReference[] analogInputs;
 
-        protected override void Start()
+        private IDisposable _buttonPressSubscription;
+        protected override void OnEnable()
         {
-            base.Start();
-            ShowTutorial();
+            base.OnEnable();
+            _buttonPressSubscription = InputSystem.onAnyButtonPress.Call(DetectDeviceAndUpdate);
+            foreach (InputActionReference input in analogInputs)
+                input.action.started += HandleInput;
         }
 
-        private void ShowTutorial()
+        /// <inheritdoc />
+        protected override void OnDisable()
         {
-            if (tutorialCanvas != null)
-            {
-                tutorialCanvas.SetActive(true);
-
-                Time.timeScale = 0f;
-            }
+            base.OnDisable();
+            _buttonPressSubscription?.Dispose();
+            foreach (InputActionReference input in analogInputs)
+                input.action.started -= HandleInput;
         }
 
-        public void CloseTutorial()
+        private void DetectDeviceAndUpdate(InputControl control)
+            => SetDevice(control.device);
+
+        private void HandleInput(InputAction.CallbackContext context)
+            => SetDevice(context.control.device);
+
+        private void SetDevice(InputDevice device)
         {
-            if (tutorialCanvas != null)
-            {
-                tutorialCanvas.SetActive(false);
-                
-                Time.timeScale = 1f;
-            }
+            foreach (InputIconsHandler handler in handlers)
+                handler.SetVersion(device);
         }
     }
 }
