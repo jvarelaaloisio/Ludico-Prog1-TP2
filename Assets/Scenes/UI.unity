@@ -392,7 +392,7 @@ MonoBehaviour:
     reference: {fileID: 11400000, guid: cd73fa6a390a1f42a9f72da49ae18e94, type: 2}
   logTag: Navigator
   menusParent: {fileID: 582232000}
-  fakeMenu: {fileID: 0}
+  fakeMenu: {fileID: 6681986619587030146}
   mainCanvasGroup: {fileID: 582232002}
   menuPrefabs:
   - reference: {fileID: 3444684567982437354, guid: 53d1a927c65380b358f703b29667e603, type: 3}

@@ -1,62 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1814910616681823922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3732062817772412753}
-  - component: {fileID: 4081347537952576926}
-  m_Layer: 5
-  m_Name: ButtonContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3732062817772412753
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814910616681823922}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2083186992174244377}
-  m_Father: {fileID: 9181931251849981000}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4081347537952576926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814910616681823922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
-  m_IgnoreLayout: 1
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &2521946904564942463
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603329078046884651}
+  - component: {fileID: 7677470200018901126}
   - component: {fileID: 547772806927053617}
   - component: {fileID: 5010591879542459909}
   - component: {fileID: 3814175567501958901}
@@ -240,6 +184,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &7677470200018901126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496066017514589688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:4636c436dd7818046af906dedfb8f6f4
+    m_TableEntryReference:
+      m_KeyId: 425037094912
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5010591879542459909}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!222 &547772806927053617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -531,6 +515,7 @@ RectTransform:
   m_Children:
   - {fileID: 7346408110428643244}
   - {fileID: 5607577911615494685}
+  - {fileID: 2083186992174244377}
   - {fileID: 9181931251849981000}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -728,6 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7765650526771041436}
+  - component: {fileID: 7787996004499158954}
   - component: {fileID: 496797649979632619}
   - component: {fileID: 6836217197743314849}
   m_Layer: 5
@@ -756,6 +742,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7787996004499158954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335577491211814852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:4636c436dd7818046af906dedfb8f6f4
+    m_TableEntryReference:
+      m_KeyId: 22308092600320
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6836217197743314849}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!222 &496797649979632619
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1033,7 +1059,6 @@ RectTransform:
   - {fileID: 5595254866810209606}
   - {fileID: 1540387969712478838}
   - {fileID: 4115943378606378090}
-  - {fileID: 3732062817772412753}
   m_Father: {fileID: 8627888006675715257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.1}
@@ -1149,6 +1174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5595254866810209606}
+  - component: {fileID: 3799109277055322619}
   - component: {fileID: 8702095105838013833}
   - component: {fileID: 6795874745396868905}
   m_Layer: 5
@@ -1177,6 +1203,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3799109277055322619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557016437044171140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:4636c436dd7818046af906dedfb8f6f4
+    m_TableEntryReference:
+      m_KeyId: 22372160593920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6795874745396868905}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!222 &8702095105838013833
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1318,43 +1384,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3732062817772412753}
+    m_TransformParent: {fileID: 8627888006675715257}
     m_Modifications:
     - target: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_Name
       value: Volver
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1362,10 +1404,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
@@ -1386,11 +1424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000013351
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51
+      value: 150.5
       objectReference: {fileID: 0}
     - target: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1412,6 +1450,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4280690302
       objectReference: {fileID: 0}
+    - target: {fileID: 8628329340490188152, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 21634902614016
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1422,6 +1464,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3143727420538068652}
+    - targetCorrespondingSourceObject: {fileID: 3354754100174400832, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 260030799894102993}
   m_SourcePrefab: {fileID: 100100000, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}
 --- !u!1 &523753894406180271 stripped
 GameObject:
@@ -1460,6 +1505,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Ludico.UI.Runtime::UI.NavButton
   targetMenuId: Main Menu
+--- !u!114 &260030799894102993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523753894406180271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 400
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!224 &2083186992174244377 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828679773817815798, guid: c99d4d2bbd1b50a468ecbc9fba6ebe9d, type: 3}

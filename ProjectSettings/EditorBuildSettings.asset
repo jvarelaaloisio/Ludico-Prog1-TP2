@@ -30,4 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/HouseEnemies.unity
     guid: 38c71b64188cbec4b9be43500fd1f4ed
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: c99d78000316467429338289d5e3fd2a, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 35e90264978b8c84b90a9baa9c9e3521, type: 2}

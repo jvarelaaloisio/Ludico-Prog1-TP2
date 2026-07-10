@@ -20,7 +20,6 @@ namespace UI
         [SerializeField] private string gameplayMenuId = "UI_Gameplay";
         [SerializeField] private string loseMenuId = "Menu_GameOver";
         [SerializeField] private string mainMenuLevelName = "MainMenu";
-        [SerializeField] private string gameplayLevelName = "House";
 
         [AutoMap(How.Service, When.OnEnable)]
         private IGameManager _gameManager;
